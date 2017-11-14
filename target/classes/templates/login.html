@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/css/app.css"/>
+</head>
+<body>
+<div class="ng-cloak" ng-app="myApp">
+    <div class="generic-container" ng-controller="LoginController as ctrl">
+        <div class="panel panel default">
+            <div class="panel-heading"><span class="lead">User Login Form</span> </div>
+            <div class="form-container">
+                <form class="form-horizontal" name="loginForm">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="name">Name</label>
+                            <div class="col-md-7">
+                                <input ng-model="ctrl.user.name" name="name" type="text" id="name" placeholder="Enter Your Name" class="form-control input-sm" required ng-minlength="6" ng-pattern="/^[a-zA-Z]+[a-zA-Z0-9_]*$/">
+                                <div class="has-error" ng-show="loginForm.$dirty">
+                                    <span ng-show="loginForm.name.$error.required">This is a required field<br/></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="password">Password</label>
+                            <div class="col-md-7">
+                                <input ng-model="ctrl.user.password" type="password" name="password" id="password" placeholder="Enter Your Password" class="form-control input-sm" required ng-minlength="6" ng-maxlength="12">
+                                <div class="has-error" ng-show="loginForm.$dirty">
+                                    <span ng-show="loginForm.password.$error.required">This is a required field<br/></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-actions floatRight">
+                            <input type="submit" ng-click="ctrl.submit()" value="Sign Up" class="btn btn-primary btn-sm" ng-disabled="loginForm.$invalid">
+                            <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="loginForm.$pristine">Reset Form</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+<script rel="script" src="../static/js/app.js"></script>
+<script rel="script" src="../static/js/controller/login_controller.js"></script>
+<script rel="script" src="../static/js/service/login_service.js"></script>
+
+</body>
+</html>

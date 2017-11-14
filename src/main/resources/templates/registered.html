@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/css/app.css"/>
+</head>
+<body ng-app="myApp" class="ng-cloak">
+    <div class="generic-container" ng-controller="RegisteredController as ctrl">
+        <div class="panel panel-default">
+            <div class="panel-heading"><span class="lead">User Registration Form</span></div>
+            <div class="form-container">
+                <form name="myForm" class="form-horizontal">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="name">Name</label>
+                            <div class="col-md-7">
+                                <input ng-model="ctrl.user.name" name="name" type="text" id="name" placeholder="Enter Your Name" class="form-control input-sm" required ng-minlength="6" ng-pattern="/^[a-zA-Z]+[a-zA-Z0-9_]*$/">
+                                <div class="has-error" ng-show="myForm.$dirty">
+                                    <span ng-show="myForm.name.$error.required">This is a required field<br/></span>
+                                    <span ng-show="myForm.name.$error.minlength">Minimum length required is 6<br/></span>
+                                    <span ng-show="myForm.name.$error.pattern">User Name Should Start with Character<br/></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="email">Email</label>
+                            <div class="col-md-7">
+                                <input ng-model="ctrl.user.email" type="email" name="email" id="email" placeholder="Enter Your Email" class="form-control  input-sm" required>
+                                <div class="has-error" ng-show="myForm.$dirty">
+                                    <span ng-show="myForm.email.$error.required">This is a required field<br/></span>
+                                    <span ng-show="myForm.email.$invalid">Email Format is invalid!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="password">Password</label>
+                            <div class="col-md-7">
+                                <input ng-model="ctrl.user.password" type="password" name="password" id="password" placeholder="Enter Your Password" class="form-control input-sm" required ng-minlength="6" ng-maxlength="12">
+                                <div class="has-error" ng-show="myForm.$dirty">
+                                    <span ng-show="myForm.password.$error.required">This is a required field<br/></span>
+                                    <span ng-show="myForm.password.$error.minlength">Minimum length required is 6<br/></span>
+                                    <span ng-show="myForm.password.$error.maxlength">Maximum length is 12<br/></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-actions floatRight">
+                            <input type="submit" ng-click="ctrl.submit()" value="Sign Up" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+                            <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+    <script src="../static/js/app.js"></script>
+    <script src="../static/js/controller/registered_controller.js"></script>
+    <script src="../static/js/service/registered_service.js"></script>
+</body>
+</html>
