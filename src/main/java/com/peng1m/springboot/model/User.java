@@ -1,6 +1,11 @@
 package com.peng1m.springboot.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import java.util.HashSet;
 
 @Entity
 @Table(name = "users")
@@ -11,12 +16,17 @@ public class User{
 	private long id;
 
 	@Column(name = "name", unique = true, nullable = false)
+    @NotEmpty(message = "*Please provide your name")
 	private String name;
 
 	@Column(name = "password", nullable = false)
+    @NotEmpty(message = "*Please provide your password")
+    @Length(min = 5, message = "*Your password must have at least 5 characters")
 	private String password;
 
 	@Column(name = "email",  unique = true, nullable = false)
+    @Email(message = "*Please provide a valid email")
+    @NotEmpty(message = "*Please provide an email")
 	private String email;
 
 	@ManyToOne
@@ -96,6 +106,4 @@ public class User{
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + "]";
 	}
-
-
 }

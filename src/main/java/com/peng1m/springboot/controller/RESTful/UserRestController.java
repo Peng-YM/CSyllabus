@@ -1,4 +1,4 @@
-package com.peng1m.springboot.controller;
+package com.peng1m.springboot.controller.RESTful;
 
 import java.util.List;
 
@@ -17,13 +17,13 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RequestMapping("/api/user/")
 @RestController
-public class UserController {
+public class UserRestController {
 
-	public static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	public static final Logger logger = LoggerFactory.getLogger(UserRestController.class);
 
 	private UserService userService;
 	@Autowired
-	public UserController(UserService userService){
+	public UserRestController(UserService userService){
 		this.userService = userService;
 	}
 
@@ -31,7 +31,7 @@ public class UserController {
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> listAllUsers() {
-		System.out.println("retrieve all users");
+		logger.info("retrieve all users");
 		List<User> users = userService.userList();
 		if (users.isEmpty()) {
 			return new ResponseEntity(HttpStatus.NO_CONTENT);

@@ -1,5 +1,6 @@
 package com.peng1m.springboot;
 
+import com.peng1m.springboot.filter.JwtFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -16,7 +17,14 @@ public class SpringBootRestApiApp {
 	}
 
 	@Bean
-	public FilterRegistrationBean filterRegistrationBean() {
+    public FilterRegistrationBean jwtFilter(){
+	    final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+	    registrationBean.setFilter(new JwtFilter());
+        return registrationBean;
+    }
+
+	@Bean
+	public FilterRegistrationBean encodingFilter() {
 		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
 		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
 		characterEncodingFilter.setEncoding("UTF-8");

@@ -1,58 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="'http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8"/>
-    <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../static/css/app.css"/>
+    <title>CSyllabus Login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-<div class="ng-cloak" ng-app="myApp">
-    <div class="generic-container" ng-controller="LoginController as ctrl">
-        <div class="panel panel default">
-            <div class="panel-heading"><span class="lead">User Login Form</span> </div>
-            <div class="form-container">
-                <form class="form-horizontal" name="loginForm">
-                    <div class="row">
-                        <div class="form-group col-md-12">
-                            <label class="col-md-2 control-label" for="name">Name</label>
-                            <div class="col-md-7">
-                                <input ng-model="ctrl.user.name" name="name" type="text" id="name" placeholder="Enter Your Name" class="form-control input-sm" required ng-minlength="6" ng-pattern="/^[a-zA-Z]+[a-zA-Z0-9_]*$/">
-                                <div class="has-error" ng-show="loginForm.$dirty">
-                                    <span ng-show="loginForm.name.$error.required">This is a required field<br/></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <form th:action="@{/registration}" method="get">
+        <button class="btn btn-md btn-warning btn-block" type="submit">Go To Registration Page</button>
+    </form>
 
-                    <div class="row">
-                        <div class="form-group col-md-12">
-                            <label class="col-md-2 control-label" for="password">Password</label>
-                            <div class="col-md-7">
-                                <input ng-model="ctrl.user.password" type="password" name="password" id="password" placeholder="Enter Your Password" class="form-control input-sm" required ng-minlength="6" ng-maxlength="12">
-                                <div class="has-error" ng-show="loginForm.$dirty">
-                                    <span ng-show="loginForm.password.$error.required">This is a required field<br/></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="container">
+        <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="logo"/>
+        <form th:action="@{/login}" method="post" class="form-signin" role="form" th:object="${user}">
+            <h3 class="form-signin-heading" th:text="Welcome"></h3>
+            <br/>
+            <label for="name">User Name</label>
+            <input type="text" id="name" name="name" th:placeholder="Name" class="form-control" required = "required"/>
+            <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="validation-message"></label>
+            <br/>
 
-                    <div class="row">
-                        <div class="form-actions floatRight">
-                            <input type="submit" ng-click="ctrl.submit()" value="Sign Up" class="btn btn-primary btn-sm" ng-disabled="loginForm.$invalid">
-                            <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="loginForm.$pristine">Reset Form</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" th:placeholder="Password" class="form-control" required = "required"/>
+            <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="validation-message"></label>
+
+            <label for="remember_me">Remember Me</label>
+            <input type="checkbox" id="remember_me"/>
+            <br/>
+
+            <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="submit" th:text="Login"></button>
+        </form>
     </div>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-<script rel="script" src="../static/js/app.js"></script>
-<script rel="script" src="../static/js/controller/login_controller.js"></script>
-<script rel="script" src="../static/js/service/login_service.js"></script>
-
 </body>
 </html>

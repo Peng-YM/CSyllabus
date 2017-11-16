@@ -1,7 +1,7 @@
 package com.peng1m.springboot.service.impl;
 
 import com.peng1m.springboot.model.User;
-import com.peng1m.springboot.repository.UserDao;
+import com.peng1m.springboot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,11 +16,11 @@ import java.util.Collection;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
     @Autowired
-    private UserDao userDao;
+    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
-        User user = userDao.findByName(username);
+        User user = userRepository.findByName(username);
         if(user == null){
             throw new UsernameNotFoundException("User name " + username + " not found");
         }

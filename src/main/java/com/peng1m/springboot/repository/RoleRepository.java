@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import javax.transaction.Transactional;
 
 @Transactional
-public interface RoleDao extends CrudRepository<Role, Long>{
+public interface RoleRepository extends CrudRepository<Role, Long>{
     public Role findById(long id);
+    public Role findByName(String name);
 }
