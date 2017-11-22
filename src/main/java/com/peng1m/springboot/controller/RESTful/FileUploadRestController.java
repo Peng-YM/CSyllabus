@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/upload")
 public class FileUploadRestController {
 
-    String path_name = "/Data/";
+    String path_name = "Data/";
 
 
     @PostMapping(value = "/")
