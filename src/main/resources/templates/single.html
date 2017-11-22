@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="'http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Free Bootstrap Themes by Html5xCss3 dot com - Free Responsive Html5 Templates">
+    <meta name="author" content="#">
+	
+    <title>SimplePix | Free Html5 Themes by </title>
+	
+	<!-- SmartMenus jQuery Bootstrap Addon CSS -->
+    <link th:href="@{/css/menu.css}" rel="stylesheet">
+	
+	<!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	
+	<!-- Custom Fonts -->
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"  type="text/css">
+	
+	<link rel="stylesheet" th:href="@{/css/lightbox.css}">
+	
+	
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script th:src="@{/js/html5shiv.js}"></script>
+        <script th:src="@{/js/respond.min.js}"></script>
+    <![endif]-->
+</head>
+<body>
+
+	<div class="header">
+		<div id='cssmenu' >
+			<ul>
+			   <li class="active"><a href='index.html'><span>SimplePix</span></a></li>
+			   <li class=' has-sub'><a href='#'><span>Category</span></a>
+				  <ul>
+					 <li class='has-sub'><a href='#'><span>Item 1</span></a>
+						<ul>
+						   <li><a href='#'><span>Sub Item</span></a></li>
+						   <li class='last'><a href='#'><span>Sub Item</span></a></li>
+						</ul>
+					 </li>
+					 <li class='has-sub'><a href='#'><span>Item 2</span></a>
+						<ul>
+						   <li><a href='#'><span>Sub Item</span></a></li>
+						   <li class='last'><a href='#'><span>Sub Item</span></a></li>
+						</ul>
+					 </li>
+				  </ul>
+			   </li>
+			   <li><a href='graph.html'><span>Gallery</span></a></li>
+			   <li><a href='single.html'><span>About</span></a></li>
+			</ul>
+		</div>
+	</div>
+	
+    <div id="page-content" class="sub-page">
+		<div class="container">
+			<center><article>
+				<a class="example-image-link" th:href="@{/image/images/01.jpg}" 
+				data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+				<img class="example-image" th:src="@{/images/01.jpg}" alt=""/></a>
+				<div class="content-item">
+					<h3 class="title-item"><a href="#">Vestibulum posuere molestie risus</a></h3>
+					<div class="time"> SEPTEMBER 30TH</div>
+					<ul class="list-inline">
+						<li><a href="#"><i class="fa fa-eye"></i> 260</a></li>
+						<li><a href="#"><i class="fa fa-comment"></i> 260</a></li>
+						<li><a href="#"><i class="fa fa-heart"></i> 260</a></li>
+						<li><a href="#"><i class="fa fa-share"></i> 260</a></li>
+					</ul>
+					<p class="info">Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan.Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan.Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan.</p>
+					<h3>Heading Text</h3>
+					<p class="info">Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan.Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan.</p>
+				</div>
+				<div class="bottom-item">
+					<a href="#" class="btn btn-share share"><i class="fa fa-share-alt"></i> Share</a>
+					<span class="user f-right">Posted by <a href="#">Jason Lemon</a><img th:src="@{/images/ava-1.jpg}"></span>
+				</div>
+			</article></center>
+		</div>
+	</div>
+	
+    <!-- Once the page is loaded, initialized the plugin. -->
+    <script type="text/javascript" th:src="@{js/jquery-2.1.1.js}" ></script>
+	<script th:src="@{js/bootstrap.min.js}"></script>
+
+    <!-- SmartMenus jQuery Bootstrap Addon -->
+    <script type="text/javascript" th:src="@{js/jquery.smartmenus.bootstrap.js}"></script>
+	
+	<script th:src="@{js/lightbox-plus-jquery.min.js}"></script>
+	
+	<!-- Menu -->
+	<script th:src="@{js/script.js}"></script>
+</body>
+</html>

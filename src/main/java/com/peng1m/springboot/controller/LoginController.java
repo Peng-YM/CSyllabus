@@ -6,9 +6,12 @@ import com.peng1m.springboot.service.SecurityService;
 import com.peng1m.springboot.service.UserService;
 import com.peng1m.springboot.service.impl.MyUserDetailsService;
 import com.peng1m.springboot.util.CookieUtils;
+import com.peng1m.springboot.util.CustomErrorType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,8 +19,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
 
+
+@RestController
 @Controller
 public class LoginController {
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
@@ -32,7 +36,7 @@ public class LoginController {
     private MyUserDetailsService userDetailsService;
 
 
-    @GetMapping(value = {"/", "/login"})
+    @GetMapping(value ="/login")
     public ModelAndView login(String error, String logout){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("userForm", new UserForm());
@@ -69,6 +73,18 @@ public class LoginController {
         return modelAndView;
     }
 
+    @PostMapping(value = "/login/api/")
+    public ResponseEntity<?> createUser(@RequestBody User user){
+        logger.info("User {} is trying to login", user.getName());
+
+        if (!userService.verifyUser(user.getName(), user.getPassword())) {
+            return new ResponseEntity<Object>(new CustomErrorType("Invalid Cridential"), HttpStatus.CONFLICT);
+        }
+        securityService.autoLogin(user.getName(), user.getPassword());
+        return new ResponseEntity<Object>(HttpStatus.OK);
+    }
+
+
     @GetMapping(value = "/registration")
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
@@ -98,16 +114,10 @@ public class LoginController {
 
         userService.addUser(user);
         securityService.autoLogin(userForm.getUsername(), userForm.getPassword());
-        modelAndView.setViewName("home");
+        modelAndView.setViewName("index");
         return modelAndView;
     }
 
-    @GetMapping(value = "/home")
-    public ModelAndView home(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("home");
-        return modelAndView;
-    }
 
     @RequestMapping("/logout")
     public String logout(Model model){

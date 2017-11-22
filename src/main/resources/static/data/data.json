@@ -1,0 +1,1094 @@
+
+{
+	"version": "2.0",
+	"refs": {
+		"1": {
+			"_classPath": "Q.Position.CENTER_MIDDLE"
+		}
+	},
+	"datas": [
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "计算机导论",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#dadada",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -776.6396587982824,
+					"y": -285.00512875536464
+				}
+			},
+			"_refId": "7048"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "计算机编程基础",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#dadada",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -776.271111587983,
+					"y": -113.03658154506446
+				}
+			},
+			"_refId": "7049"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "高等数学",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#dadada",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -783.4914613733907,
+					"y": 211.86957296137342
+				}
+			},
+			"_refId": "7050"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "线性代数",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#dadada",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -788.432403433476,
+					"y": 324.16716738197414
+				}
+			},
+			"_refId": "7051"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "离散数学",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#e6b9b9",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -517.8094034334765,
+					"y": 294.2160622317597
+				}
+			},
+			"_refId": "7052"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "概率论与数理统计",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#e6b9b9",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -506.5163175965667,
+					"y": 143.81056545064376
+				}
+			},
+			"_refId": "7053"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "数据结构与算法分析",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#e6b9b9",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -474.8989742489273,
+					"y": -276.4345300429185
+				}
+			},
+			"_refId": "7054"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "数字媒体与创意编程",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#e6b9b9",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -481.3319656652359,
+					"y": 13.096922746781145
+				}
+			},
+			"_refId": "7055"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "计算机系统设计",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#e6b9b9",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -474.49692274678137,
+					"y": -113.17059871244653
+				}
+			},
+			"_refId": "7056"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "计算机组成原理",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#e6b9b9",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": 29.167403969955984,
+					"y": -74.21151421673825
+				}
+			},
+			"_refId": "7057"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "数字逻辑",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#e6b9b9",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -226.604600858369,
+					"y": -42.72281115879848
+				}
+			},
+			"_refId": "7058"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "算法设计与分析",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#c6daf2",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -228.13947210300466,
+					"y": -167.93100643776864
+				}
+			},
+			"_refId": "7059"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "嵌入式系统与微机原理",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#c6daf2",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": 49.275831545064456,
+					"y": 102.43760729613724
+				}
+			},
+			"_refId": "7060"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "人工智能",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#c6daf2",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -202.82919313304734,
+					"y": 98.40470922746759
+				}
+			},
+			"_refId": "7061"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "计算机网络",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#c6daf2",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": 301.79791738197434,
+					"y": -35.84265557939904
+				}
+			},
+			"_refId": "7062"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "面向对象分析与设计",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#c6daf2",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -0.013712446351769714,
+					"y": -283.92351072961355
+				}
+			},
+			"_refId": "7063"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "数据库原理",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#c6daf2",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -182.46283261802586,
+					"y": 379.39258583690963
+				}
+			},
+			"_refId": "7064"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "操作系统",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#c6daf2",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": 311.428841201717,
+					"y": 101.74530686695287
+				}
+			},
+			"_refId": "7065"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "软件工程",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#c6daf2",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": 293.03946781115883,
+					"y": -284.92366952789706
+				}
+			},
+			"_refId": "7066"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "信息论与编码",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#d7e5bd",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -198.3897725321891,
+					"y": 268.35845922746796
+				}
+			},
+			"_refId": "7067"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "智能机器人",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#d7e5bd",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": 285.83398068669555,
+					"y": -176.95575965665248
+				}
+			},
+			"_refId": "7068"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "机器学习",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#d7e5bd",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": 52.65221244635219,
+					"y": 198.8093390557942
+				}
+			},
+			"_refId": "7069"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "虚拟现实技术",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#d7e5bd",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": -767.7171995708159,
+					"y": 67.71048712446358
+				}
+			},
+			"_refId": "7070"
+		},
+		{
+			"_className": "Q.Text",
+			"json": {
+				"name": "物联网技术",
+				"styles": {
+					"label.position": {
+						"$ref": 1
+					},
+					"label.anchor.position": {
+						"$ref": 1
+					},
+					"label.background.color": "#d7e5bd",
+					"label.size": {
+						"_className": "Q.Size",
+						"json": {
+							"width": 150,
+							"height": 70
+						}
+					},
+					"label.radius": 0,
+					"label.font.size": 18,
+					"label.color": "#555",
+					"border.width": 1,
+					"border.color": "#555",
+					"border.radius": 0
+				},
+				"location": {
+					"x": 534.2899270386271,
+					"y": -31.533693133047137
+				}
+			},
+			"_refId": "7071"
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7049
+				},
+				"to": {
+					"_ref": 7054
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7048
+				},
+				"to": {
+					"_ref": 7049
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7050
+				},
+				"to": {
+					"_ref": 7053
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7051
+				},
+				"to": {
+					"_ref": 7052
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7050
+				},
+				"to": {
+					"_ref": 7052
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7049
+				},
+				"to": {
+					"_ref": 7056
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7049
+				},
+				"to": {
+					"_ref": 7055
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7062
+				},
+				"to": {
+					"_ref": 7071
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7063
+				},
+				"to": {
+					"_ref": 7066
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7054
+				},
+				"to": {
+					"_ref": 7063
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7058
+				},
+				"to": {
+					"_ref": 7060
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7053
+				},
+				"to": {
+					"_ref": 7061
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7052
+				},
+				"to": {
+					"_ref": 7061
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7057
+				},
+				"to": {
+					"_ref": 7062
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7052
+				},
+				"to": {
+					"_ref": 7064
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7054
+				},
+				"to": {
+					"_ref": 7059
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7053
+				},
+				"to": {
+					"_ref": 7069
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7049
+				},
+				"to": {
+					"_ref": 7070
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7057
+				},
+				"to": {
+					"_ref": 7068
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7059
+				},
+				"to": {
+					"_ref": 7068
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7052
+				},
+				"to": {
+					"_ref": 7067
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7053
+				},
+				"to": {
+					"_ref": 7067
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7060
+				},
+				"to": {
+					"_ref": 7065
+				}
+			}
+		},
+		{
+			"_className": "Q.Edge",
+			"json": {
+
+				"from": {
+					"_ref": 7058
+				},
+				"to": {
+					"_ref": 7057
+				}
+			}
+		}
+	],
+	"scale": 0.7499038481653906,
+	"tx": 1221.8034205914585,
+	"ty": 407.73019071052585
+}

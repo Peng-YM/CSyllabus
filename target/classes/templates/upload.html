@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>文件上传示例</title>
+</head>
+<body>
+    <h2>文件上传示例</h2>
+    <hr/>
+    <form method="POST" enctype="multipart/form-data" action="/api/upload/">
+        <p>
+            文件：<input type="file" name="file" multiple />
+        </p>
+        <p>
+            <input type="submit" value="上传" />
+        </p>
+    </form>
+</body>
+</html>
