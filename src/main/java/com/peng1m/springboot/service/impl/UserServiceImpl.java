@@ -1,7 +1,6 @@
 package com.peng1m.springboot.service.impl;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import com.peng1m.springboot.model.Role;
@@ -10,7 +9,6 @@ import com.peng1m.springboot.repository.RoleRepository;
 import com.peng1m.springboot.repository.UserRepository;
 import com.peng1m.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 

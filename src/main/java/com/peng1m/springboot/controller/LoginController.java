@@ -1,20 +1,20 @@
 package com.peng1m.springboot.controller;
 
+import com.peng1m.springboot.model.UserForm;
 import com.peng1m.springboot.model.User;
+import com.peng1m.springboot.service.SecurityService;
 import com.peng1m.springboot.service.UserService;
+import com.peng1m.springboot.service.impl.MyUserDetailsService;
 import com.peng1m.springboot.util.CookieUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
@@ -25,83 +25,92 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
-    public ModelAndView login(){
+    @Autowired
+    private SecurityService securityService;
+
+    @Autowired
+    private MyUserDetailsService userDetailsService;
+
+
+    @GetMapping(value = {"/", "/login"})
+    public ModelAndView login(String error, String logout){
         ModelAndView modelAndView = new ModelAndView();
-        User user = new User();
-        modelAndView.addObject("user", user);
+        modelAndView.addObject("userForm", new UserForm());
+        if (error != null)
+            modelAndView.addObject("error", "Your username and password is invalid");
+        if (logout != null)
+            modelAndView.addObject("message", "You have been logged out successfully");
         modelAndView.setViewName("login");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView userLogin(User user, BindingResult bindingResult, HttpServletResponse response){
-        logger.info("User {} is trying to login", user);
+    @PostMapping(value = "/login")
+    public ModelAndView userLogin(UserForm userForm, BindingResult bindingResult, HttpServletResponse response){
+        logger.info("User {} is trying to login", userForm.getUsername());
         ModelAndView modelAndView = new ModelAndView();
-        if (userService.verifyUser(user.getName(), user.getPassword())){
-            user = userService.findByName(user.getName());
+        if (userService.verifyUser(userForm.getUsername(), userForm.getPassword())){
+            User user = userService.findByName(userForm.getUsername());
             modelAndView.setViewName("home");
             modelAndView.addObject("welcomeMessage",
                     "Welcome to CSyllabus, Current user: "
                             + user.getName() + "\nAuthority: " + user.getRole().getName());
         }
-        else if (userService.findByName(user.getName()) == null){
-            bindingResult.rejectValue("name", "error.name", "No such user!");
+        else if (userService.findByName(userForm.getUsername()) == null){
+            bindingResult.rejectValue("username", "error.username", "No such user!");
             modelAndView.setViewName("login");
         }
         else{
             bindingResult.rejectValue("password", "error.password", "Your password is incorrect.");
             modelAndView.setViewName("login");
         }
-        CookieUtils.setSessionCookie(response, "username", "localhost", user.getName(), 30*60);
+        securityService.autoLogin(userForm.getUsername(), userForm.getPassword());
+        CookieUtils.setSessionCookie(response, "username", "localhost", userForm.getUsername(), 30*60);
 
         return modelAndView;
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    @GetMapping(value = "/registration")
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
-        User user = new User();
-        modelAndView.addObject("user", user);
+        modelAndView.addObject("userForm", new UserForm());
         modelAndView.setViewName("registration");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult){
-        logger.info("User: {} is trying to registered", user);
+    @PostMapping(value = "/registration")
+    public ModelAndView createNewUser(UserForm userForm,
+                                      BindingResult bindingResult){
         ModelAndView modelAndView = new ModelAndView();
-        User userExists = userService.findByName(user.getName());
+        User user = new User();
+        user.setName(userForm.getUsername());
+        user.setEmail(userForm.getEmail());
+        user.setPassword(userForm.getPassword());
+
+        User userExists = userService.findByName(userForm.getUsername());
         if (userExists != null){
-            bindingResult.rejectValue("name", "error.user",
+            bindingResult.rejectValue("username", "error.user",
                     "There is already a user registered with the name provided");
         }
-        if (bindingResult.hasErrors()){
-            modelAndView.setViewName("registration");
-        }else {
-            userService.addUser(user);
-            modelAndView.addObject("successMessage", "User has benn registered successfully");
-            modelAndView.addObject("user", new User());
+        if (bindingResult.hasErrors()) {
             modelAndView.setViewName("registration");
         }
+
+
+        userService.addUser(user);
+        securityService.autoLogin(userForm.getUsername(), userForm.getPassword());
+        modelAndView.setViewName("home");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    @GetMapping(value = "/home")
     public ModelAndView home(){
         ModelAndView modelAndView = new ModelAndView();
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findByName(auth.getName());
-        modelAndView.addObject("welcomeMessage", "Welcome to CSyllabus, Current user: "
-                + user.getName()  + "\nAuthority: " + user.getRole().getName());
         modelAndView.setViewName("home");
         return modelAndView;
     }
 
     @RequestMapping("/logout")
-    public ModelAndView logout(HttpServletRequest request, HttpServletResponse response){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
-        return modelAndView;
+    public String logout(Model model){
+        return "login";
     }
 }

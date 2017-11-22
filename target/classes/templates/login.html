@@ -17,17 +17,17 @@
 
     <div class="container">
         <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="logo"/>
-        <form th:action="@{/login}" method="post" class="form-signin" role="form" th:object="${user}">
+        <form th:action="@{/login}" method="post" class="form-signin" role="form" th:object="${userForm}">
             <h3 class="form-signin-heading" th:text="Welcome"></h3>
             <br/>
-            <label for="name">User Name</label>
-            <input type="text" id="name" name="name" th:placeholder="Name" class="form-control" required = "required"/>
-            <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="validation-message"></label>
+            <label for="username">User Name</label>
+            <input type="text" id="username" name="username" th:placeholder="UserName" class="form-control" required = "required" th:field="*{username}"/>
+            <!--<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="validation-message"></label>-->
             <br/>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" th:placeholder="Password" class="form-control" required = "required"/>
-            <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="validation-message"></label>
+            <input type="password" id="password" name="password" th:placeholder="Password" class="form-control" required = "required" th:field="*{password}"/>
+            <!--<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="validation-message"></label>-->
 
             <label for="remember_me">Remember Me</label>
             <input type="checkbox" id="remember_me"/>

@@ -17,14 +17,14 @@
         <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="logo"/>
         <div class="col-md-6 col-md-offset-3">
             <form autocomplete="off" action="#" th:action="@{/registration}"
-                  th:object="${user}" method="post" class="form-horizontal form-registration"
+                  th:attr="${userForm}" method="post" class="form-horizontal form-registration"
                   role="form">
                 <h2 class="form-registration-heading">Registration Form</h2>
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <input type="text" th:field="*{name}" placeholder="Name"
+                        <input type="text" th:field="*{username}" placeholder="UserName"
                                class="form-control" required = "required"/>
-                        <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                        <!--<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"-->
                                class="validation-message"></label>
                     </div>
                 </div>
@@ -33,8 +33,8 @@
                     <div class="col-sm-9">
                         <input type="email" th:field="*{email}" placeholder="Email"
                                class="form-control" required = "required"/>
-                        <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-                               class="validation-message"></label>
+                        <!--<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"-->
+                               <!--class="validation-message"></label>-->
                     </div>
                 </div>
 

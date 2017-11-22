@@ -11,11 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-@RequestMapping("/api/user/")
+@RequestMapping("/api/user")
 @RestController
 public class UserRestController {
 
@@ -28,7 +27,6 @@ public class UserRestController {
 	}
 
 	// -------------------Retrieve All Users---------------------------------------------
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> listAllUsers() {
 		logger.info("retrieve all users");
@@ -41,7 +39,6 @@ public class UserRestController {
 	}
 
 	// -------------------Retrieve Single User------------------------------------------
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getUser(@PathVariable("id") long id) {
 		logger.info("Fetching User with id {}", id);
@@ -56,7 +53,6 @@ public class UserRestController {
 
 	// -------------------Create a User-------------------------------------------
 
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public ResponseEntity<?> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
 		logger.info("Creating User : {}", user);
@@ -78,7 +74,6 @@ public class UserRestController {
 	}
 
 	// ------------------- Update a User ------------------------------------------------
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateUser(@PathVariable("id") long id, @RequestBody User user) {
 		logger.info("Updating User with id {}", id);
@@ -100,7 +95,6 @@ public class UserRestController {
 	}
 
 	// ------------------- Delete a User-----------------------------------------
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> deleteUser(@PathVariable("id") long id) {
 		logger.info("Fetching & Deleting User with id {}", id);
@@ -116,7 +110,6 @@ public class UserRestController {
 	}
 
 	// ------------------- Delete All Users-----------------------------
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/", method = RequestMethod.DELETE)
 	public ResponseEntity<User> deleteAllUsers() {
 		logger.info("Deleting All Users");

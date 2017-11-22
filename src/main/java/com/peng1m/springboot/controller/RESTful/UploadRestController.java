@@ -26,10 +26,9 @@ import java.util.stream.Collectors;
 public class UploadRestController {
     private static final Logger logger = LoggerFactory.getLogger(UploadRestController.class);
 
-    private static String UPLOAD_FOLDER = "";
+    private static String UPLOAD_FOLDER = "./";
 
     // Single file upload
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @PostMapping("/")
     public ResponseEntity<?> uploadFile(
             @RequestParam("file")MultipartFile file){
@@ -48,7 +47,6 @@ public class UploadRestController {
     }
 
     //multi files upload
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @PostMapping("/multi")
     public ResponseEntity<?> uploadMultiFile(
             @RequestParam("extraField") String extraField,

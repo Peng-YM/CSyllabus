@@ -4,15 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 
 @SpringBootApplication(scanBasePackages={"com.peng1m.springboot"})
-@RestController
-public class SpringBootRestApiApp {
+public class CSyllabusApp {
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootRestApiApp.class, args);
+	SpringApplication.run(CSyllabusApp.class, args);
 	}
 
 	@Bean
