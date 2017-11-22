@@ -2,15 +2,13 @@ package com.peng1m.springboot.controller;
 
 import com.peng1m.springboot.model.User;
 import com.peng1m.springboot.service.UserService;
-import com.peng1m.springboot.util.CookieUtil;
-import com.peng1m.springboot.util.JwtUtil;
+import com.peng1m.springboot.util.CookieUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,8 +21,6 @@ import javax.validation.Valid;
 @Controller
 public class LoginController {
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-    private static final String jwtTokenCookieName = "JWT_TOKEN";
-    private static final String key = "KEY";
 
     @Autowired
     private UserService userService;
@@ -48,10 +44,6 @@ public class LoginController {
             modelAndView.addObject("welcomeMessage",
                     "Welcome to CSyllabus, Current user: "
                             + user.getName() + "\nAuthority: " + user.getRole().getName());
-            // add token to cookie
-            String token = JwtUtil.generateToken(key, user.getName());
-            CookieUtil.create(response, jwtTokenCookieName, token,
-                    false, 24 * 60 * 60, "localhost");
         }
         else if (userService.findByName(user.getName()) == null){
             bindingResult.rejectValue("name", "error.name", "No such user!");
@@ -61,6 +53,7 @@ public class LoginController {
             bindingResult.rejectValue("password", "error.password", "Your password is incorrect.");
             modelAndView.setViewName("login");
         }
+        CookieUtils.setSessionCookie(response, "username", "localhost", user.getName(), 30*60);
 
         return modelAndView;
     }
@@ -108,8 +101,6 @@ public class LoginController {
     @RequestMapping("/logout")
     public ModelAndView logout(HttpServletRequest request, HttpServletResponse response){
         ModelAndView modelAndView = new ModelAndView();
-        JwtUtil.invalidateRelatedTokens(request);
-        CookieUtil.clear(response, jwtTokenCookieName);
         modelAndView.setViewName("login");
         return modelAndView;
     }

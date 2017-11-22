@@ -10,6 +10,7 @@ import com.peng1m.springboot.repository.RoleRepository;
 import com.peng1m.springboot.repository.UserRepository;
 import com.peng1m.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +24,7 @@ public class UserServiceImpl implements UserService{
 	@Autowired
     private RoleRepository roleRepository;
 
-
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
 	public List<User> userList(){
 		List<User> allUsers = new ArrayList<>();
@@ -72,5 +71,6 @@ public class UserServiceImpl implements UserService{
 	public void deleteById(long id){
 		userRepository.delete(id);
 	}
+
 
 }

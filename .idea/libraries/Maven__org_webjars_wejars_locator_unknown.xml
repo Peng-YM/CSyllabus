@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.webjars:wejars-locator:unknown">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/webjars/wejars-locator/unknown/wejars-locator-unknown.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/webjars/wejars-locator/unknown/wejars-locator-unknown-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/webjars/wejars-locator/unknown/wejars-locator-unknown-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
