@@ -78,7 +78,7 @@ public class LoginController {
         logger.info("User {} is trying to login", user.getName());
 
         if (!userService.verifyUser(user.getName(), user.getPassword())) {
-            return new ResponseEntity<Object>(new CustomErrorType("Invalid Cridential"), HttpStatus.CONFLICT);
+            return new ResponseEntity<Object>(new CustomErrorType("Invalid credential"), HttpStatus.CONFLICT);
         }
         securityService.autoLogin(user.getName(), user.getPassword());
         return new ResponseEntity<Object>(HttpStatus.OK);

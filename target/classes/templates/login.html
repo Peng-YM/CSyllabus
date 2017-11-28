@@ -22,17 +22,15 @@
             <br/>
             <label for="username">User Name</label>
             <input type="text" id="username" name="username" th:placeholder="UserName" class="form-control" required = "required" th:field="*{username}"/>
-            <!--<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="validation-message"></label>-->
             <br/>
 
             <label for="password">Password</label>
             <input type="password" id="password" name="password" th:placeholder="Password" class="form-control" required = "required" th:field="*{password}"/>
-            <!--<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="validation-message"></label>-->
 
             <label for="remember_me">Remember Me</label>
             <input type="checkbox" id="remember_me"/>
             <br/>
-
+            <label th:text="${error}" class="validation-message"></label>
             <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="submit" th:text="Login"></button>
         </form>
     </div>

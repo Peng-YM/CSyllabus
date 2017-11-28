@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/upload")
+@RequestMapping("/api/course/upload")
 public class FileUploadRestController {
 
     String path_name = "Data/";
@@ -29,28 +29,6 @@ public class FileUploadRestController {
         } else {
             return "empty file";
         }
-    }
-
-    @RequestMapping(value = "/batch", method = RequestMethod.POST)
-    public @ResponseBody
-    String batchUpload(HttpServletRequest request) {
-        List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
-        MultipartFile file = null;
-        for (int i = 0; i < files.size(); ++i) {
-            file = files.get(i);
-            if (!file.isEmpty()) {
-                try {
-                    byte[] bytes = file.getBytes();
-                    saveFile(bytes, path_name, file.getOriginalFilename());
-                } catch (Exception e) {
-                    System.out.print(e.getMessage());
-                    return "You failed to upload " + i + " => " + e.getMessage();
-                }
-            } else {
-                return "You failed to upload " + i + " because the file was empty.";
-            }
-        }
-        return "upload successful";
     }
 
     private void saveFile(byte[] bytes, String path_name, String file_name) throws IOException {
