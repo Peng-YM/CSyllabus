@@ -1,0 +1,5 @@
+Mysql DataBase
+Server Address: 69.171.71.251
+Port: 3306
+User: admin
+Password: qgJX59pQln8Q7lhgw7CN
