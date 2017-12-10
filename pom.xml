@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.websystique.springboot</groupId>
-	<artifactId>SpringBootRestApiExample</artifactId>
+	<groupId>org.csyllabus</groupId>
+	<artifactId>CSyllabus</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
@@ -16,7 +16,7 @@
 	</parent>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>1.9</java.version>
 		<!-- Additionally, Please make sure that your JAVA_HOME is pointing to 
 			1.8 when building on commandline -->
 	</properties>
@@ -85,6 +85,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+                
 			</plugin>
 		</plugins>
 	</build>

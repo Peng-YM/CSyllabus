@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="CSyllabus" target="1.8" />
+      <module name="CSyllabus" target="1.9" />
       <module name="SpringBootRestApiExample" target="1.8" />
     </bytecodeTargetLevel>
   </component>
