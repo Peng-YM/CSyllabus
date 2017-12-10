@@ -43,7 +43,7 @@ public class UserRestController {
 	// -------------------Retrieve Single User------------------------------------------
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> getUser(@PathVariable("id") long id) {
+	public ResponseEntity<?> getUser(@PathVariable("id") int id) {
 		logger.info("Fetching User with id {}", id);
 		User user = userService.findById(id);
 		if (user == null) {
@@ -79,7 +79,7 @@ public class UserRestController {
 	// ------------------- Update a User ------------------------------------------------
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<?> updateUser(@PathVariable("id") long id, @RequestBody User user) {
+	public ResponseEntity<?> updateUser(@PathVariable("id") int id, @RequestBody User user) {
 		logger.info("Updating User with id {}", id);
 
 		User currentUser = userService.findById(id);
@@ -101,7 +101,7 @@ public class UserRestController {
 	// ------------------- Delete a User-----------------------------------------
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<?> deleteUser(@PathVariable("id") long id) {
+	public ResponseEntity<?> deleteUser(@PathVariable("id") int id) {
 		logger.info("Fetching & Deleting User with id {}", id);
 
 		User user = userService.findById(id);

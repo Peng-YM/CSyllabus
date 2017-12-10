@@ -7,7 +7,8 @@ import java.util.List;
 public interface UserService {
     List<User> userList();
 
-    User findById(long id);
+    User findById(int id);
+
     User findByName(String name);
 
     boolean verifyUser(String name, String password);
@@ -16,7 +17,7 @@ public interface UserService {
 
     void updateUser(User user);
 
-    void deleteById(long id);
+    void deleteById(int id);
 
     void deleteAll();
 }

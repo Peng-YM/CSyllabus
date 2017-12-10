@@ -36,8 +36,8 @@ public class LoginController {
     private MyUserDetailsService userDetailsService;
 
 
-    @GetMapping(value ="/login")
-    public ModelAndView login(String error, String logout){
+    @GetMapping(value = "/login")
+    public ModelAndView login(String error, String logout) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("userForm", new UserForm());
         if (error != null)
@@ -49,32 +49,30 @@ public class LoginController {
     }
 
     @PostMapping(value = "/login")
-    public ModelAndView userLogin(UserForm userForm, BindingResult bindingResult, HttpServletResponse response){
+    public ModelAndView userLogin(UserForm userForm, BindingResult bindingResult, HttpServletResponse response) {
         logger.info("User {} is trying to login", userForm.getUsername());
         ModelAndView modelAndView = new ModelAndView();
-        if (userService.verifyUser(userForm.getUsername(), userForm.getPassword())){
+        if (userService.verifyUser(userForm.getUsername(), userForm.getPassword())) {
             User user = userService.findByName(userForm.getUsername());
             modelAndView.setViewName("home");
             modelAndView.addObject("welcomeMessage",
                     "Welcome to CSyllabus, Current user: "
                             + user.getName() + "\nAuthority: " + user.getRole().getName());
-        }
-        else if (userService.findByName(userForm.getUsername()) == null){
+        } else if (userService.findByName(userForm.getUsername()) == null) {
             bindingResult.rejectValue("username", "error.username", "No such user!");
             modelAndView.setViewName("login");
-        }
-        else{
+        } else {
             bindingResult.rejectValue("password", "error.password", "Your password is incorrect.");
             modelAndView.setViewName("login");
         }
         securityService.autoLogin(userForm.getUsername(), userForm.getPassword());
-        CookieUtils.setSessionCookie(response, "username", "localhost", userForm.getUsername(), 30*60);
+        CookieUtils.setSessionCookie(response, "username", "localhost", userForm.getUsername(), 30 * 60);
 
         return modelAndView;
     }
 
     @PostMapping(value = "/login/api/")
-    public ResponseEntity<?> createUser(@RequestBody User user){
+    public ResponseEntity<?> createUser(@RequestBody User user) {
         logger.info("User {} is trying to login", user.getName());
 
         if (!userService.verifyUser(user.getName(), user.getPassword())) {
@@ -86,7 +84,7 @@ public class LoginController {
 
 
     @GetMapping(value = "/registration")
-    public ModelAndView registration(){
+    public ModelAndView registration() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("userForm", new UserForm());
         modelAndView.setViewName("registration");
@@ -95,7 +93,7 @@ public class LoginController {
 
     @PostMapping(value = "/registration")
     public ModelAndView createNewUser(UserForm userForm,
-                                      BindingResult bindingResult){
+                                      BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
         User user = new User();
         user.setName(userForm.getUsername());
@@ -103,7 +101,7 @@ public class LoginController {
         user.setPassword(userForm.getPassword());
 
         User userExists = userService.findByName(userForm.getUsername());
-        if (userExists != null){
+        if (userExists != null) {
             bindingResult.rejectValue("username", "error.user",
                     "There is already a user registered with the name provided");
         }
@@ -120,7 +118,7 @@ public class LoginController {
 
 
     @RequestMapping("/logout")
-    public String logout(Model model){
+    public String logout(Model model) {
         return "login";
     }
 }

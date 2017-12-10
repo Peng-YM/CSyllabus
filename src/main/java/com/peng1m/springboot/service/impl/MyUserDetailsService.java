@@ -19,18 +19,18 @@ public class MyUserDetailsService implements UserDetailsService {
     private UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByName(username);
-        if(user == null){
+        if (user == null) {
             throw new UsernameNotFoundException("User name " + username + " not found");
         }
         return new org.springframework.security.core.userdetails.User(
                 user.getName(), user.getPassword(), getGrantedAuthorities(user));
     }
 
-    private Collection<GrantedAuthority> getGrantedAuthorities(User user){
+    private Collection<GrantedAuthority> getGrantedAuthorities(User user) {
         Collection<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        if (user.getRole().getName().equals("admin")){
+        if (user.getRole().getName().equals("admin")) {
             grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         }
         grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));

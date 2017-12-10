@@ -14,61 +14,63 @@ import org.springframework.stereotype.Service;
 
 
 @Service("userService")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-	@Autowired
+    @Autowired
     private RoleRepository roleRepository;
 
-	private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+    private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
-	public List<User> userList(){
-		List<User> allUsers = new ArrayList<>();
-		for (User u: userRepository.findAll()) {
-			allUsers.add(u);
-		}
-		return allUsers;
-	}
-	
-	public User findByName(String name) {
-		return userRepository.findByName(name);
-	}
+    public List<User> userList() {
+        List<User> allUsers = new ArrayList<>();
+        for (User u : userRepository.findAll()) {
+            allUsers.add(u);
+        }
+        return allUsers;
+    }
 
-	public User findById(long id){
-		return userRepository.findById(id);
-	}
+    public User findByName(String name) {
+        return userRepository.findByName(name);
+    }
 
-	public boolean verifyUser(String name, String password){
-	    User user = userRepository.findByName(name);
-	    return  (user != null &&
-				bCryptPasswordEncoder.matches(password, user.getPassword()));
-	}
+    public User findById(int id) {
+        return userRepository.findById(id);
+    }
 
-	public User addUser(User user){
-	    // only store encode password to database
-	    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-	    // set role
+    public boolean verifyUser(String name, String password) {
+        User user = userRepository.findByName(name);
+        return (user != null &&
+                bCryptPasswordEncoder.matches(password, user.getPassword()));
+    }
+
+    public User addUser(User user) {
+        // only store encode password to database
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        // set role
         Role userRole = roleRepository.findByName("user");
         user.setRole(userRole);
-		return userRepository.save(user);
-	}
+        user.setSchool(null);
+        return userRepository.save(user);
+    }
 
-	public void updateUser(User new_user){
-		User old_user = userRepository.findById(new_user.getId());
-		old_user.setEmail(new_user.getEmail());
-		old_user.setName(new_user.getName());
-		old_user.setPassword(new_user.getPassword());
-	}
-	
-	public void deleteAll(){
-		userRepository.deleteAll();
-	}
+    public void updateUser(User new_user) {
+        User old_user = userRepository.findById(new_user.getId());
+        old_user.setEmail(new_user.getEmail());
+        old_user.setName(new_user.getName());
+        old_user.setPassword(new_user.getPassword());
+        old_user.setSchool(new_user.getSchool());
+    }
 
-	public void deleteById(long id){
-		userRepository.delete(id);
-	}
+    public void deleteAll() {
+        userRepository.deleteAll();
+    }
+
+    public void deleteById(int id) {
+        userRepository.delete(id);
+    }
 
 
 }
