@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4953be60-53dd-41ff-ad50-ec1cb6e2254e" name="Default" comment="">
-<<<<<<< Updated upstream
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-=======
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/Course.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/School.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/RESTful/CourseRestController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/controller/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/controller/LoginController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/controller/RESTful/FileUploadRestController.class" afterPath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/controller/RESTful/FileUploadRestController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/controller/RESTful/UserRestController.class" afterPath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/controller/RESTful/UserRestController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/exception/RestExceptionHandler.class" afterPath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/exception/RestExceptionHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/model/Course.class" afterPath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/model/Course.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/model/Role.class" afterPath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/model/Role.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/model/School.class" afterPath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/model/School.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/model/User.class" afterPath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/model/User.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/repository/RoleRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/repository/RoleRepository.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/repository/UserRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/repository/UserRepository.class" />
@@ -20,25 +19,106 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/service/impl/SecurityServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/service/impl/SecurityServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/service/impl/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/service/impl/UserServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/util/CookieUtils.class" afterPath="$PROJECT_DIR$/target/classes/com/peng1m/springboot/util/CookieUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/Computer_Organization.jpg" afterPath="$PROJECT_DIR$/target/classes/static/images/Computer_Organization.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/JAVA.png" afterPath="$PROJECT_DIR$/target/classes/static/images/JAVA.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/add.png" afterPath="$PROJECT_DIR$/target/classes/static/images/add.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/ai.jpg" afterPath="$PROJECT_DIR$/target/classes/static/images/ai.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/algorithm.jpg" afterPath="$PROJECT_DIR$/target/classes/static/images/algorithm.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/background.JPG" afterPath="$PROJECT_DIR$/target/classes/static/images/background.JPG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/bg.png" afterPath="$PROJECT_DIR$/target/classes/static/images/bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/close.png" afterPath="$PROJECT_DIR$/target/classes/static/images/close.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/computer-network.jpg" afterPath="$PROJECT_DIR$/target/classes/static/images/computer-network.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/database.jpg" afterPath="$PROJECT_DIR$/target/classes/static/images/database.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/datastructure.jpg" afterPath="$PROJECT_DIR$/target/classes/static/images/datastructure.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/digital-circuit.jpg" afterPath="$PROJECT_DIR$/target/classes/static/images/digital-circuit.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/embedded-system.jpg" afterPath="$PROJECT_DIR$/target/classes/static/images/embedded-system.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/gradient.png" afterPath="$PROJECT_DIR$/target/classes/static/images/gradient.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/java.jpg" afterPath="$PROJECT_DIR$/target/classes/static/images/java.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/loading.gif" afterPath="$PROJECT_DIR$/target/classes/static/images/loading.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/logo.png" afterPath="$PROJECT_DIR$/target/classes/static/images/logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/next.png" afterPath="$PROJECT_DIR$/target/classes/static/images/next.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/ooj.jpg" afterPath="$PROJECT_DIR$/target/classes/static/images/ooj.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/pass-icon.png" afterPath="$PROJECT_DIR$/target/classes/static/images/pass-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/prev.png" afterPath="$PROJECT_DIR$/target/classes/static/images/prev.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/upload.jpg" afterPath="$PROJECT_DIR$/target/classes/static/images/upload.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/user-icon.png" afterPath="$PROJECT_DIR$/target/classes/static/images/user-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/images/wood.png" afterPath="$PROJECT_DIR$/target/classes/static/images/wood.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/peng1m/springboot/SpringBootRestTestClient.class" afterPath="$PROJECT_DIR$/target/test-classes/com/peng1m/springboot/SpringBootRestTestClient.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/RESTful/UserRestController.java" afterPath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/RESTful/UserRestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/Role.java" afterPath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/Role.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/repository/RoleRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/repository/RoleRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/repository/UserRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/MyUserDetailsService.java" afterPath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/MyUserDetailsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/UserServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.yml" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/peng1m/springboot/SpringBootRestTestClient.java" afterPath="$PROJECT_DIR$/src/test/java/com/peng1m/springboot/SpringBootRestTestClient.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.yml" afterPath="$PROJECT_DIR$/target/classes/application.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/db/schema.sql" afterPath="$PROJECT_DIR$/target/classes/static/db/schema.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/upload.html" afterPath="$PROJECT_DIR$/target/classes/templates/upload.html" />
->>>>>>> Stashed changes
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/css/fileinput-rtl.css" afterPath="$PROJECT_DIR$/target/classes/static/css/fileinput-rtl.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/css/fileinput-rtl.min.css" afterPath="$PROJECT_DIR$/target/classes/static/css/fileinput-rtl.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/css/fileinput.css" afterPath="$PROJECT_DIR$/target/classes/static/css/fileinput.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/css/fileinput.min.css" afterPath="$PROJECT_DIR$/target/classes/static/css/fileinput.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/fileinput.js" afterPath="$PROJECT_DIR$/target/classes/static/js/fileinput.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/fileinput.min.js" afterPath="$PROJECT_DIR$/target/classes/static/js/fileinput.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/html5shiv.js" afterPath="$PROJECT_DIR$/target/classes/static/js/html5shiv.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/jquery-2.1.1.js" afterPath="$PROJECT_DIR$/target/classes/static/js/jquery-2.1.1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/jquery.pinto.js" afterPath="$PROJECT_DIR$/target/classes/static/js/jquery.pinto.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/jquery.pinto.min.js" afterPath="$PROJECT_DIR$/target/classes/static/js/jquery.pinto.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/lightbox-plus-jquery.min.js" afterPath="$PROJECT_DIR$/target/classes/static/js/lightbox-plus-jquery.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/LANG.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/LANG.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/ar.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/ar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/az.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/az.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/bg.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/bg.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/ca.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/ca.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/cr.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/cr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/cs.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/cs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/da.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/da.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/de.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/de.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/el.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/el.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/es.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/es.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/et.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/et.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/fa.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/fa.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/fi.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/fi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/fr.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/fr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/gl.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/gl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/hu.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/hu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/id.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/id.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/it.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/it.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/ja.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/ja.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/kr.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/kr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/kz.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/kz.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/lt.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/lt.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/nl.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/nl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/no.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/no.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/pl.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/pl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/pt-BR.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/pt-BR.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/pt.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/pt.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/ro.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/ro.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/ru.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/ru.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/sk.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/sk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/sl.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/sl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/sv.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/sv.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/th.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/th.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/tr.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/tr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/uk.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/uk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/vi.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/vi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/zh-TW.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/zh-TW.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/locales/zh.js" afterPath="$PROJECT_DIR$/target/classes/static/js/locales/zh.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/main.js" afterPath="$PROJECT_DIR$/target/classes/static/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/piexif.js" afterPath="$PROJECT_DIR$/target/classes/static/js/plugins/piexif.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/piexif.min.js" afterPath="$PROJECT_DIR$/target/classes/static/js/plugins/piexif.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/purify.js" afterPath="$PROJECT_DIR$/target/classes/static/js/plugins/purify.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/purify.min.js" afterPath="$PROJECT_DIR$/target/classes/static/js/plugins/purify.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/sortable.js" afterPath="$PROJECT_DIR$/target/classes/static/js/plugins/sortable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/plugins/sortable.min.js" afterPath="$PROJECT_DIR$/target/classes/static/js/plugins/sortable.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/respond.min.js" afterPath="$PROJECT_DIR$/target/classes/static/js/respond.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/script.js" afterPath="$PROJECT_DIR$/target/classes/static/js/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/themes/explorer-fa/theme.css" afterPath="$PROJECT_DIR$/target/classes/static/themes/explorer-fa/theme.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/themes/explorer-fa/theme.js" afterPath="$PROJECT_DIR$/target/classes/static/themes/explorer-fa/theme.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/themes/explorer-fa/theme.min.css" afterPath="$PROJECT_DIR$/target/classes/static/themes/explorer-fa/theme.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/themes/explorer-fa/theme.min.js" afterPath="$PROJECT_DIR$/target/classes/static/themes/explorer-fa/theme.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/themes/explorer/theme.css" afterPath="$PROJECT_DIR$/target/classes/static/themes/explorer/theme.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/themes/explorer/theme.js" afterPath="$PROJECT_DIR$/target/classes/static/themes/explorer/theme.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/themes/explorer/theme.min.css" afterPath="$PROJECT_DIR$/target/classes/static/themes/explorer/theme.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/themes/explorer/theme.min.js" afterPath="$PROJECT_DIR$/target/classes/static/themes/explorer/theme.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/themes/fa/theme.js" afterPath="$PROJECT_DIR$/target/classes/static/themes/fa/theme.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/themes/fa/theme.min.js" afterPath="$PROJECT_DIR$/target/classes/static/themes/fa/theme.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/themes/gly/theme.js" afterPath="$PROJECT_DIR$/target/classes/static/themes/gly/theme.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/themes/gly/theme.min.js" afterPath="$PROJECT_DIR$/target/classes/static/themes/gly/theme.min.js" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,26 +166,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/UserServiceImpl.java">
+      <file leaf-file-name="Role.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/Role.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-            <state relative-caret-position="165">
+            <state relative-caret-position="0">
               <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="24" />
-=======
-            <state relative-caret-position="103">
-              <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
->>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< Updated upstream
       <file leaf-file-name="UserForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/UserForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="285">
               <caret line="29" column="35" lean-forward="false" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
               <folding>
                 <element signature="e#630#631#0" expanded="true" />
@@ -117,23 +191,18 @@
       </file>
       <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/User.java">
-=======
-      <file leaf-file-name="SpringBootRestTestClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/peng1m/springboot/SpringBootRestTestClient.java">
->>>>>>> Stashed changes
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="966">
-              <caret line="53" column="74" lean-forward="false" selection-start-line="53" selection-start-column="74" selection-end-line="53" selection-end-column="74" />
+            <state relative-caret-position="375">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< Updated upstream
       <file leaf-file-name="RoleRepository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/repository/RoleRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="165">
               <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -152,63 +221,86 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+            <state relative-caret-position="420">
+              <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+              <folding>
+                <element signature="e#1146#1147#0" expanded="true" />
+                <element signature="e#1196#1197#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1512989789168" expanded="true" signature="106071:106113" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106071:106131" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106071:106144" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106071:106159" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106194:108755" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106207:108740" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106261:106556" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106280:106541" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106343:106521" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106383:106487" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106404:106465" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106606:106915" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106625:106900" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106702:106880" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106742:106846" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106763:106824" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106966:107276" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="106985:107261" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="107063:107241" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="107103:107207" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="107124:107185" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="107319:107623" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="107338:107608" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="107410:107588" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="107450:107554" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="107471:107532" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="107674:108008" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="107693:107993" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="107795:107973" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="107835:107939" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="107856:107917" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="108043:108347" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="108062:108332" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="108134:108312" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="108174:108278" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="108195:108256" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="108399:108726" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="108418:108711" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="108513:108691" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="108553:108657" ph="..." />
+                <marker date="1512989789168" expanded="true" signature="108574:108635" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CSyllabus.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CSyllabus.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/LoginController.java">
+      <file leaf-file-name="application.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="63" column="44" lean-forward="false" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
-=======
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
->>>>>>> Stashed changes
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-            <state relative-caret-position="765">
-              <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileUploadRestController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/RESTful/FileUploadRestController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="41" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="2" selection-end-column="41" />
-=======
-            <state relative-caret-position="92">
-              <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
->>>>>>> Stashed changes
+            <state relative-caret-position="360">
+              <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -222,8 +314,8 @@
         <option value="FTL File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -247,6 +339,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/util/CookieUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/util/JwtUtil.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/util/RedisUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/filter/JwtFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/exception/RestGlobalExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/exception/RestExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/configuration/AuthServerOAuth2Configuration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/configuration/SpringSecurityConfiguration.java" />
@@ -258,6 +356,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/settings/configuration/CORSFilterRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/SpringBootRestApiApp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/settings/security/SpringSecurityConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/settings/security/ResourceServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/settings/security/OAuth2Config.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/CSyllabusApp.java" />
@@ -267,6 +366,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/SecurityService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/Validator/UserValidator.java" />
         <option value="$PROJECT_DIR$/src/main/resources/validation.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/Command.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/Validator/RegisterCommandValidator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/RegisterCommand.java" />
@@ -274,6 +374,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/Graph.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/file_upload_muti.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/file_upload.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/RESTful/UserRestController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/personal-information.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/about.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/PageController.java" />
@@ -285,19 +386,10 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/upload.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/RESTful/FileUploadRestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/MySQL Server Configurations.txt" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.1.4.RELEASE/spring-security-core-4.1.4.RELEASE.jar!/org/springframework/security/authentication/UsernamePasswordAuthenticationToken.class" />
-        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/repository/UserRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/repository/RoleRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/MyUserDetailsService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/Role.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/RESTful/UserRestController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/peng1m/springboot/SpringBootRestTestClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/School.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/Course.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -346,18 +438,11 @@
       <select />
     </treeState>
   </component>
-<<<<<<< Updated upstream
   <component name="ProjectFrameBounds">
-    <option name="x" value="227" />
-    <option name="y" value="55" />
-    <option name="width" value="1521" />
+    <option name="x" value="150" />
+    <option name="y" value="51" />
+    <option name="width" value="1801" />
     <option name="height" value="977" />
-=======
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="856" />
-    <option name="height" value="1008" />
->>>>>>> Stashed changes
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -377,201 +462,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< Updated upstream
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="controller" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="controller" type="1f31426a:PackageElementNode" />
-              <item name="RESTful" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="exception" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="model" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="repository" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="service" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="service" type="1f31426a:PackageElementNode" />
-              <item name="impl" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="settings" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="util" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-              <item name="com/peng1m/springboot" type="cbb8eebc:String" user="com/peng1m/springboot" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-              <item name="com/peng1m/springboot" type="cbb8eebc:String" user="com/peng1m/springboot" />
-              <item name="controller" type="cbb8eebc:String" user="controller" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-              <item name="com/peng1m/springboot" type="cbb8eebc:String" user="com/peng1m/springboot" />
-              <item name="model" type="cbb8eebc:String" user="model" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-              <item name="com/peng1m/springboot" type="cbb8eebc:String" user="com/peng1m/springboot" />
-              <item name="service" type="cbb8eebc:String" user="service" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-              <item name="com/peng1m/springboot" type="cbb8eebc:String" user="com/peng1m/springboot" />
-              <item name="util" type="cbb8eebc:String" user="util" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="resources" type="cbb8eebc:String" user="resources" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="resources" type="cbb8eebc:String" user="resources" />
-              <item name="static" type="cbb8eebc:String" user="static" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="resources" type="cbb8eebc:String" user="resources" />
-              <item name="static" type="cbb8eebc:String" user="static" />
-              <item name="css" type="cbb8eebc:String" user="css" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="resources" type="cbb8eebc:String" user="resources" />
-              <item name="templates" type="cbb8eebc:String" user="templates" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="test/java" type="cbb8eebc:String" user="test/java" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SpringBootRestApiExample" type="cbb8eebc:String" user="SpringBootRestApiExample" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="test/java" type="cbb8eebc:String" user="test/java" />
-              <item name="com/peng1m/springboot" type="cbb8eebc:String" user="com/peng1m/springboot" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
-=======
->>>>>>> Stashed changes
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -579,115 +470,77 @@
               <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
               <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
             <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
             </path>
             <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
+              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
             </path>
             <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
+              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
+              <item name="controller" type="1f31426a:PackageElementNode" />
             </path>
             <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
+              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
+              <item name="controller" type="1f31426a:PackageElementNode" />
+              <item name="RESTful" type="1f31426a:PackageElementNode" />
             </path>
             <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
+              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
+              <item name="exception" type="1f31426a:PackageElementNode" />
             </path>
             <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="RESTful" type="462c0819:PsiDirectoryNode" />
+              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
+              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
+              <item name="model" type="1f31426a:PackageElementNode" />
             </path>
             <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
+              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
+              <item name="repository" type="1f31426a:PackageElementNode" />
             </path>
             <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
+              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
+              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
+              <item name="service" type="1f31426a:PackageElementNode" />
             </path>
             <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
+              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
+              <item name="service" type="1f31426a:PackageElementNode" />
+              <item name="impl" type="1f31426a:PackageElementNode" />
             </path>
             <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
+              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
+              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
+              <item name="settings" type="1f31426a:PackageElementNode" />
             </path>
             <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSyllabus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
+              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
+              <item name="util" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
@@ -811,83 +664,7 @@
           <select />
         </subPane>
       </pane>
-<<<<<<< Updated upstream
-=======
-      <pane id="Scratches" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="controller" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="controller" type="1f31426a:PackageElementNode" />
-              <item name="RESTful" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="exception" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="model" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="repository" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="service" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="service" type="1f31426a:PackageElementNode" />
-              <item name="impl" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="settings" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSyllabus" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSyllabus" type="616d4139:PackageViewModuleNode" />
-              <item name="com.peng1m.springboot" type="1f31426a:PackageElementNode" />
-              <item name="util" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="AndroidView" />
->>>>>>> Stashed changes
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -908,7 +685,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mydb.sql" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -1128,26 +905,16 @@
       <workItem from="1511846011476" duration="554000" />
       <workItem from="1511857306929" duration="1055000" />
       <workItem from="1511868746175" duration="4103000" />
-<<<<<<< Updated upstream
       <workItem from="1512043660553" duration="31000" />
       <workItem from="1512202699797" duration="121000" />
       <workItem from="1512888774584" duration="356000" />
-=======
-      <workItem from="1511875782630" duration="746000" />
-      <workItem from="1512041981686" duration="148000" />
-      <workItem from="1512200640109" duration="7517000" />
-      <workItem from="1512458687337" duration="753000" />
-      <workItem from="1512890328800" duration="4341000" />
->>>>>>> Stashed changes
+      <workItem from="1512989340526" duration="230000" />
+      <workItem from="1512989586996" duration="233000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< Updated upstream
-    <option name="totallyTimeSpent" value="141705000" />
-=======
-    <option name="totallyTimeSpent" value="154702000" />
->>>>>>> Stashed changes
+    <option name="totallyTimeSpent" value="142168000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1159,48 +926,72 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-<<<<<<< Updated upstream
-    <frame x="227" y="55" width="1521" height="977" extended-state="0" />
+    <frame x="150" y="51" width="1801" height="977" extended-state="0" />
     <editor active="true" />
-=======
-    <frame x="-9" y="-9" width="1698" height="1018" extended-state="6" />
->>>>>>> Stashed changes
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969216" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3256579" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run Dashboard" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42517006" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35034013" sideWeight="0.29960206" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run Dashboard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35034013" sideWeight="0.70039797" order="8" side_tool="false" content_ui="combo" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4227902" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20175439" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1513158" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-<<<<<<< Updated upstream
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2765382" sideWeight="0.49652433" order="0" side_tool="false" content_ui="combo" />
-=======
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20357142" sideWeight="0.49652433" order="0" side_tool="false" content_ui="combo" />
->>>>>>> Stashed changes
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.235361" sideWeight="0.49652433" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25559106" sideWeight="0.50347567" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25559106" sideWeight="0.50347567" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3256579" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286991" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35034013" sideWeight="0.29960206" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4227902" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969216" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3256579" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run Dashboard" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35034013" sideWeight="0.70039797" order="12" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20175439" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1513158" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.235361" sideWeight="0.49652433" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286991" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25559106" sideWeight="0.50347567" order="6" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1219,9 +1010,58 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/UserService.java">
-=======
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="65" column="55" lean-forward="true" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/validation.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="58" lean-forward="false" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/4.1.4.RELEASE/spring-security-config-4.1.4.RELEASE.jar!/org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/settings/security/SecurityConfig.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/Validator/UserFormValidator.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/exception/RestExceptionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/SecurityServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="46" lean-forward="true" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/SecurityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/RESTful/UploadRestController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/data/data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/file_upload_muti.html" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/graph.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1231,18 +1071,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/jquery.pinto.js">
->>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/settings/security/ResourceServer.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/settings/security/OAuth2Config.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/loader/BuiltinClassLoader.java">
-=======
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/jquery.pinto.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1251,7 +1085,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/lightbox-plus-jquery.min.js">
->>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1260,13 +1093,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/jquery-2.1.1.js">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="477">
-          <caret line="65" column="55" lean-forward="true" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
-=======
         <state relative-caret-position="-18409">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1285,11 +1113,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/settings/security/SecurityConfig.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/Validator/UserFormValidator.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/exception/RestExceptionHandler.java">
-=======
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/menu.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1298,7 +1121,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/registration.css">
->>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-312">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1309,7 +1131,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1331,6 +1152,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/CSyllabusApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1376,6 +1205,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/RESTful/UserRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="39" column="58" lean-forward="false" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/MyUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/403.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1395,258 +1238,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="41" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="2" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/RESTful/FileUploadRestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="165">
-          <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-          <folding />
-=======
-        <state relative-caret-position="115">
-          <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1495">
-          <caret line="65" column="55" lean-forward="false" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.1.4.RELEASE/spring-security-core-4.1.4.RELEASE.jar!/org/springframework/security/authentication/UsernamePasswordAuthenticationToken.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.1.4.RELEASE/spring-security-core-4.1.4.RELEASE.jar!/org/springframework/security/core/userdetails/UserDetails.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="12" column="43" lean-forward="false" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/repository/RoleRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/SecurityServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="33" column="61" lean-forward="true" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/RESTful/UserRestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1265">
-          <caret line="103" column="63" lean-forward="false" selection-start-line="103" selection-start-column="63" selection-end-line="103" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/MyUserDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/SecurityService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../mydb.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1512201831488" expanded="true" signature="184:248" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="250:316" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="318:382" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="384:410" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="412:454" ph="/*!40103 SET... " />
-            <marker date="1512201831488" expanded="true" signature="456:490" ph="/*!40103 SET... " />
-            <marker date="1512201831488" expanded="true" signature="492:559" ph="/*!40014 SET... " />
-            <marker date="1512201831488" expanded="true" signature="561:643" ph="/*!40014 SET... " />
-            <marker date="1512201831488" expanded="true" signature="645:719" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="721:776" ph="/*!40111 SET... " />
-            <marker date="1512201831488" expanded="true" signature="825:855" ph="DROP TABLE I... " />
-            <marker date="1512201831488" expanded="true" signature="857:918" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="920:963" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="965:1706" ph="CREATE TABLE... courses" />
-            <marker date="1512201831488" expanded="true" signature="1708:1763" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="1838:1884" ph="/*!40000 ALT... " />
-            <marker date="1512201831488" expanded="true" signature="1886:1931" ph="/*!40000 ALT... " />
-            <marker date="1512201831488" expanded="true" signature="1993:2021" ph="DROP TABLE I... " />
-            <marker date="1512201831488" expanded="true" signature="2023:2084" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="2086:2129" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="2131:2269" ph="CREATE TABLE... roles" />
-            <marker date="1512201831488" expanded="true" signature="2271:2326" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="2397:2441" ph="/*!40000 ALT... " />
-            <marker date="1512201831488" expanded="true" signature="2443:2492" ph="INSERT INTO `roles`... " />
-            <marker date="1512201831488" expanded="true" signature="2494:2537" ph="/*!40000 ALT... " />
-            <marker date="1512201831488" expanded="true" signature="2601:2631" ph="DROP TABLE I... " />
-            <marker date="1512201831488" expanded="true" signature="2633:2694" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="2696:2739" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="2741:3228" ph="CREATE TABLE... schools" />
-            <marker date="1512201831488" expanded="true" signature="3230:3285" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="3360:3406" ph="/*!40000 ALT... " />
-            <marker date="1512201831488" expanded="true" signature="3408:3453" ph="/*!40000 ALT... " />
-            <marker date="1512201831488" expanded="true" signature="3515:3543" ph="DROP TABLE I... " />
-            <marker date="1512201831488" expanded="true" signature="3545:3606" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="3608:3651" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="3653:4402" ph="CREATE TABLE... users" />
-            <marker date="1512201831488" expanded="true" signature="4404:4459" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="4530:4574" ph="/*!40000 ALT... " />
-            <marker date="1512201831488" expanded="true" signature="4576:4639" ph="INSERT INTO `users`... " />
-            <marker date="1512201831488" expanded="true" signature="4641:4684" ph="/*!40000 ALT... " />
-            <marker date="1512201831488" expanded="true" signature="4701:4741" ph="/*!40103 SET... " />
-            <marker date="1512201831488" expanded="true" signature="4744:4782" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="4784:4842" ph="/*!40014 SET... " />
-            <marker date="1512201831488" expanded="true" signature="4844:4892" ph="/*!40014 SET... " />
-            <marker date="1512201831488" expanded="true" signature="4894:4956" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="4958:5022" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="5024:5086" ph="/*!40101 SET... " />
-            <marker date="1512201831488" expanded="true" signature="5088:5128" ph="/*!40111 SET... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/UserForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="28" column="33" lean-forward="false" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-          <folding>
-            <element signature="e#630#631#0" expanded="false" />
-            <element signature="e#684#685#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/1.4.3.RELEASE/spring-boot-autoconfigure-1.4.3.RELEASE.jar!/org/springframework/boot/autoconfigure/orm/jpa/JpaBaseConfiguration.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-55">
-          <caret line="84" column="50" lean-forward="false" selection-start-line="84" selection-start-column="50" selection-end-line="84" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/validation.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/CSyllabusApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#689#690#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/5.0.11.Final/hibernate-entitymanager-5.0.11.Final.jar!/org/hibernate/jpa/boot/internal/EntityManagerFactoryBuilderImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-479">
-          <caret line="663" column="0" lean-forward="false" selection-start-line="663" selection-start-column="0" selection-end-line="663" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding>
-            <element signature="e#576#577#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/peng1m/springboot/SpringBootRestTestClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="105">
-          <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-=======
-        <state relative-caret-position="966">
-          <caret line="53" column="74" lean-forward="false" selection-start-line="53" selection-start-column="74" selection-end-line="53" selection-end-column="74" />
-          <folding />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/School.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-          <folding>
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#654#655#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="41" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="2" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1654,54 +1247,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding>
-            <element signature="e#666#667#0" expanded="true" />
-            <element signature="e#697#698#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-437">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
->>>>>>> Stashed changes
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/RESTful/FileUploadRestController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/repository/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
->>>>>>> Stashed changes
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
         <state relative-caret-position="675">
-          <caret line="63" column="44" lean-forward="false" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
-          <folding />
+          <caret line="63" column="16" lean-forward="false" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/Role.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
+        <state relative-caret-position="0">
           <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="24" />
           <folding />
         </state>
@@ -1709,7 +1274,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/model/UserForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="285">
           <caret line="29" column="35" lean-forward="false" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
           <folding>
             <element signature="e#630#631#0" expanded="true" />
@@ -1722,26 +1287,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-=======
-        <state relative-caret-position="77">
-          <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
->>>>>>> Stashed changes
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/repository/RoleRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="165">
           <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1759,14 +1311,93 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/peng1m/springboot/service/impl/UserServiceImpl.java">
+        <state relative-caret-position="420">
+          <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding>
+            <element signature="e#1146#1147#0" expanded="true" />
+            <element signature="e#1196#1197#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
->>>>>>> Stashed changes
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1512989789168" expanded="true" signature="106071:106113" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106071:106131" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106071:106144" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106071:106159" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106194:108755" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106207:108740" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106261:106556" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106280:106541" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106343:106521" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106383:106487" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106404:106465" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106606:106915" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106625:106900" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106702:106880" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106742:106846" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106763:106824" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106966:107276" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="106985:107261" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="107063:107241" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="107103:107207" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="107124:107185" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="107319:107623" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="107338:107608" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="107410:107588" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="107450:107554" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="107471:107532" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="107674:108008" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="107693:107993" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="107795:107973" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="107835:107939" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="107856:107917" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="108043:108347" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="108062:108332" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="108134:108312" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="108174:108278" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="108195:108256" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="108399:108726" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="108418:108711" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="108513:108691" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="108553:108657" ph="..." />
+            <marker date="1512989789168" expanded="true" signature="108574:108635" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSyllabus.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MySQL Server Configurations.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
           <folding />
         </state>
       </provider>
