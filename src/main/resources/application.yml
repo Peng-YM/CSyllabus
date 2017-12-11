@@ -1,7 +1,6 @@
 server:
   port: 12000
 
-
 spring:
   datasource:
     url: jdbc:mysql://69.171.71.251:3306/mydb
