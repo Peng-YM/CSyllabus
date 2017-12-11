@@ -7,6 +7,6 @@ import javax.transaction.Transactional;
 
 @Transactional
 public interface SchoolRepository extends CrudRepository<School, Integer> {
-    public School findById(int id);
+    public School findBySchoolid(int id);
 
 }

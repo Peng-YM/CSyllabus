@@ -17,7 +17,7 @@ public class SchoolServiceImpl implements SchoolService {
     private SchoolRepository schoolRepository;
 
     public School findByID(int id) {
-        return schoolRepository.findById(id);
+        return schoolRepository.findBySchoolid(id);
     }
 
     public List<School> schoolList() {
@@ -41,7 +41,7 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     public File getSchoolTree(int id) {
-        School school = schoolRepository.findById(id);
+        School school = schoolRepository.findBySchoolid(id);
         String tree_path = school.getTree_path();
         File tree = new File(tree_path);
         return tree;
