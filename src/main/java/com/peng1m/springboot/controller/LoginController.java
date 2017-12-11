@@ -71,7 +71,7 @@ public class LoginController {
         return modelAndView;
     }
 
-    @PostMapping(value = "/login/api/")
+    @PostMapping(value = "/login/api")
     public ResponseEntity<?> createUser(@RequestBody User user) {
         logger.info("User {} is trying to login", user.getName());
 

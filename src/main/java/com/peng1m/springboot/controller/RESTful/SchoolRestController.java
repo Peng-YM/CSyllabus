@@ -1,16 +1,18 @@
 package com.peng1m.springboot.controller.RESTful;
 
+import com.peng1m.springboot.model.User;
 import com.peng1m.springboot.org.json.JSONObject;
 import com.peng1m.springboot.service.SchoolService;
 import com.peng1m.springboot.model.School;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
-
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 /*
@@ -19,7 +21,7 @@ import java.util.List;
 @RequestMapping("/api/school")
 @RestController
 public class SchoolRestController {
-
+    public static final Logger logger = LoggerFactory.getLogger(SchoolRestController.class);
     private SchoolService schoolService;
 
     @Autowired
@@ -28,41 +30,66 @@ public class SchoolRestController {
     }
 
     // It will convert to JSON
-    //#1
+    //#1 GET api/school
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<Integer> getSchoolsID() {
         return schoolService.getSchoolsID();
     }
 
     // Just information
-    //#2
+    //#2 GET api/school/{school_id}
     @RequestMapping(value = "/{school_id}", method = RequestMethod.GET)
-    public SchoolInfo findeById(@PathVariable("school_id") int school_id) {
+    public School findeById(@PathVariable("school_id") int school_id) {
         School school = schoolService.findByID(school_id);
-        return new SchoolInfo(school);
+        School schoolinfo = new School(school.getSchool_name(), school.getDescription(), null, school.getWebsite(), null);
+        return schoolinfo;
     }
 
-    class SchoolInfo {
-        int school_id;
-        String website;
-        String description;
+    //#3 POST /api/school + json
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public School addSchool(@RequestBody School school) {
+        logger.debug("Add School: {}", school);
+        return schoolService.addSchool(school);
+    }
 
-        public SchoolInfo(School school) {
-            this.school_id = school.getSchoolid();
-            this.website = school.getWebsite();
-            this.description = school.getDescription();
-        }
+    //#4 PUT /api/school + json
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public School updateSchool(@RequestBody School school) {
+        logger.debug("Add School: {}", school);
+        return schoolService.updateSchool(school);
+    }
+
+    //#5 DELETE /api/school + json
+    // json must contains school ID
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public void deleteSchool(@RequestBody School school) {
+        logger.debug("Add School: {}", school);
+        schoolService.deleteSchool(school.getSchoolid());
     }
 
     //#6 GET api/school/{school_id}/courses
-    public List<Integer> getSchoolCourses(int school_id){
-
-        return null;
+    public List<Integer> getSchoolCourses(int school_id) {
+        return schoolService.getSchoolCourses(school_id);
     }
-    //#7
+
+    //#7 GET api/school/{schoold_id}/tree
     @RequestMapping(value = "/{school_id}/tree", method = RequestMethod.GET)
-    public JSONObject getSchoolTree(){
-
+    public String getSchoolTree(@PathVariable("school_id") int school_id) {
+        School school = schoolService.findByID(school_id);
+        String path = school.getTree_path();
+        try {
+            String content = new String(Files.readAllBytes(Paths.get(path)));
+            return content;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return null;
     }
+
+    //#8 POST /api/school/{school_id}/tree + json
+
+    //#9 PUT /api/school/{school_id}/tree + json
+
+    //#10 DELETE /api/school/{school_id}/tree
+
 }

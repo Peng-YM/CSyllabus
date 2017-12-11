@@ -81,4 +81,9 @@ public class School {
         this.website = website;
         this.tree_path = tree_path;
     }
+
+    @Override
+    public String toString() {
+        return this.getSchool_name();
+    }
 }

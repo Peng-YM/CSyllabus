@@ -17,5 +17,11 @@ public interface SchoolService {
 
     File getSchoolTree(int id);
 
+    School addSchool(School school);
+
+    School updateSchool(School school);
+
+    void deleteSchool(int id);
+
 
 }

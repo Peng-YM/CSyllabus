@@ -1,20 +1,38 @@
 package com.peng1m.springboot.controller.RESTful;
 
+import com.peng1m.springboot.model.Course;
+import com.peng1m.springboot.service.CourseService;
+import com.peng1m.springboot.service.SchoolService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/course")
 public class CourseRestController {
 
+    private CourseService courseService;
+
+    @Autowired
+    public CourseRestController(CourseService courseService) {
+        this.courseService = courseService;
+    }
+
     String path_name = "Data/";
 
+    //#1 GET api/course
+    @GetMapping(value = "")
+    public List<Integer> getAllCourses() {
+        return courseService.getCoursesID();
+    }
 
+    //#2 GET api/course/{course_id}
     @PostMapping(value = "/{course_id}")
     public String Upload(@RequestParam("file") MultipartFile file) {
         if (!file.isEmpty()) {
@@ -45,4 +63,6 @@ public class CourseRestController {
             file.mkdirs();
         }
     }
+
+    //#3
 }
