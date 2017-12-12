@@ -62,8 +62,8 @@ public class CourseRestController {
     @PostMapping(value = "")
     public String addCourse(@RequestBody Object courseinfo) {
         Course course = courseinfo_to_course(courseinfo);
-        course.setLast_modify(getCurrentTime());
 
+        course.setLast_modify(getCurrentTime());
         // Need to set author here!
         logger.info("Add Course: {}", course);
         courseService.addCourse(course);
@@ -73,13 +73,15 @@ public class CourseRestController {
 
     //#4 PUT	api/course/{course_id}	+	json
     @PutMapping(value = "/{course_id}")
-    public String updateCourse(@RequestBody JSONObject courseinfo, @PathVariable("course_id") int course_id) {
+    public String updateCourse(@RequestBody Object courseinfo, @PathVariable("course_id") int course_id) {
         Course course = courseinfo_to_course(courseinfo);
         if (course != null) {
             course.setLast_modify(getCurrentTime());
             // need to set author here!
             Course course1 = courseService.updateCourse(course, course_id);
-            return course_to_courseinfo(course1);
+            if (course1 != null)
+                return course_to_courseinfo(course1);
+            else return null;
         }
         return null;
     }
