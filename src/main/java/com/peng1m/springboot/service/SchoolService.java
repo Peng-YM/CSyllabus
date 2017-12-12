@@ -19,7 +19,7 @@ public interface SchoolService {
 
     School addSchool(School school);
 
-    School updateSchool(School school);
+    School updateSchool(School school, int school_id);
 
     void deleteSchool(int id);
 

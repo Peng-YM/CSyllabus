@@ -60,8 +60,12 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     //Update visible information
-    public School updateSchool(School school) {
-        School oldSchool = schoolRepository.findBySchoolid(school.getSchoolid());
+    public School updateSchool(School school, int school_id) {
+        School oldSchool = schoolRepository.findBySchoolid(school_id);
+        if (oldSchool == null) {
+            System.out.println("school does not exist");
+            return null;
+        }
         if (school.getSchool_name() != null) {
             oldSchool.setSchool_name(school.getSchool_name());
         }
@@ -71,16 +75,13 @@ public class SchoolServiceImpl implements SchoolService {
         if (school.getWebsite() != null) {
             oldSchool.setWebsite(school.getWebsite());
         }
-
+        schoolRepository.save(oldSchool);
         return oldSchool;
     }
 
     public void deleteSchool(int id) {
         schoolRepository.delete(id);
     }
-
-
-
 
 
 }

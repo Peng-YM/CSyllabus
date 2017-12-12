@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "courses")
 public class Course {
     @Id
+    @Column(name = "courseid")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int courseid;
 
@@ -15,17 +16,17 @@ public class Course {
     @Column(name = "course_code")
     private String course_code;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "schoolid")
+    @ManyToOne(cascade = {CascadeType.REFRESH})
+    @JoinColumn(name = "school", referencedColumnName = "schoolid")
     private School school;
 
     @Column(name = "description")
     private String description;
 
     @Column(name = "prof")
-    private String prof;
+    private String professor;
 
-    @Column(name = "last_mpdify")
+    @Column(name = "last_modify")
     private String last_modify;
 
     public int getCourseid() {
@@ -68,12 +69,12 @@ public class Course {
         this.description = description;
     }
 
-    public String getProf() {
-        return prof;
+    public String getProfessor() {
+        return professor;
     }
 
-    public void setProf(String prof) {
-        this.prof = prof;
+    public void setProfessor(String prof) {
+        this.professor = prof;
     }
 
     public String getLast_modify() {
@@ -100,8 +101,8 @@ public class Course {
         this.syllabuspath = syllabuspath;
     }
 
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id")
+    @OneToOne(cascade = {CascadeType.REFRESH})
+    @JoinColumn(name = "author", referencedColumnName = "id")
     private User author;
 
     @Column(name = "syllabuspath")
@@ -112,9 +113,18 @@ public class Course {
         this.course_code = course_code;
         this.school = school;
         this.description = description;
-        this.prof = prof;
+        this.professor = prof;
         this.last_modify = last_modify;
         this.author = author;
         this.syllabuspath = syllabuspath;
+    }
+
+    public Course() {
+    }
+
+    @Override
+    public String toString() {
+        return "Course [courseid=" + courseid + ", name=" + course_name + ", course_code=" + course_code + ",school=" + school.getSchool_name() + ",description=" + description
+                + ",prof=" + professor + "]";
     }
 }

@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "schools")
 public class School {
     @Id
+    @Column(name = "schoolid")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int schoolid;
 
@@ -16,8 +17,8 @@ public class School {
     private String description;
 
     //Only allow one manager?
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id")
+    @OneToOne(cascade = {CascadeType.REMOVE})
+    @JoinColumn(name = "manager", referencedColumnName = "id")
     private User manager;
 
     @Column(name = "website")
@@ -82,8 +83,11 @@ public class School {
         this.tree_path = tree_path;
     }
 
+    public School() {
+    }
+
     @Override
     public String toString() {
-        return this.getSchool_name();
+        return "User [id=" + this.schoolid + ", name=" + this.getSchool_name() + ", description=" + this.getDescription() + ",description=" + this.getDescription() + ",website=" + this.getWebsite() + "]";
     }
 }

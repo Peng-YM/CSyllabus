@@ -41,34 +41,34 @@ public class SchoolRestController {
     @RequestMapping(value = "/{school_id}", method = RequestMethod.GET)
     public School findeById(@PathVariable("school_id") int school_id) {
         School school = schoolService.findByID(school_id);
-        School schoolinfo = new School(school.getSchool_name(), school.getDescription(), null, school.getWebsite(), null);
-        return schoolinfo;
+        return school;
     }
 
     //#3 POST /api/school + json
     @RequestMapping(value = "", method = RequestMethod.POST)
     public School addSchool(@RequestBody School school) {
-        logger.debug("Add School: {}", school);
+        logger.info("Add School: {}", school);
         return schoolService.addSchool(school);
     }
 
     //#4 PUT /api/school + json
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    public School updateSchool(@RequestBody School school) {
-        logger.debug("Add School: {}", school);
-        return schoolService.updateSchool(school);
+    @RequestMapping(value = "/{school_id}", method = RequestMethod.PUT)
+    public School updateSchool(@RequestBody School school, @PathVariable("school_id") int school_id) {
+        logger.info("Add School: {}", school);
+        return schoolService.updateSchool(school, school_id);
     }
 
     //#5 DELETE /api/school + json
     // json must contains school ID
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    public void deleteSchool(@RequestBody School school) {
-        logger.debug("Add School: {}", school);
-        schoolService.deleteSchool(school.getSchoolid());
+    @RequestMapping(value = "/{school_id}", method = RequestMethod.DELETE)
+    public void deleteSchool(@PathVariable("school_id") int school_id) {
+        //logger.info("Add School: {}", school);
+        schoolService.deleteSchool(school_id);
     }
 
     //#6 GET api/school/{school_id}/courses
-    public List<Integer> getSchoolCourses(int school_id) {
+    @GetMapping(value = "/{school_id}/courses")
+    public List<Integer> getSchoolCourses(@PathVariable("school_id")int school_id) {
         return schoolService.getSchoolCourses(school_id);
     }
 
