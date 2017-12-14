@@ -98,50 +98,15 @@ a. Description
 **Get** a json that represents the relationship of all courses in that school.
 
 b. Return Format: **json**
-Generated automatically by Javascript.
 ```json
 {
-	"version": "2.0",
-	"refs": {
-		"1": {
-			"_classPath": "Q.Position.CENTER_MIDDLE"
-		}
-	},
-	"datas": [
-		{
-			"_className": "Q.Text",
-			"json": {
-				"name": "计算机导论",
-				"styles": {
-					"label.position": {
-						"$ref": 1
-					},
-					"label.anchor.position": {
-						"$ref": 1
-					},
-					"label.background.color": "#dadada",
-					"label.size": {
-						"_className": "Q.Size",
-						"json": {
-							"width": 150,
-							"height": 70
-						}
-					},
-					"label.radius": 0,
-					"label.font.size": 18,
-					"label.color": "#555",
-					"border.width": 1,
-					"border.color": "#555",
-					"border.radius": 0
-				},
-				"location": {
-					"x": -776.6396587982824,
-					"y": -285.00512875536464
-				}
-			},
-			"_refId": "7048"
-		}
-  ]
+	"nodes": [
+		{ "name": "A" },
+		{ "name": "B" }
+	],
+	"links": [
+		{ "source": "A", "target": "B"}
+	]
 }
 ```
 
