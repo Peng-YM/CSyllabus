@@ -30,7 +30,7 @@ public class CourseTreeServiceImpl implements CourseTreeService {
             tree.addNode(c);
         }
 
-        for(CourseEdge e: edgeRepository.finBySchool(schoolService.findByID(school_id))){
+        for(CourseEdge e: edgeRepository.findBySchool(schoolService.findByID(school_id))){
             tree.addEdge(e.getSource().getCourseid(), e.getTarget().getCourseid());
         }
 

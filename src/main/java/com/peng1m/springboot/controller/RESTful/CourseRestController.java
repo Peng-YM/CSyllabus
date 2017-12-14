@@ -3,7 +3,7 @@ package com.peng1m.springboot.controller.RESTful;
 import com.peng1m.springboot.model.Course;
 import com.peng1m.springboot.model.User;
 import com.peng1m.springboot.model.School;
-import com.peng1m.springboot.org.json.JSONObject;
+import org.json.JSONObject;
 import com.peng1m.springboot.service.CourseService;
 import com.peng1m.springboot.service.SchoolService;
 import com.peng1m.springboot.service.UserService;

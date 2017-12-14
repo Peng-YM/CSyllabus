@@ -9,5 +9,5 @@ import java.util.List;
 public interface EdgeRepository extends CrudRepository<CourseEdge, Integer> {
     List<CourseEdge> findByEdgeid(int id);
 
-    List<CourseEdge> finBySchool(School school);
+    List<CourseEdge> findBySchool(School school);
 }
