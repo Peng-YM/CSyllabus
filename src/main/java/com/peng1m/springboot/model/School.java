@@ -1,6 +1,7 @@
 package com.peng1m.springboot.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "schools")
@@ -26,6 +27,9 @@ public class School {
 
     @Column(name = "tree_path")
     private String tree_path;
+
+    @OneToMany(mappedBy = "school")
+    private List<Course> courses;
 
     public int getSchoolid() {
         return schoolid;

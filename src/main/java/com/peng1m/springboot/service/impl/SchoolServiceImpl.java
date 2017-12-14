@@ -42,7 +42,7 @@ public class SchoolServiceImpl implements SchoolService {
     // find all courses of a given school
     public List<Integer> getSchoolCourses(int school_id) {
         ArrayList<Integer> courses_id = new ArrayList<>();
-        for (Course course : courseRepository.findBySchool(school_id)) {
+        for (Course course : courseRepository.findBySchool(schoolRepository.findBySchoolid(school_id))) {
             courses_id.add(course.getCourseid());
         }
         return courses_id;
