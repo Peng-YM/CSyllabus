@@ -3,6 +3,8 @@ package com.peng1m.springboot.controller.RESTful;
 import com.peng1m.springboot.model.Course;
 import com.peng1m.springboot.model.User;
 import com.peng1m.springboot.model.School;
+import com.peng1m.springboot.service.FileService;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.json.JSONObject;
 import com.peng1m.springboot.service.CourseService;
 import com.peng1m.springboot.service.SchoolService;
@@ -11,14 +13,13 @@ import com.peng1m.springboot.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -31,17 +32,20 @@ public class CourseRestController {
     private CourseService courseService;
     private SchoolService schoolService;
     private UserService userService;
+    private FileService fileService;
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Autowired
-    public CourseRestController(CourseService courseService, SchoolService schoolService, UserService userService) {
+    public CourseRestController(CourseService courseService, SchoolService schoolService, UserService userService, FileService fileService) throws IOException {
         this.courseService = courseService;
         this.schoolService = schoolService;
         this.userService = userService;
+        this.fileService = fileService;
+        setPath();
     }
 
 
-    String path_name = "Data/";
+    final String data_path = "data/course_syllabus/";
 
     //#1 GET api/course
     @GetMapping(value = "")
@@ -86,16 +90,29 @@ public class CourseRestController {
         return null;
     }
 
+    // #5 DELETE api/course/{course_id}
     @DeleteMapping(value = "/{course_id}")
     public void deleteCourse(@PathVariable("course_id") int course_id) {
         courseService.deleteCourse(course_id);
     }
 
-    @PostMapping(value = "/{course_id}")
-    public String Upload(@RequestParam("file") MultipartFile file) {
+    //#6 GET api/course/{course_id}/syllabus
+    @GetMapping(value = "/{course_id}/syllabus")
+    @ResponseBody
+    public FileSystemResource getFile(@PathVariable("course_id") int course_id) {
+        return new FileSystemResource(data_path + String.valueOf(course_id) + ".syllabus");
+        //return new FileSystemResource(fileService.getFileFor(fileName));
+    }
+
+
+    //#7 POST api/course/{course_id}/syllabus + PDF
+    @PostMapping(value = "/{course_id}/syllabus")
+    public String uploadfile(@RequestParam("file") MultipartFile file, @PathVariable("course_id") int course_id) {
         if (!file.isEmpty()) {
             try {
-                saveFile(file.getBytes(), path_name, file.getOriginalFilename());
+                String filename = getfile_nameById(course_id);
+                fileService.saveFile(file.getBytes(), filename);
+                //saveFile(file.getBytes(), course_id, file.getOriginalFilename());
             } catch (FileNotFoundException e) {
                 return "upload failed" + e.getMessage();
             } catch (IOException e) {
@@ -103,29 +120,58 @@ public class CourseRestController {
             }
             return "upload successfully";
         } else {
+            //logger.info("User {} is trying to login", userForm.getUsername());
             return "empty file";
         }
     }
 
-    private void saveFile(byte[] bytes, String path_name, String file_name) throws IOException {
-        setPath(path_name);
-        BufferedOutputStream stream = null;
-        stream = new BufferedOutputStream(new FileOutputStream(new File(path_name + file_name)));
-        stream.write(bytes);
-        stream.close();
+    //#8 PUT api/course/{course_id}/syllabus + PDF
+    @PutMapping(value = "/{course_id}/syllabus")
+    public String updatefile(@RequestParam("file") MultipartFile file, @PathVariable("course_id") int course_id) {
+        return uploadfile(file, course_id);
     }
 
-    private void setPath(String path_name) throws IOException {
-        File file = new File(path_name);
+    ;
+
+    //#9 DELETE  api/course/{course_id}/syllabus
+    @DeleteMapping(value = "/{course_id}/syllabus")
+    public String deletefile(@PathVariable("course_id") int course_id) {
+        //String fileName = data_path + String.valueOf(course_id) + ".syllabus";
+        String fileName = getfile_nameById(course_id);
+        if (fileService.delete(fileName)) {
+            return "delete successfully";
+        } else return "delete failed";
+    }
+
+    private String getfile_nameById(int course_id) {
+        return data_path + String.valueOf(course_id) + ".syllabus";
+    }
+
+    /*
+        private void saveFile(byte[] bytes, int course_id, String file_name) throws IOException {
+            String path = setPath(course_id);
+            BufferedOutputStream stream = null;
+            //String[] file_name_split = file_name.split("\\.");
+            //String file_type = file_name_split[file_name_split.length - 1];
+            stream = new BufferedOutputStream(new FileOutputStream(new File(path + String.valueOf(course_id) + ".syllabus")));
+            stream.write(bytes);
+            stream.close();
+        }
+    */
+    private String setPath() throws IOException {
+        String path = data_path;
+
+        File file = new File(path);
         if (!file.exists() && !file.isDirectory()) {
             file.mkdirs();
         }
+        return path;
     }
 
-    public String getCurrentTime() {
+
+    private String getCurrentTime() {
         return (dateFormat.format(new Date()));
     }
-    //#3
 
 
     private String course_to_courseinfo(Course course) {
