@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { SchoolDashboardComponent } from './school-dashboard/school-dashboard.component';
@@ -25,7 +25,8 @@ import { CourseRoutingModule } from './course-routing/course-routing.module';
   imports: [
     BrowserModule,
     SchoolRoutingModule,
-    CourseRoutingModule
+    CourseRoutingModule,
+    HttpClientModule
   ],
   providers: [SchoolService, UserService, CourseService],
   bootstrap: [AppComponent]
