@@ -6,12 +6,15 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-type': 'application/json'})
+  headers: new HttpHeaders(
+    {
+      'Content-type': 'application/json'
+    })
 };
 
 @Injectable()
 export class SchoolService {
-  private schoolUrl = 'http://csyllabus.org//api/school';
+  private schoolUrl = 'http://CSyllabus.org/api/school';
   constructor(
     private http: HttpClient
   ) { }

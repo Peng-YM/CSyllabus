@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @SpringBootApplication(scanBasePackages={"com.peng1m.springboot"})
@@ -23,5 +25,4 @@ public class CSyllabusApp {
 		registrationBean.setFilter(characterEncodingFilter);
 		return registrationBean;
 	}
-
 }

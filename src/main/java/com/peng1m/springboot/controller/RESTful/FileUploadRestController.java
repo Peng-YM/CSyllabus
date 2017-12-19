@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/course/upload")
 public class FileUploadRestController {
