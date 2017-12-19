@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface CourseRepository extends CrudRepository<Course, Integer> {
     List<Course> findBySchool(School school);
+
     Course findByCourseid(int courseid);
+
 
 }

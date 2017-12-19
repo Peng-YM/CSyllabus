@@ -3,6 +3,8 @@ package com.peng1m.springboot.controller.RESTful;
 import com.peng1m.springboot.model.Course;
 import com.peng1m.springboot.model.User;
 import com.peng1m.springboot.model.School;
+import com.peng1m.springboot.service.FileService;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.json.JSONObject;
 import com.peng1m.springboot.service.CourseService;
 import com.peng1m.springboot.service.SchoolService;
@@ -11,14 +13,17 @@ import com.peng1m.springboot.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -32,17 +37,17 @@ public class CourseRestController {
     private CourseService courseService;
     private SchoolService schoolService;
     private UserService userService;
+    private FileService fileService;
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Autowired
-    public CourseRestController(CourseService courseService, SchoolService schoolService, UserService userService) {
+    public CourseRestController(CourseService courseService, SchoolService schoolService, UserService userService, FileService fileService) throws IOException {
         this.courseService = courseService;
         this.schoolService = schoolService;
         this.userService = userService;
+        this.fileService = fileService;
+        fileService.setDataPath();
     }
-
-
-    String path_name = "Data/";
 
     //#1 GET api/course
     @GetMapping(value = "")
@@ -63,8 +68,8 @@ public class CourseRestController {
     @PostMapping(value = "")
     public String addCourse(@RequestBody Object courseinfo) {
         Course course = courseinfo_to_course(courseinfo);
-        course.setLast_modify(getCurrentTime());
 
+        course.setLast_modify(getCurrentTime());
         // Need to set author here!
         logger.info("Add Course: {}", course);
         courseService.addCourse(course);
@@ -74,27 +79,58 @@ public class CourseRestController {
 
     //#4 PUT	api/course/{course_id}	+	json
     @PutMapping(value = "/{course_id}")
-    public String updateCourse(@RequestBody JSONObject courseinfo, @PathVariable("course_id") int course_id) {
+    public String updateCourse(@RequestBody Object courseinfo, @PathVariable("course_id") int course_id) {
         Course course = courseinfo_to_course(courseinfo);
         if (course != null) {
             course.setLast_modify(getCurrentTime());
             // need to set author here!
             Course course1 = courseService.updateCourse(course, course_id);
-            return course_to_courseinfo(course1);
+            if (course1 != null)
+                return course_to_courseinfo(course1);
+            else return null;
         }
         return null;
     }
 
+    // #5 DELETE api/course/{course_id}
     @DeleteMapping(value = "/{course_id}")
     public void deleteCourse(@PathVariable("course_id") int course_id) {
+        // delete course in database
         courseService.deleteCourse(course_id);
+        //delete course syllabus in server
+        deletefile(course_id);
     }
 
-    @PostMapping(value = "/{course_id}")
-    public String Upload(@RequestParam("file") MultipartFile file) {
+    //#6 GET api/course/{course_id}/syllabus
+    @GetMapping(value = "/{course_id}/syllabus")
+    public @ResponseBody
+    HttpEntity<byte[]> download(@PathVariable("course_id") int course_id) throws IOException {
+        File file = getFilebyID(course_id);
+        byte[] document = FileCopyUtils.copyToByteArray(file);
+        HttpHeaders header = new HttpHeaders();
+        header.setContentType(new MediaType("application", "pdf"));
+        header.set("Content-Disposition", "inline; filename=" + file.getName());
+        header.setContentLength(document.length);
+        return new HttpEntity<byte[]>(document, header);
+    }
+
+    private File getFilebyID(int courseID) throws FileNotFoundException {
+        String file_name = fileService.getSyllabusFilenamByCourseID(courseID);
+        File file = new File(file_name);
+        if (!file.exists()) {
+            throw new FileNotFoundException("file with path: " + file_name + "was not found");
+        }
+        return file;
+    }
+
+    //#7 POST api/course/{course_id}/syllabus + PDF
+    @PostMapping(value = "/{course_id}/syllabus")
+    public String uploadfile(@RequestParam("file") MultipartFile file, @PathVariable("course_id") int course_id) {
         if (!file.isEmpty()) {
             try {
-                saveFile(file.getBytes(), path_name, file.getOriginalFilename());
+                String filename = fileService.getSyllabusFilenamByCourseID(course_id);
+                fileService.saveFile(file.getBytes(), filename);
+                //saveFile(file.getBytes(), course_id, file.getOriginalFilename());
             } catch (FileNotFoundException e) {
                 return "upload failed" + e.getMessage();
             } catch (IOException e) {
@@ -102,29 +138,28 @@ public class CourseRestController {
             }
             return "upload successfully";
         } else {
+            //logger.info("User {} is trying to login", userForm.getUsername());
             return "empty file";
         }
     }
 
-    private void saveFile(byte[] bytes, String path_name, String file_name) throws IOException {
-        setPath(path_name);
-        BufferedOutputStream stream = null;
-        stream = new BufferedOutputStream(new FileOutputStream(new File(path_name + file_name)));
-        stream.write(bytes);
-        stream.close();
+    //#8 PUT api/course/{course_id}/syllabus + PDF
+    @PutMapping(value = "/{course_id}/syllabus")
+    public String updatefile(@RequestParam("file") MultipartFile file, @PathVariable("course_id") int course_id) {
+        return uploadfile(file, course_id);
     }
 
-    private void setPath(String path_name) throws IOException {
-        File file = new File(path_name);
-        if (!file.exists() && !file.isDirectory()) {
-            file.mkdirs();
-        }
+    ;
+
+    //#9 DELETE  api/course/{course_id}/syllabus
+    @DeleteMapping(value = "/{course_id}/syllabus")
+    public String deletefile(@PathVariable("course_id") int course_id) {
+        return fileService.deleteSyllabusByCourseID(course_id);
     }
 
-    public String getCurrentTime() {
+    private String getCurrentTime() {
         return (dateFormat.format(new Date()));
     }
-    //#3
 
 
     private String course_to_courseinfo(Course course) {
