@@ -7,19 +7,21 @@ public class CourseTree {
     //still need because the graph may not connect
     private List<Integer> nodes;
 
-    private LinkedHashMap<Integer, Integer> edges;
+    //private LinkedHashMap<Integer, Integer> edges;
+
+    private LinkedList<Integer[]> edges;
 
     public CourseTree() {
     }
 
-    public CourseTree(List<Integer> nodes, LinkedHashMap<Integer, Integer> edges) {
+    public CourseTree(List<Integer> nodes, LinkedList<Integer[]> edges) {
         this.nodes = nodes;
         this.edges = edges;
     }
 
     public CourseTree(List<CourseEdge> courseEdges, List<Integer> courses) {
         nodes = new LinkedList<>();
-        edges = new LinkedHashMap<>();
+        edges = new LinkedList<>();
 
         for (CourseEdge courseEdge : courseEdges) {
             addEdge(courseEdge.getSourceId(), courseEdge.getTargetId());
@@ -29,7 +31,10 @@ public class CourseTree {
 
 
     public void addEdge(int source, int target) {
-        this.edges.put(source, target);
+        Integer[] edge = new Integer[2];
+        edge[0] = source;
+        edge[1] = target;
+        this.edges.add(edge);
     }
 
     public void addNode(int id) {
@@ -44,7 +49,7 @@ public class CourseTree {
         this.nodes = nodes;
     }
 
-    public LinkedHashMap<Integer, Integer> getEdges() {
+    public LinkedList<Integer[]> getEdges() {
         return edges;
     }
 }

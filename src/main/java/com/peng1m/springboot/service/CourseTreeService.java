@@ -15,6 +15,8 @@ public interface CourseTreeService {
 
     CourseTree updateCourseTree(CourseTree courseTree, int school_id);
 
+    void deleteBySourceOrTarget(int course_id);
+
     void deleteCourseTree(int school_id);
 
     void addCourseTree(CourseTree courseTree, int school_id);

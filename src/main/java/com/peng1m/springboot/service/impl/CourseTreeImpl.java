@@ -1,5 +1,6 @@
 package com.peng1m.springboot.service.impl;
 
+import com.peng1m.springboot.model.Course;
 import com.peng1m.springboot.model.CourseEdge;
 import com.peng1m.springboot.model.CourseTree;
 import com.peng1m.springboot.model.School;
@@ -9,11 +10,8 @@ import com.peng1m.springboot.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
-
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 @Service("curseTreeService")
 public class CourseTreeImpl implements CourseTreeService {
@@ -46,6 +44,13 @@ public class CourseTreeImpl implements CourseTreeService {
     }
 
     @Override
+    public void deleteBySourceOrTarget(int course_id){
+        String sql = "DELETE FROM `edges` WHERE `source`=? OR `target`=?;";
+        jdbcTemplate.update(sql, course_id,course_id);
+    }
+
+
+    @Override
     public void deleteCourseTree(int school_id) {
         School school = schoolService.findByID(school_id);
         edgeRepository.deleteByschool(school);
@@ -55,13 +60,14 @@ public class CourseTreeImpl implements CourseTreeService {
     @Override
     public void addCourseTree(CourseTree courseTree, int schoolid) {
         School school = schoolService.findByID(schoolid);
-        Map<Integer, Integer> edges = courseTree.getEdges();
-        for (Map.Entry<Integer, Integer> entry : edges.entrySet()) {
-            addEdge(schoolid, entry.getKey(), entry.getValue());
+
+        LinkedList<Integer[]> edges = courseTree.getEdges();
+        for (Integer[] edge : edges) {
+            addEdge(schoolid, edge[0], edge[1]);
         }
     }
 
-    public int addEdge(int school, int source, int target) {
+    private int addEdge(int school, int source, int target) {
         String sql = "INSERT INTO `edges` (`school`, `source`, `target`) VALUES (?,?,?);";
         return jdbcTemplate.update(sql, school, source, target);
     }

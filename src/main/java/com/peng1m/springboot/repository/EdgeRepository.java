@@ -1,5 +1,6 @@
 package com.peng1m.springboot.repository;
 
+import com.peng1m.springboot.model.Course;
 import com.peng1m.springboot.model.CourseEdge;
 import com.peng1m.springboot.model.CourseTree;
 import com.peng1m.springboot.model.School;
@@ -21,5 +22,6 @@ public interface EdgeRepository extends CrudRepository<CourseEdge, Integer> {
     //worked, but why?
     @Transactional
     void deleteByschool(School school);
+
 
 }

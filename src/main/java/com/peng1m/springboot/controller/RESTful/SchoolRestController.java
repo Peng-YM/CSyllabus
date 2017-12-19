@@ -77,6 +77,7 @@ public class SchoolRestController {
             fileService.deleteSyllabusByCourseID(course);
             courseService.deleteCourse(course);
         }
+        courseTreeService.deleteCourseTree(school_id);
         //delete school
         schoolService.deleteSchool(school_id);
     }
