@@ -1,5 +1,7 @@
 package com.peng1m.springboot.controller.RESTful;
 
+import com.peng1m.springboot.service.CourseService;
+import com.peng1m.springboot.service.FileService;
 import org.json.JSONObject;
 import com.peng1m.springboot.service.SchoolService;
 import com.peng1m.springboot.model.School;
@@ -22,10 +24,14 @@ import java.util.List;
 public class SchoolRestController {
     public static final Logger logger = LoggerFactory.getLogger(SchoolRestController.class);
     private SchoolService schoolService;
+    private FileService fileService;
+    private CourseService courseService;
 
     @Autowired
-    public SchoolRestController(SchoolService schoolService) {
+    public SchoolRestController(SchoolService schoolService, FileService fileService, CourseService courseService) {
         this.schoolService = schoolService;
+        this.fileService = fileService;
+        this.courseService = courseService;
     }
 
     // It will convert to JSON
@@ -61,13 +67,19 @@ public class SchoolRestController {
     // json must contains school ID
     @RequestMapping(value = "/{school_id}", method = RequestMethod.DELETE)
     public void deleteSchool(@PathVariable("school_id") int school_id) {
-        //logger.info("Add School: {}", school);
+        //delete all courses of the school
+        List<Integer> school_courses = schoolService.getSchoolCourses(school_id);
+        for (Integer course : school_courses) {
+            fileService.deleteSyllabusByCourseID(course);
+            courseService.deleteCourse(course);
+        }
+        //delete school
         schoolService.deleteSchool(school_id);
     }
 
     //#6 GET api/school/{school_id}/courses
     @GetMapping(value = "/{school_id}/courses")
-    public List<Integer> getSchoolCourses(@PathVariable("school_id")int school_id) {
+    public List<Integer> getSchoolCourses(@PathVariable("school_id") int school_id) {
         return schoolService.getSchoolCourses(school_id);
     }
 

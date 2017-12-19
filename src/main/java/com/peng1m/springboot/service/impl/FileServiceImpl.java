@@ -2,18 +2,57 @@ package com.peng1m.springboot.service.impl;
 
 import com.peng1m.springboot.service.FileService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 @Service
 public class FileServiceImpl implements FileService {
+
+    final String data_path = "data/course_syllabus/";
+
     @Override
     public String getFileFor(String fileName) {
         return null;
     }
+
+    @Override
+    public void setDataPath() {
+        setPath(data_path);
+    }
+
+    private void setPath(String path) {
+        File file = new File(path);
+        if (!file.exists() && !file.isDirectory()) {
+            file.mkdirs();
+        }
+
+    }
+
+    @Override
+    public String getSyllabusFilenamByCourseID(int course_id) {
+        return data_path + String.valueOf(course_id) + ".syllabus";
+    }
+
+    @Override
+    public File getSyllabusByCourseID(int courseID) throws FileNotFoundException {
+        String file_name = getSyllabusFilenamByCourseID(courseID);
+        File file = new File(file_name);
+        if (!file.exists()) {
+            throw new FileNotFoundException("file with path: " + file_name + "was not found");
+        }
+        return file;
+    }
+
+    @Override
+    public String deleteSyllabusByCourseID(@PathVariable("course_id") int course_id) {
+        //String fileName = data_path + String.valueOf(course_id) + ".syllabus";
+        String fileName = getSyllabusFilenamByCourseID(course_id);
+        if (delete(fileName)) {
+            return "delete successfully";
+        } else return "delete failed";
+    }
+
 
     @Override
     public boolean delete(String fileName) {

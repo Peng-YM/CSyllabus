@@ -14,6 +14,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -41,11 +45,8 @@ public class CourseRestController {
         this.schoolService = schoolService;
         this.userService = userService;
         this.fileService = fileService;
-        setPath();
+        fileService.setDataPath();
     }
-
-
-    final String data_path = "data/course_syllabus/";
 
     //#1 GET api/course
     @GetMapping(value = "")
@@ -93,24 +94,40 @@ public class CourseRestController {
     // #5 DELETE api/course/{course_id}
     @DeleteMapping(value = "/{course_id}")
     public void deleteCourse(@PathVariable("course_id") int course_id) {
+        // delete course in database
         courseService.deleteCourse(course_id);
+        //delete course syllabus in server
+        deletefile(course_id);
     }
 
     //#6 GET api/course/{course_id}/syllabus
     @GetMapping(value = "/{course_id}/syllabus")
-    @ResponseBody
-    public FileSystemResource getFile(@PathVariable("course_id") int course_id) {
-        return new FileSystemResource(data_path + String.valueOf(course_id) + ".syllabus");
-        //return new FileSystemResource(fileService.getFileFor(fileName));
+    public @ResponseBody
+    HttpEntity<byte[]> download(@PathVariable("course_id") int course_id) throws IOException {
+        File file = getFilebyID(course_id);
+        byte[] document = FileCopyUtils.copyToByteArray(file);
+        HttpHeaders header = new HttpHeaders();
+        header.setContentType(new MediaType("application", "pdf"));
+        header.set("Content-Disposition", "inline; filename=" + file.getName());
+        header.setContentLength(document.length);
+        return new HttpEntity<byte[]>(document, header);
     }
 
+    private File getFilebyID(int courseID) throws FileNotFoundException {
+        String file_name = fileService.getSyllabusFilenamByCourseID(courseID);
+        File file = new File(file_name);
+        if (!file.exists()) {
+            throw new FileNotFoundException("file with path: " + file_name + "was not found");
+        }
+        return file;
+    }
 
     //#7 POST api/course/{course_id}/syllabus + PDF
     @PostMapping(value = "/{course_id}/syllabus")
     public String uploadfile(@RequestParam("file") MultipartFile file, @PathVariable("course_id") int course_id) {
         if (!file.isEmpty()) {
             try {
-                String filename = getfile_nameById(course_id);
+                String filename = fileService.getSyllabusFilenamByCourseID(course_id);
                 fileService.saveFile(file.getBytes(), filename);
                 //saveFile(file.getBytes(), course_id, file.getOriginalFilename());
             } catch (FileNotFoundException e) {
@@ -136,38 +153,8 @@ public class CourseRestController {
     //#9 DELETE  api/course/{course_id}/syllabus
     @DeleteMapping(value = "/{course_id}/syllabus")
     public String deletefile(@PathVariable("course_id") int course_id) {
-        //String fileName = data_path + String.valueOf(course_id) + ".syllabus";
-        String fileName = getfile_nameById(course_id);
-        if (fileService.delete(fileName)) {
-            return "delete successfully";
-        } else return "delete failed";
+        return fileService.deleteSyllabusByCourseID(course_id);
     }
-
-    private String getfile_nameById(int course_id) {
-        return data_path + String.valueOf(course_id) + ".syllabus";
-    }
-
-    /*
-        private void saveFile(byte[] bytes, int course_id, String file_name) throws IOException {
-            String path = setPath(course_id);
-            BufferedOutputStream stream = null;
-            //String[] file_name_split = file_name.split("\\.");
-            //String file_type = file_name_split[file_name_split.length - 1];
-            stream = new BufferedOutputStream(new FileOutputStream(new File(path + String.valueOf(course_id) + ".syllabus")));
-            stream.write(bytes);
-            stream.close();
-        }
-    */
-    private String setPath() throws IOException {
-        String path = data_path;
-
-        File file = new File(path);
-        if (!file.exists() && !file.isDirectory()) {
-            file.mkdirs();
-        }
-        return path;
-    }
-
 
     private String getCurrentTime() {
         return (dateFormat.format(new Date()));
