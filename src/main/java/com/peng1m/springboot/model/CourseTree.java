@@ -1,43 +1,38 @@
 package com.peng1m.springboot.model;
 
-import java.util.List;
+import java.util.*;
 
 public class CourseTree {
-    class Edge{
-        private int source;
-        private int target;
-
-        private Edge(int source, int target){
-            this.source = source;
-            this.target = target;
-        }
-
-        public int getSource() {
-            return source;
-        }
-
-        public void setSource(int source) {
-            this.source = source;
-        }
-
-        public int getTarget() {
-            return target;
-        }
-
-        public void setTarget(int target) {
-            this.target = target;
-        }
-    }
-
     // graph
+    //still need because the graph may not connect
     private List<Integer> nodes;
-    private List<Edge> edges;
 
-    public void addEdge(int source, int target){
-        this.edges.add(new Edge(source, target));
+    private LinkedHashMap<Integer, Integer> edges;
+
+    public CourseTree() {
     }
 
-    public void addNode(int id){
+    public CourseTree(List<Integer> nodes, LinkedHashMap<Integer, Integer> edges) {
+        this.nodes = nodes;
+        this.edges = edges;
+    }
+
+    public CourseTree(List<CourseEdge> courseEdges, List<Integer> courses) {
+        nodes = new LinkedList<>();
+        edges = new LinkedHashMap<>();
+
+        for (CourseEdge courseEdge : courseEdges) {
+            addEdge(courseEdge.getSourceId(), courseEdge.getTargetId());
+        }
+        nodes = courses;
+    }
+
+
+    public void addEdge(int source, int target) {
+        this.edges.put(source, target);
+    }
+
+    public void addNode(int id) {
         this.nodes.add(id);
     }
 
@@ -49,11 +44,7 @@ public class CourseTree {
         this.nodes = nodes;
     }
 
-    public List<Edge> getEdges() {
+    public LinkedHashMap<Integer, Integer> getEdges() {
         return edges;
-    }
-
-    public void setEdges(List<Edge> edges) {
-        this.edges = edges;
     }
 }

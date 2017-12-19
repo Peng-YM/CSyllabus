@@ -1,6 +1,8 @@
 package com.peng1m.springboot.controller.RESTful;
 
+import com.peng1m.springboot.model.CourseTree;
 import com.peng1m.springboot.service.CourseService;
+import com.peng1m.springboot.service.CourseTreeService;
 import com.peng1m.springboot.service.FileService;
 import org.json.JSONObject;
 import com.peng1m.springboot.service.SchoolService;
@@ -26,12 +28,14 @@ public class SchoolRestController {
     private SchoolService schoolService;
     private FileService fileService;
     private CourseService courseService;
+    private CourseTreeService courseTreeService;
 
     @Autowired
-    public SchoolRestController(SchoolService schoolService, FileService fileService, CourseService courseService) {
+    public SchoolRestController(SchoolService schoolService, FileService fileService, CourseService courseService, CourseTreeService courseTreeService) {
         this.schoolService = schoolService;
         this.fileService = fileService;
         this.courseService = courseService;
+        this.courseTreeService = courseTreeService;
     }
 
     // It will convert to JSON
@@ -84,23 +88,28 @@ public class SchoolRestController {
     }
 
     //#7 GET api/school/{schoold_id}/tree
-    @RequestMapping(value = "/{school_id}/tree", method = RequestMethod.GET)
-    public String getSchoolTree(@PathVariable("school_id") int school_id) {
-        School school = schoolService.findByID(school_id);
-        String path = school.getTree_path();
-        try {
-            String content = new String(Files.readAllBytes(Paths.get(path)));
-            return content;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+    @GetMapping(value = "/{school_id}/tree")
+    public CourseTree getSchoolTree(@PathVariable("school_id") int school_id) {
+        CourseTree courseTree = courseTreeService.buildCourseTree(school_id);
+        return courseTree;
     }
 
     //#8 POST /api/school/{school_id}/tree + json
+    @PostMapping(value = "/{school_id}/tree")
+    public void addSchoolTree(@RequestBody CourseTree courseTree, @PathVariable("school_id") int school_id) {
+        courseTreeService.updateCourseTree(courseTree, school_id);
+    }
 
     //#9 PUT /api/school/{school_id}/tree + json
+    @PutMapping(value = "/{school_id}/tree")
+    public void updateSchoolTree(@RequestBody CourseTree courseTree, @PathVariable("school_id") int school_id) {
+        courseTreeService.updateCourseTree(courseTree, school_id);
+    }
 
     //#10 DELETE /api/school/{school_id}/tree
+    @DeleteMapping(value = "/{school_id}/tree")
+    public void deleteSchoolTree(@PathVariable("school_id") int school_id) {
+        courseTreeService.deleteCourseTree(school_id);
+    }
 
 }

@@ -22,6 +22,14 @@ public class CourseEdge {
     @JoinColumn(name = "school", referencedColumnName = "schoolid")
     private School school;
 
+    public int getSourceId() {
+        return getSource().getCourseid();
+    }
+
+    public int getTargetId() {
+        return getTarget().getCourseid();
+    }
+
     public int getEdgeid() {
         return edgeid;
     }
