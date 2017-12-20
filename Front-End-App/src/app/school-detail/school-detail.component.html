@@ -1,3 +1,24 @@
-<p>
-  school-detail works!
-</p>
+<div *ngIf = "school">
+  <h2>{{ school.school_name | uppercase }}</h2>
+  <div>
+    <h3>Basic Information</h3>
+    <img src="{{school.logo_src}}"><br>
+    <p>Name: {{school.school_name}}</p><br>
+    <p>Description: {{school.description}}</p>
+    <p>Website: {{school.website}}</p>
+  </div>
+  <div>
+    <h3>Courses</h3>
+    <ul>
+      <li *ngFor="let c of courses">
+        <a>{{c.course_name}}</a>
+      </li>
+
+    </ul>
+  </div>
+  <div>
+    <h3>Course Tree</h3>
+  </div>
+  <button routerLink="/school-editor/{{school.schoolid}}">Edit</button>
+  <button (click)="goBack()">Back</button>
+</div>

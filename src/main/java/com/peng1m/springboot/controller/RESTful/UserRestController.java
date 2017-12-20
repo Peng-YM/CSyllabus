@@ -15,7 +15,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-@CrossOrigin
+@CrossOrigin("*")
 @RequestMapping("/api/user")
 @RestController
 public class UserRestController {

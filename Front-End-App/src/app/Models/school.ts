@@ -1,6 +1,7 @@
 export class School {
-  school_id: number;
+  schoolid: number;
   school_name: string;
   website: string;
   description: string;
+  // logo_src: string;
 }

@@ -20,7 +20,7 @@ import java.util.List;
 /*
 * School API
 * */
-@CrossOrigin
+@CrossOrigin("*")
 @RequestMapping("/api/school")
 @RestController
 public class SchoolRestController {
@@ -44,7 +44,7 @@ public class SchoolRestController {
     }
 
     // Just information
-    //#2 GET api/school/{school_id}
+    //#2 GET api/school/{schoolid}
     @RequestMapping(value = "/{school_id}", method = RequestMethod.GET)
     public School findeById(@PathVariable("school_id") int school_id) {
         School school = schoolService.findByID(school_id);
@@ -79,7 +79,7 @@ public class SchoolRestController {
         schoolService.deleteSchool(school_id);
     }
 
-    //#6 GET api/school/{school_id}/courses
+    //#6 GET api/school/{schoolid}/courses
     @GetMapping(value = "/{school_id}/courses")
     public List<Integer> getSchoolCourses(@PathVariable("school_id") int school_id) {
         return schoolService.getSchoolCourses(school_id);
@@ -99,10 +99,10 @@ public class SchoolRestController {
         return null;
     }
 
-    //#8 POST /api/school/{school_id}/tree + json
+    //#8 POST /api/school/{schoolid}/tree + json
 
-    //#9 PUT /api/school/{school_id}/tree + json
+    //#9 PUT /api/school/{schoolid}/tree + json
 
-    //#10 DELETE /api/school/{school_id}/tree
+    //#10 DELETE /api/school/{schoolid}/tree
 
 }

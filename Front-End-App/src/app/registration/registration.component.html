@@ -1,0 +1,22 @@
+<h3>Registration</h3>
+<div>
+  <label>Email:
+    <input [(ngModel)] = 'user.email' placeholder="Email">
+  </label><br>
+
+  <label>User Name:
+    <input [(ngModel)] = 'user.name' placeholder="User Name">
+  </label><br>
+
+  <label>Password:
+    <input [(ngModel)] = 'user.password' type="password" placeholder="Password">
+  </label><br>
+
+  <label>Confirm Password:
+    <input [(ngModel)] = 'confirmPassword' type="password" placeholder="Confirm Password">
+  </label><br>
+
+  <button (click)="registration()">Registered</button>
+  <button (click)="reset()">Reset</button>
+  <p *ngIf = "errorMessage">Error: {{errorMessage}}</p>
+</div>

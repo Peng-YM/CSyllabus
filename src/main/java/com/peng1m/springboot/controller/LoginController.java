@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 
-
+@CrossOrigin("*")
 @RestController
 @Controller
 public class LoginController {
@@ -72,11 +72,23 @@ public class LoginController {
     }
 
     @PostMapping(value = "/login/api")
-    public ResponseEntity<?> createUser(@RequestBody User user) {
+    public ResponseEntity<?> login(@RequestBody User user) {
         logger.info("User {} is trying to login", user.getName());
 
         if (!userService.verifyUser(user.getName(), user.getPassword())) {
             return new ResponseEntity<Object>(new CustomErrorType("Invalid credential"), HttpStatus.CONFLICT);
+        }
+        securityService.autoLogin(user.getName(), user.getPassword());
+        return new ResponseEntity<Object>(HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/registration/api")
+    public ResponseEntity<?> createUser(@RequestBody User user) {
+        logger.info("User {} is trying to register", user.getName());
+
+        if (userService.findByName(user.getName()) != null) {
+            return new ResponseEntity<Object>(
+                    new CustomErrorType(String.format("User Name %s already exists", user.getName())), HttpStatus.CONFLICT);
         }
         securityService.autoLogin(user.getName(), user.getPassword());
         return new ResponseEntity<Object>(HttpStatus.OK);

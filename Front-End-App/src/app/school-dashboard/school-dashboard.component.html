@@ -1,9 +1,9 @@
 <h3>Top Schools</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let s of schools">
-    <div>
-      {{s.school_name}}<\br>
-      {{s.description}}<\br>
+<div>
+  <li *ngFor="let s of schools">
+    <div *ngIf="s">
+      <img src="{{s.logo_src}}"><br>
+      <a routerLink="/school/{{s.schoolid}}">{{s.school_name}}<br></a>
     </div>
-  </a>
+  </li>
 </div>

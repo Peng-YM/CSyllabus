@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { SchoolDashboardComponent } from './school-dashboard/school-dashboard.component';
@@ -10,9 +10,13 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { SchoolService } from './school.service';
 import { UserService } from './user.service';
 import { CourseService } from './course.service';
-import { SchoolRoutingModule } from './school-routing/school-routing.module';
-import { CourseRoutingModule } from './course-routing/course-routing.module';
-
+import { LoginService } from "./login.service";
+import { LoginComponent } from './login/login.component';
+import { FormsModule }    from '@angular/forms';
+import { RegistrationComponent } from './registration/registration.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { SchoolEditorComponent } from './school-editor/school-editor.component';
+import { CourseEditorComponent } from './course-editor/course-editor.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +24,19 @@ import { CourseRoutingModule } from './course-routing/course-routing.module';
     SchoolDashboardComponent,
     SchoolDetailComponent,
     CourseDetailComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    LoginComponent,
+    RegistrationComponent,
+    SchoolEditorComponent,
+    CourseEditorComponent
   ],
   imports: [
     BrowserModule,
-    SchoolRoutingModule,
-    CourseRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [SchoolService, UserService, CourseService],
+  providers: [SchoolService, UserService, CourseService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
