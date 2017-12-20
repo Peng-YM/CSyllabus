@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /*
 * School API
@@ -41,8 +43,10 @@ public class SchoolRestController {
     // It will convert to JSON
     //#1 GET api/school
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public List<Integer> getSchoolsID() {
-        return schoolService.getSchoolsID();
+    public Map getSchoolsID() {
+        Map<String, List<Integer>> schoolid = new HashMap<>();
+        schoolid.put("school_ids", schoolService.getSchoolsID());
+        return schoolid;
     }
 
     // Just information
@@ -84,8 +88,10 @@ public class SchoolRestController {
 
     //#6 GET api/school/{school_id}/courses
     @GetMapping(value = "/{school_id}/courses")
-    public List<Integer> getSchoolCourses(@PathVariable("school_id") int school_id) {
-        return schoolService.getSchoolCourses(school_id);
+    public Map getSchoolCourses(@PathVariable("school_id") int school_id) {
+        Map<String, List<Integer>> school_courses = new HashMap<>();
+        school_courses.put("course_ids", schoolService.getSchoolCourses(school_id));
+        return school_courses;
     }
 
     //#7 GET api/school/{schoold_id}/tree

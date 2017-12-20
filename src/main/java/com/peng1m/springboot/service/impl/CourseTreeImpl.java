@@ -10,8 +10,10 @@ import com.peng1m.springboot.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 @Service("curseTreeService")
 public class CourseTreeImpl implements CourseTreeService {
@@ -44,9 +46,9 @@ public class CourseTreeImpl implements CourseTreeService {
     }
 
     @Override
-    public void deleteBySourceOrTarget(int course_id){
+    public void deleteBySourceOrTarget(int course_id) {
         String sql = "DELETE FROM `edges` WHERE `source`=? OR `target`=?;";
-        jdbcTemplate.update(sql, course_id,course_id);
+        jdbcTemplate.update(sql, course_id, course_id);
     }
 
 
@@ -61,9 +63,9 @@ public class CourseTreeImpl implements CourseTreeService {
     public void addCourseTree(CourseTree courseTree, int schoolid) {
         School school = schoolService.findByID(schoolid);
 
-        LinkedList<Integer[]> edges = courseTree.getEdges();
-        for (Integer[] edge : edges) {
-            addEdge(schoolid, edge[0], edge[1]);
+        LinkedList<Map<String, Integer>> edges = courseTree.getEdges();
+        for (Map edge : edges) {
+            addEdge(schoolid, (int) edge.get("source"), (int) edge.get("target"));
         }
     }
 

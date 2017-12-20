@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -49,8 +50,10 @@ public class CourseRestController {
 
     //#1 GET api/course
     @GetMapping(value = "")
-    public List<Integer> getAllCourses() {
-        return courseService.getCoursesID();
+    public Map getAllCourses() {
+        Map<String, List<Integer>> courseids = new HashMap<>();
+        courseids.put("course_ids", courseService.getCoursesID());
+        return courseids;
     }
 
     //#2 GET api/course/{course_id}

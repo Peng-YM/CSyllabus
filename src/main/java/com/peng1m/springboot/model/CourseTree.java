@@ -9,12 +9,12 @@ public class CourseTree {
 
     //private LinkedHashMap<Integer, Integer> edges;
 
-    private LinkedList<Integer[]> edges;
+    private LinkedList<Map<String, Integer>> edges;
 
     public CourseTree() {
     }
 
-    public CourseTree(List<Integer> nodes, LinkedList<Integer[]> edges) {
+    public CourseTree(List<Integer> nodes, LinkedList<Map<String, Integer>> edges) {
         this.nodes = nodes;
         this.edges = edges;
     }
@@ -31,9 +31,10 @@ public class CourseTree {
 
 
     public void addEdge(int source, int target) {
-        Integer[] edge = new Integer[2];
-        edge[0] = source;
-        edge[1] = target;
+
+        HashMap<String, Integer> edge = new HashMap<>();
+        edge.put("source", source);
+        edge.put("target", target);
         this.edges.add(edge);
     }
 
@@ -49,7 +50,7 @@ public class CourseTree {
         this.nodes = nodes;
     }
 
-    public LinkedList<Integer[]> getEdges() {
+    public LinkedList<Map<String, Integer>> getEdges() {
         return edges;
     }
 }
