@@ -121,7 +121,7 @@ CREATE TABLE `schools` (
   `description` varchar(45) DEFAULT NULL,
   `manager` int(11) DEFAULT NULL,
   `website` varchar(45) DEFAULT NULL,
-  `tree_path` varchar(45) CHARACTER SET big5 DEFAULT NULL,
+  `logo_src` varchar(45) CHARACTER SET big5 DEFAULT NULL,
   PRIMARY KEY (`schoolid`),
   KEY `school_users_idx` (`manager`),
   CONSTRAINT `FK5fdys28aevrh10pf7f5vlwvqd` FOREIGN KEY (`manager`) REFERENCES `users` (`id`),
