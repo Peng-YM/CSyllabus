@@ -48,12 +48,7 @@ public class SchoolServiceImpl implements SchoolService {
         return courses_id;
     }
 
-    public File getSchoolTree(int id) {
-        School school = schoolRepository.findBySchoolid(id);
-        String tree_path = school.getTree_path();
-        File tree = new File(tree_path);
-        return tree;
-    }
+
 
     public School addSchool(School school) {
         return schoolRepository.save(school);

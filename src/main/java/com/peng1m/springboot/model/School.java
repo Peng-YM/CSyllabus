@@ -25,8 +25,8 @@ public class School {
     @Column(name = "website")
     private String website;
 
-    @Column(name = "tree_path")
-    private String tree_path;
+    @Column(name = "logo_src")
+    private String logo_src;
 
     @OneToMany(mappedBy = "school")
     private List<Course> courses;
@@ -71,20 +71,20 @@ public class School {
         this.website = website;
     }
 
-    public String getTree_path() {
-        return tree_path;
+    public String getLogo_sec() {
+        return logo_src;
     }
 
-    public void setTree_path(String tree_path) {
-        this.tree_path = tree_path;
+    public void setLogo_sec(String tree_path) {
+        this.logo_src = tree_path;
     }
 
-    public School(String school_name, String description, User manager, String website, String tree_path) {
+    public School(String school_name, String description, User manager, String website, String logo_sec) {
         this.school_name = school_name;
         this.description = description;
         this.manager = manager;
         this.website = website;
-        this.tree_path = tree_path;
+        this.logo_src = logo_sec;
     }
 
     public School() {

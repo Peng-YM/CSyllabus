@@ -3,12 +3,9 @@ package com.peng1m.springboot.controller.RESTful;
 import com.peng1m.springboot.model.Course;
 import com.peng1m.springboot.model.User;
 import com.peng1m.springboot.model.School;
-import com.peng1m.springboot.service.FileService;
+import com.peng1m.springboot.service.*;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.json.JSONObject;
-import com.peng1m.springboot.service.CourseService;
-import com.peng1m.springboot.service.SchoolService;
-import com.peng1m.springboot.service.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -38,21 +36,25 @@ public class CourseRestController {
     private SchoolService schoolService;
     private UserService userService;
     private FileService fileService;
+    private CourseTreeService courseTreeService;
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Autowired
-    public CourseRestController(CourseService courseService, SchoolService schoolService, UserService userService, FileService fileService) throws IOException {
+    public CourseRestController(CourseService courseService, SchoolService schoolService, UserService userService, FileService fileService, CourseTreeService courseTreeService) throws IOException {
         this.courseService = courseService;
         this.schoolService = schoolService;
         this.userService = userService;
         this.fileService = fileService;
+        this.courseTreeService = courseTreeService;
         fileService.setDataPath();
     }
 
     //#1 GET api/course
     @GetMapping(value = "")
-    public List<Integer> getAllCourses() {
-        return courseService.getCoursesID();
+    public Map getAllCourses() {
+        Map<String, List<Integer>> courseids = new HashMap<>();
+        courseids.put("course_ids", courseService.getCoursesID());
+        return courseids;
     }
 
     //#2 GET api/course/{course_id}
@@ -96,6 +98,7 @@ public class CourseRestController {
     @DeleteMapping(value = "/{course_id}")
     public void deleteCourse(@PathVariable("course_id") int course_id) {
         // delete course in database
+        courseTreeService.deleteBySourceOrTarget(course_id);
         courseService.deleteCourse(course_id);
         //delete course syllabus in server
         deletefile(course_id);

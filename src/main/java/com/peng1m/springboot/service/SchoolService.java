@@ -15,8 +15,6 @@ public interface SchoolService {
 
     List<Integer> getSchoolCourses(int school_id);
 
-    File getSchoolTree(int id);
-
     School addSchool(School school);
 
     School updateSchool(School school, int school_id);
