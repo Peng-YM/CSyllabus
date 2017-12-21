@@ -3,5 +3,5 @@ export class School {
   school_name: string;
   website: string;
   description: string;
-  // logo_src: string;
+  logo_src: string;
 }

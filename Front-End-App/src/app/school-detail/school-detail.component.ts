@@ -4,6 +4,7 @@ import { School } from "../Models/school";
 import { SchoolService } from "../school.service";
 import { ActivatedRoute } from "@angular/router";
 import { Course } from "../Models/course";
+import {CourseService} from "../course.service";
 
 @Component({
   selector: 'app-school-detail',
@@ -12,10 +13,11 @@ import { Course } from "../Models/course";
 })
 export class SchoolDetailComponent implements OnInit {
   school: School;
-  courses: Course;
+  courses: Course[];
   constructor(
     private route: ActivatedRoute,
     private schoolService: SchoolService,
+    private courseService: CourseService,
     private location: Location
   ) { }
 
@@ -30,7 +32,20 @@ export class SchoolDetailComponent implements OnInit {
   }
 
   getCourses(): void {
-
+    this.schoolService.getCourseIdList(this.school.schoolid)
+      .subscribe(
+        data => {
+          for (let course_id of data['course_ids']) {
+            this.courseService.getCourse(course_id)
+              .subscribe(
+                course => { this.courses.push(course) }
+              )
+          }
+        },
+        err => {
+          console.log(err);
+        }
+      );
   }
 
   goBack(): void {

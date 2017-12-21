@@ -21,7 +21,18 @@ export class LoginComponent implements OnInit {
   login(): void {
     console.log(`User: ${this.user.name} is trying to login`);
     this.loginService.login(this.user)
-      .subscribe(msg => this.errorMessage = msg);
+      .subscribe(
+        () => {},
+        err => {
+          this.errorMessage = err;
+          console.log(this.errorMessage);
+        },
+        ()=> {
+          this.errorMessage = null;
+          // TODO: Set Cookie
+          // TODO: Set conditional route to dashboard
+        }
+        );
   }
 
 

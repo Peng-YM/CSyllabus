@@ -1,3 +1,16 @@
-<p>
-  course-detail works!
-</p>
+<div *ngIf = "course">
+  <h2>{{course.course_name | uppercase}}</h2>
+  <div>
+    <h3>Basic Information</h3>
+    <p>Name: {{course.course_name}}</p><br>
+    <p>Code: {{course.course_code}}</p><br>
+    <p>Description: {{course.description}}</p><br>
+    <p>Professor: {{course.professor}}</p><br>
+    <p>Author: </p><br>
+    <span>School: <a routerLink="/school/{{course.school}}">{{school.school_name}}</a></span><br>
+    <div>
+      <button routerLink="/course-editor/{{course.courseid}}"></button>
+      <button (click)="goBack()">Back</button>
+    </div>
+  </div>
+</div>

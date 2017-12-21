@@ -5,7 +5,8 @@ export class MyConfiguration {
   static httpOptions =  {
     headers: new HttpHeaders(
       {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Charset': 'utf-8'
       })
   };
 }

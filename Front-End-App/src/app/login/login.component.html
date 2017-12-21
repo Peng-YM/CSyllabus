@@ -10,4 +10,5 @@
 
   <button (click)="login()">Login</button>
   <button routerLink="/registration">Registration</button>
+  <span *ngIf="errorMessage"><p>Your Password is Incorrect!</p></span>
 </div>

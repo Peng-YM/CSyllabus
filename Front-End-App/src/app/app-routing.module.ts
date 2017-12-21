@@ -6,6 +6,8 @@ import {RegistrationComponent} from "./registration/registration.component";
 import {SchoolDetailComponent} from "./school-detail/school-detail.component";
 import {SchoolEditorComponent} from "./school-editor/school-editor.component";
 import {UserDetailComponent} from "./user-detail/user-detail.component";
+import {CourseDetailComponent} from "./course-detail/course-detail.component";
+import {CourseEditorComponent} from "./course-editor/course-editor.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
   {path: 'school/:id', component: SchoolDetailComponent},
   {path: 'school-editor/:id', component: SchoolEditorComponent},
+  {path: 'course/:id', component: CourseDetailComponent},
+  {path: 'course-editor/:id', component: CourseEditorComponent},
   {path: 'profile', component: UserDetailComponent}
 ];
 

@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { School } from './Models/school';
-import { of } from 'rxjs/observable/of';
-import { catchError, map, tap } from 'rxjs/operators';
 import { MyConfiguration } from "./server.configuration";
+import {Course} from "./Models/course";
 
 
 @Injectable()
@@ -16,8 +15,8 @@ export class SchoolService {
 
   }
   /** GET school id list from the server */
-  getSchoolIdList(): Observable<any> {
-    return this.http.get<any>(this.schoolUrl, {observe: 'response'});
+  getSchoolIdList(): Observable<any>{
+    return this.http.get<any>(this.schoolUrl)
   }
   /** GET school by id, Will 404 if id not found */
   getSchool(id: number): Observable<School> {
@@ -28,15 +27,23 @@ export class SchoolService {
   addSchool(school: School): Observable<School> {
     return this.http.post<School>(this.schoolUrl, school, MyConfiguration.httpOptions);
   }
-
   /**PUT: update the school on the server*/
   updateSchool(school: School): Observable<any> {
     const url = `${this.schoolUrl}/${school.schoolid}`;
     return this.http.put(url, school, MyConfiguration.httpOptions);
   }
   /** DELETE: delete the school from the server */
-  deleteSchool(school_id: number): Observable<School> {
+  deleteSchool(school_id: number): Observable<any> {
     const url = `${this.schoolUrl}/${school_id}`;
-    return this.http.delete<School>(url);
+    return this.http.delete(url);
+  }
+  /**GET: get course id list*/
+  getCourseIdList(school_id: number): Observable<any> {
+    const url = `${this.schoolUrl}/${school_id}/course`;
+    return this.http.get(url);
+  }
+  //TODO: get course tree
+  getCourseTree(school_id: number): void{
+    
   }
 }

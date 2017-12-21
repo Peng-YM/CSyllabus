@@ -10,6 +10,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./school-editor.component.css']
 })
 export class SchoolEditorComponent implements OnInit {
+
   @Input() school: School;
 
   constructor(
@@ -20,8 +21,7 @@ export class SchoolEditorComponent implements OnInit {
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log(id);
-    if( id !== undefined ){
+    if( id !== -1 ){
       this.schoolService.getSchool(id)
         .subscribe(school => this.school = school);
       this.save = this.update;
@@ -29,15 +29,15 @@ export class SchoolEditorComponent implements OnInit {
       this.school = new School();
       this.save = this.insert;
     }
-
   }
 
   save(): void{}
 
   update(): void {
+    // TODO: Bug fix, logo_src cannot make changes.
     this.schoolService.updateSchool(this.school)
       .subscribe(()=>this.goBack());
-    console.log(`Updated School information: ${this.school}`);
+    console.log(`Updated School information: ${JSON.stringify(this.school)}`);
   }
 
   insert(): void {
@@ -49,7 +49,7 @@ export class SchoolEditorComponent implements OnInit {
 
   delete(): void {
     this.schoolService.deleteSchool(this.school.schoolid)
-      .subscribe(()=>this.goBack());
+      .subscribe(()=>this.location.go('/dashboard'));
   }
 
   goBack(): void {
