@@ -71,7 +71,7 @@ public class School {
         this.website = website;
     }
 
-    public String getLogo_sec() {
+    public String getLogo_src() {
         return logo_src;
     }
 
@@ -79,12 +79,12 @@ public class School {
         this.logo_src = tree_path;
     }
 
-    public School(String school_name, String description, User manager, String website, String logo_sec) {
+    public School(String school_name, String description, User manager, String website, String logo_src) {
         this.school_name = school_name;
         this.description = description;
         this.manager = manager;
         this.website = website;
-        this.logo_src = logo_sec;
+        this.logo_src = logo_src;
     }
 
     public School() {

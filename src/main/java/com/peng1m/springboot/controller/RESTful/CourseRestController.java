@@ -176,7 +176,7 @@ public class CourseRestController {
             courseinfo.put("author", course.getAuthor().getId());
         courseinfo.put("syllabuspath", course.getSyllabuspath());
         courseinfo.put("last_modify", course.getLast_modify());
-
+        courseinfo.put("course_id", course.getCourseid());
         return courseinfo.toString();
     }
 
@@ -190,6 +190,7 @@ public class CourseRestController {
         String prof = null;
         User author = null;
         String syllabuspath = null;
+        Integer courseid = null;
 
         course_name = (String) ((Map) courseinfo).get("course_name");
         course_code = (String) ((Map) courseinfo).get("course_code");

@@ -51,6 +51,7 @@ public class SchoolServiceImpl implements SchoolService {
 
 
     public School addSchool(School school) {
+
         return schoolRepository.save(school);
     }
 

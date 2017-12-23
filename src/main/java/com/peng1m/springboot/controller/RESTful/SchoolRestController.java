@@ -97,8 +97,7 @@ public class SchoolRestController {
     //#7 GET api/school/{schoold_id}/tree
     @GetMapping(value = "/{school_id}/tree")
     public CourseTree getSchoolTree(@PathVariable("school_id") int school_id) {
-        CourseTree courseTree = courseTreeService.buildCourseTree(school_id);
-        return courseTree;
+        return courseTreeService.buildCourseTree(school_id);
     }
 
     //#8 POST /api/school/{school_id}/tree + json
