@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/api/**", "/", "/login", "/login/api", "/registration", "/registration/api", "/403").permitAll()
+                    .antMatchers("/api/**", "/403").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin().loginPage("/login")
@@ -43,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity webSecurity) throws Exception{
         webSecurity
                 .ignoring()
-                .antMatchers("/webjars/**","/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+                .antMatchers("/api/**" ,"/data/**");
     }
 
     @Autowired

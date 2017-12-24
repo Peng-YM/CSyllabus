@@ -43,10 +43,11 @@ export class SchoolDashboardComponent implements OnInit {
             if(a.school_name > b.school_name){
               return 1;
             }
-            if(a.school_name < b.school_name){
+            if (a.school_name >= b.school_name) {
+              return 0;
+            } else {
               return -1;
             }
-            return 0;
           });
           console.log("Load schools successfully");
         });

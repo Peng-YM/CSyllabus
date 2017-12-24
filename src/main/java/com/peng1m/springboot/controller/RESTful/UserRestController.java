@@ -29,7 +29,6 @@ public class UserRestController {
 	}
 
 	// -------------------Retrieve All Users---------------------------------------------
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> listAllUsers() {
 		logger.info("retrieve all users");
@@ -42,7 +41,6 @@ public class UserRestController {
 	}
 
 	// -------------------Retrieve Single User------------------------------------------
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getUser(@PathVariable("id") int id) {
 		logger.info("Fetching User with id {}", id);
@@ -56,7 +54,6 @@ public class UserRestController {
 	}
 
 	// -------------------Create a User-------------------------------------------
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public ResponseEntity<?> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
 		logger.info("Creating User : {}", user);
@@ -78,7 +75,6 @@ public class UserRestController {
 	}
 
 	// ------------------- Update a User ------------------------------------------------
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateUser(@PathVariable("id") int id, @RequestBody User user) {
 		logger.info("Updating User with id {}", id);
@@ -100,7 +96,6 @@ public class UserRestController {
 	}
 
 	// ------------------- Delete a User-----------------------------------------
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> deleteUser(@PathVariable("id") int id) {
 		logger.info("Fetching & Deleting User with id {}", id);
@@ -116,7 +111,6 @@ public class UserRestController {
 	}
 
 	// ------------------- Delete All Users-----------------------------
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/", method = RequestMethod.DELETE)
 	public ResponseEntity<User> deleteAllUsers() {
 		logger.info("Deleting All Users");

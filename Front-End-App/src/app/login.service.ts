@@ -4,8 +4,8 @@ import {Observable} from "rxjs/Observable";
 import {HttpClient} from "@angular/common/http";
 import {MyConfiguration} from "./server.configuration";
 
-const loginUrl = `${MyConfiguration.host}/login/api`;
-const registrationUrl = `${MyConfiguration.host}/registration/api`;
+const loginUrl = `${MyConfiguration.host}/api/login`;
+const registrationUrl = `${MyConfiguration.host}/api/registration`;
 
 @Injectable()
 export class LoginService {

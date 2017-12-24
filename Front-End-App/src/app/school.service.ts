@@ -23,6 +23,11 @@ export class SchoolService {
     const url = `${this.schoolUrl}/${id}`;
     return this.http.get<School>(url);
   }
+
+  getMultiSchools(school_ids: number[]): Observable<any>{
+    const url = `${this.schoolUrl}/multi`;
+    return this.http.post(url, {"school_ids": school_ids}, MyConfiguration.httpOptions);
+  }
   /**POST: add a new school to the server */
   addSchool(school: School): Observable<School> {
     return this.http.post<School>(this.schoolUrl, school, MyConfiguration.httpOptions);

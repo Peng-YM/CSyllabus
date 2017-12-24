@@ -5,6 +5,8 @@ import {ActivatedRoute} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {CookieService} from "ngx-cookie-service";
 import {MyConfiguration} from "../server.configuration";
+import {SchoolService} from "../school.service";
+import {School} from "../Models/school";
 
 @Component({
   selector: 'app-user-detail',
@@ -14,12 +16,14 @@ import {MyConfiguration} from "../server.configuration";
 
 export class UserDetailComponent implements OnInit {
   user: User;
-  private userUrl: string = "/api/user";
+  userSchool: School;
+  private userUrl: string = `${MyConfiguration.host}/api/user`;
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
     private http: HttpClient,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private schoolService: SchoolService
   ) { }
   ngOnInit() {
     this.getCurrentUser();
@@ -32,6 +36,18 @@ export class UserDetailComponent implements OnInit {
       .subscribe(
         user => {
           this.user = user;
+        },
+        err => {},
+        () => {
+          if(this.user.school !== null){
+            this.schoolService.getSchool(this.user.school)
+              .subscribe(
+                school => {
+                  this.userSchool = school;
+                }
+              );
+          }
+
         }
       );
   }

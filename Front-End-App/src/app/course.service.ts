@@ -16,6 +16,11 @@ export class CourseService {
     return this.http.get<Course>(url);
   }
 
+  getMultipleCourses(course_ids: number[]): Observable<any> {
+    const url = `${this.courseUrl}/multi`;
+    return this.http.post(url, {"course_ids": course_ids});
+  }
+
   getCourseList(): Observable<any>{
     let course_id_list: number[];
     return this.http.get(this.courseUrl);
@@ -34,29 +39,18 @@ export class CourseService {
     return this.http.delete(url);
   }
 
-  // TODO: getSyllabus
-  // getSyllabus(id: number): File {
-  //   const url = `${this.courseUrl}/${id}/syllabus`;
-  //   return this.http.get(url);
-  // }
-
-  // TODO:addSyllabus
-  addSyllabus(id: number, inputValue: any): void {
+  getSyllabus(id: number): Observable<any> {
     const url = `${this.courseUrl}/${id}/syllabus`;
-    let httpOptions =  {
-      headers: new HttpHeaders(
-        {
-          'Content-Type': 'multipart/form-data',
-          'Charset': 'utf-8'
-        })
-    };
-    let formData = new FormData();
-    formData.append("name", "Name");
-    formData.append("file", inputValue.files[0]);
-    this.http.post(
-      url, formData, httpOptions
-    );
+    return this.http.get(url);
   }
 
+  getPrerequisite(): Observable<any> {
+    const url = ``;
+    return this.http.get(url);
+  }
 
+  addPrerequisite(course_ids: number[]): Observable<any> {
+    const url = ``;
+    return this.http.post(url, {"course_ids": course_ids}, MyConfiguration.httpOptions);
+  }
 }

@@ -34,15 +34,27 @@
 
     <div class="form-group">
       <label for="school">School</label>
-      <select class="form-control" name="school" id="school"
+      <select class="form-control" name="school" id="school" (change)="getPrerequisite()"
               [(ngModel)] = "selectedSchoolId" required  #school="ngModel">
         <option *ngFor="let s of schools" [value]="s.schoolid">{{s.school_name}}</option>
       </select>
     </div>
 
     <div class="form-group">
-      <label for="syllabus">Syllabus</label>
-      <input type="file" name="syllabus" id="syllabus">
+      <label for="prerequisite">
+        Prerequisite
+      </label>
+      <ul id="prerequisite">
+        <li *ngFor="let c of coursesInSchool">
+          <label for="{{c.course_id}}">{{c.course_name}}</label>
+          <input type="checkbox" id="{{c.course_id}}">
+        </li>
+      </ul>
+    </div>
+
+    <div class="form-group">
+      <label for="syllabus">Syllabus(PDF format)</label>
+      <input type="file" id="syllabus" name="syllabus" #fileInput>
     </div>
 
     <div class="btn-group" role="group">

@@ -23,9 +23,10 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     console.log(`User: ${this.user.name} is trying to login`);
+    console.log(JSON.stringify(this.user));
     this.loginService.login(this.user)
       .subscribe(
-        () => {},
+        user => {this.user = user},
         err => {
           this.errorMessage = err;
           console.log(this.errorMessage);
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
         ()=> {
           this.errorMessage = null;
           this.setCookie();
+          document.location.assign("/dashboard");
         }
         );
   }

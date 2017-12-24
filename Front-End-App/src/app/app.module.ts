@@ -20,6 +20,7 @@ import {CourseEditorComponent} from './course-editor/course-editor.component';
 import {CookieService} from "ngx-cookie-service";
 import {PdfViewerModule} from "ng2-pdf-viewer"
 import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
+import {FileSelectDirective} from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
     LoginComponent,
     RegistrationComponent,
     SchoolEditorComponent,
-    CourseEditorComponent
+    CourseEditorComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,

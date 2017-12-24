@@ -16,7 +16,7 @@
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
             <input type="text" name="username" class="form-control" id="username"
                    placeholder="User Name" required autofocus
-                   [ngModel]="user.name"
+                   [(ngModel)]="user.name" #username="ngModel"
             >
           </div>
         </div>
@@ -37,28 +37,16 @@
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
             <input type="password" name="password" class="form-control" id="password"
-                   placeholder="Password" required [ngModel]="user.password">
+                   placeholder="Password" required [(ngModel)]="user.password" #passowrd="ngModel">
           </div>
         </div>
       </div>
 
     </div>
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6" style="padding-top: .35rem">
-        <div class="form-check mb-2 mr-sm-2 mb-sm-0">
-          <label class="form-check-label">
-            <input class="form-check-input" name="remember"
-                   type="checkbox" >
-            <span style="padding-bottom: .15rem">Remember me</span>
-          </label>
-        </div>
-      </div>
-    </div>
     <div class="row" style="padding-top: 1rem">
       <div class="col-md-3"></div>
       <div class="col-md-6">
-        <button type="submit" class="btn btn-success"><i class="fa fa-sign-in" (click)="login()"></i> Login</button>
+        <button type="submit" class="btn btn-success" (click)="login()"><i class="fa fa-sign-in"></i> Login</button>
         <span>New to here? <a class="btn btn-link" routerLink="/registration">Join us!</a></span>
       </div>
     </div>

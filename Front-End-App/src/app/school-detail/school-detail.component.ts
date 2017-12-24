@@ -41,12 +41,12 @@ export class SchoolDetailComponent implements OnInit {
     this.schoolService.getCourseIdList(this.school.schoolid)
       .subscribe(
         data => {
-          for (let course_id of data['course_ids']) {
-            this.courseService.getCourse(course_id)
-              .subscribe(
-                course => { this.courses.push(course) }
-              )
-          }
+          this.courseService.getMultipleCourses(data['course_ids'])
+            .subscribe(
+              data => {
+                this.courses = data.slice();
+              }
+            );
         },
         err => {
           console.log(err);
