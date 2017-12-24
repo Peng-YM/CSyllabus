@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +27,7 @@ import java.util.Map;
 @RequestMapping("/api/school")
 @RestController
 public class SchoolRestController {
-    public static final Logger logger = LoggerFactory.getLogger(SchoolRestController.class);
+    private static final Logger logger = LoggerFactory.getLogger(SchoolRestController.class);
     private SchoolService schoolService;
     private FileService fileService;
     private CourseService courseService;
@@ -55,6 +56,18 @@ public class SchoolRestController {
     public School findeById(@PathVariable("school_id") int school_id) {
         School school = schoolService.findByID(school_id);
         return school;
+    }
+
+    //get school infos
+    //POST api/school/multi
+    @PostMapping(value = "/multi")
+    public List<School> findSchools(@RequestBody Map<String, List<Integer>> map) {
+        List<Integer> school_ids = map.get("school_ids");
+        List<School> schools = new LinkedList<>();
+        for (Integer id : school_ids) {
+            schools.add(schoolService.findByID(id));
+        }
+        return schools;
     }
 
     //#3 POST /api/school + json

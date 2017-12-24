@@ -21,10 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/course")
@@ -64,6 +61,19 @@ public class CourseRestController {
             return course_to_courseinfo(course);
         else return null;
     }
+
+    //get school infos
+    //POST api/course/multi
+    @PostMapping(value = "/multi")
+    public List<Course> findSchools(@RequestBody Map<String, List<Integer>> map) {
+        List<Integer> course_ids = map.get("course_ids");
+        List<Course> courses = new LinkedList<>();
+        for (Integer id : course_ids) {
+            courses.add(courseService.getCourseByID(id));
+        }
+        return courses;
+    }
+
 
     //#3 POST api/course+json
     @PostMapping(value = "")
