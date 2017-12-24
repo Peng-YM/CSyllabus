@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { User } from "../Models/user";
 import { LoginService } from "../login.service";
+import { CookieService } from "ngx-cookie-service";
+import {MyConfiguration} from "../server.configuration";
 
 @Component({
   selector: 'app-login',
@@ -11,6 +13,7 @@ export class LoginComponent implements OnInit {
   @Input() user: User;
   private errorMessage;
   constructor(
+    private cookieService: CookieService,
     private loginService: LoginService
   ) { }
 
@@ -29,8 +32,7 @@ export class LoginComponent implements OnInit {
         },
         ()=> {
           this.errorMessage = null;
-          // TODO: Set Cookie
-          // TODO: Set conditional route to dashboard
+          this.setCookie();
         }
         );
   }
@@ -39,5 +41,10 @@ export class LoginComponent implements OnInit {
   reset(): void {
     this.user = new User();
   }
+
+  setCookie(): void {
+    this.cookieService.set(MyConfiguration.COOKIE_NAME, `${this.user.id}`);
+  }
+
 
 }

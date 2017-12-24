@@ -1,21 +1,55 @@
-<h2>Edit Course Information</h2>
-<div *ngIf="course">
-  <label>Code:
-    <input [(ngModel)] = course.course_code>
-  </label><br>
-  <label>Name:
-    <input [(ngModel)] = course.course_name>
-  </label><br>
-  <label>Description:
-    <textarea [(ngModel)] = course.description></textarea>
-  </label><br>
-  <label>Professor:
-    <input [(ngModel)] = course.professor>
-  </label><br>
-  <label>School:
-    <input [(ngModel)] = course.school>
-  </label><br>
-  <button (click)="save()">Save</button>
-  <button (click)="delete()">Delete</button>
-  <button (click)="goBack()">Back</button>
+<div *ngIf="course" class="container">
+  <h2>Course Editor</h2>
+  <form #courseForm="ngForm">
+    <div class="form-group">
+      <label for="code">Code</label>
+      <input [(ngModel)] = course.course_code
+             id = "code" name="code"
+             class="form-control" required #code="ngModel">
+      <div [hidden]="code.valid || code.pristine"
+           class="alert alert-danger">
+        Course Code is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input [(ngModel)] = course.course_name name="name" id="name"
+             class="form-control" required #name="ngModel">
+      <div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        Course Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea [(ngModel)] = course.description name = "description" id="description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="professor">Professor</label>
+      <input [(ngModel)] = course.professor name="professor" id="professor" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="school">School</label>
+      <select class="form-control" name="school" id="school"
+              [(ngModel)] = "selectedSchoolId" required  #school="ngModel">
+        <option *ngFor="let s of schools" [value]="s.schoolid">{{s.school_name}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="syllabus">Syllabus</label>
+      <input type="file" name="syllabus" id="syllabus">
+    </div>
+
+    <div class="btn-group" role="group">
+      <button (click)="save()" class="btn btn-outline-primary" type="submit" >Save</button>
+      <button (click)="delete()" class="btn btn-outline-danger" type="submit">Delete</button>
+      <button (click)="goBack()" class="btn btn-outline-warning" type="submit">Back</button>
+    </div>
+
+  </form>
 </div>

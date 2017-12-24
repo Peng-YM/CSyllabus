@@ -3,6 +3,10 @@ import { CourseService } from "../course.service";
 import {Course} from "../Models/course";
 import {ActivatedRoute} from "@angular/router";
 import {Location} from "@angular/common";
+import {School} from "../Models/school";
+import {SchoolService} from "../school.service";
+import {UserService} from "../user.service";
+import {User} from "../Models/user";
 
 @Component({
   selector: 'app-course-editor',
@@ -12,13 +16,23 @@ import {Location} from "@angular/common";
 export class CourseEditorComponent implements OnInit {
   @Input() course: Course;
   errorMessage: string;
+  schools: School[] = [];
+  selectedSchoolId: number;
+
   constructor(
+    private schoolService: SchoolService,
     private courseService: CourseService,
+    private userService: UserService,
     private location: Location,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.setOperation();
+    this.getSchools();
+  }
+
+  setOperation(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     if( id !== -1 ){
       this.courseService.getCourse(id)
@@ -30,20 +44,42 @@ export class CourseEditorComponent implements OnInit {
     }
   }
 
+  getSchools(): void{
+    this.schoolService.getSchoolIdList()
+      .subscribe(
+        data => {
+          for (let id of data['school_ids']){
+            this.schoolService.getSchool(id)
+              .subscribe(
+                school => {this.schools.push(school)}
+              );
+          }
+        }
+      );
+  }
+
   save(): void {}
 
   // TODO: Upload PDF
   update(): void {
-    this.courseService.updateCourse(this.course)
+    this.course.school = this.selectedSchoolId;
+    this.userService.getCurrentUser()
       .subscribe(
-        ()=>this.goBack(),
-        err => { this.errorMessage = err },
-        () => { this.errorMessage = null }
+        user => { this.course.author =  user.id},
+        err => { console.log(err) },
+      () => {
+          this.courseService.updateCourse(this.course)
+            .subscribe(
+              ()=>this.goBack(),
+              err => { this.errorMessage = err },
+              () => { this.errorMessage = null }
+            );
+      }
       );
-    console.log(`Updated Course information: ${JSON.stringify(this.course)}`);
   }
 
   insert(): void {
+    this.course.school = this.selectedSchoolId;
     this.courseService.addCourse(this.course)
       .subscribe(
         () => {},
@@ -51,7 +87,7 @@ export class CourseEditorComponent implements OnInit {
           this.errorMessage = err;
         },
         () => { this.errorMessage = null }
-      )
+      );
   }
 
   delete(): void {

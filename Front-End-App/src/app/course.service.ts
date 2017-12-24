@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { MyConfiguration } from "./server.configuration";
 import { Observable } from "rxjs/Observable";
 import { Course } from "./Models/course";
@@ -41,10 +41,22 @@ export class CourseService {
   // }
 
   // TODO:addSyllabus
-  // addSyllabus(id: number ): Observable<any> {
-  //   const url = `${this.courseUrl}/${id}/syllabus`;
-  //   return this.http.post()
-  // }
+  addSyllabus(id: number, inputValue: any): void {
+    const url = `${this.courseUrl}/${id}/syllabus`;
+    let httpOptions =  {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'multipart/form-data',
+          'Charset': 'utf-8'
+        })
+    };
+    let formData = new FormData();
+    formData.append("name", "Name");
+    formData.append("file", inputValue.files[0]);
+    this.http.post(
+      url, formData, httpOptions
+    );
+  }
 
 
 }

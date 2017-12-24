@@ -9,7 +9,15 @@
     <p>Author: </p><br>
     <span>School: <a routerLink="/school/{{course.school}}">{{school.school_name}}</a></span><br>
     <div>
-      <button routerLink="/course-editor/{{course.courseid}}"></button>
+      <h3><a href="{{pdfSrc}}">Syllabus</a></h3>
+      <div style="width:800px;height:600px;overflow-y:scroll;">
+        <pdf-viewer [src]="pdfSrc"
+                    [render-text]="true"
+        ></pdf-viewer>
+      </div>
+    </div>
+    <div>
+      <button routerLink="/course-editor/{{course.courseid}}">Edit</button>
       <button (click)="goBack()">Back</button>
     </div>
   </div>

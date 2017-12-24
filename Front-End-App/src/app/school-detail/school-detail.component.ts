@@ -13,7 +13,7 @@ import {CourseService} from "../course.service";
 })
 export class SchoolDetailComponent implements OnInit {
   school: School;
-  courses: Course[];
+  courses: Course[] = [];
   constructor(
     private route: ActivatedRoute,
     private schoolService: SchoolService,
@@ -28,7 +28,13 @@ export class SchoolDetailComponent implements OnInit {
   getSchoolInformation(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.schoolService.getSchool(id)
-      .subscribe(school => this.school = school);
+      .subscribe(
+        school => { this.school = school; },
+        err => {console.log(err)},
+        () => {
+          this.getCourses();
+        }
+      );
   }
 
   getCourses(): void {
@@ -46,6 +52,11 @@ export class SchoolDetailComponent implements OnInit {
           console.log(err);
         }
       );
+  }
+
+  //TODO: get json from server
+  getCourseTree(): void {
+
   }
 
   goBack(): void {

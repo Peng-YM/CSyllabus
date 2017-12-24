@@ -11,15 +11,14 @@
     <h3>Courses</h3>
     <ul>
       <li *ngFor="let c of courses">
-        <a>{{c.course_name}}</a>
+        <a routerLink="/course/{{c.courseid}}">{{c.course_name}}</a>
       </li>
-
     </ul>
   </div>
   <div>
     <h3>Course Tree</h3>
     <!--TODO: display course tree-->
   </div>
-  <button routerLink="/school-editor/{{school.schoolid}}">Edit</button>
+  <button routerLink="/schoolEditor/{{school.schoolid}}">Edit</button>
   <button (click)="goBack()">Back</button>
 </div>

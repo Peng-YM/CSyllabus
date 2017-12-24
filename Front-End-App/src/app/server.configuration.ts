@@ -9,4 +9,5 @@ export class MyConfiguration {
         'Charset': 'utf-8'
       })
   };
+  static COOKIE_NAME: string = "6fZaZcfhM%KNRaXa6612";
 }

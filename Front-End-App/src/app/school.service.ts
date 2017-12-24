@@ -39,11 +39,11 @@ export class SchoolService {
   }
   /**GET: get course id list*/
   getCourseIdList(school_id: number): Observable<any> {
-    const url = `${this.schoolUrl}/${school_id}/course`;
+    const url = `${this.schoolUrl}/${school_id}/courses`;
     return this.http.get(url);
   }
   //TODO: get course tree
   getCourseTree(school_id: number): void{
-    
+
   }
 }

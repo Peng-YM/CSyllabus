@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Course} from "../Models/course";
 import {ActivatedRoute} from "@angular/router";
 import {CourseService} from "../course.service";
@@ -6,6 +6,7 @@ import {Location} from "@angular/common";
 import {User} from "../Models/user";
 import {School} from "../Models/school";
 import {SchoolService} from "../school.service";
+import {MyConfiguration} from "../server.configuration";
 
 @Component({
   selector: 'app-course-detail',
@@ -15,13 +16,14 @@ import {SchoolService} from "../school.service";
 export class CourseDetailComponent implements OnInit {
   course: Course;
   author: User;
-  school: School;
-  constructor(
-    private route: ActivatedRoute,
-    private courseService: CourseService,
-    private schoolService: SchoolService,
-    private location: Location
-  ) { }
+  school: School = new School();
+  pdfSrc: string;
+
+  constructor(private route: ActivatedRoute,
+              private courseService: CourseService,
+              private schoolService: SchoolService,
+              private location: Location) {
+  }
 
   ngOnInit() {
     this.getCourseInformation();
@@ -29,6 +31,7 @@ export class CourseDetailComponent implements OnInit {
 
   getCourseInformation(): void {
     const id = +this.route.snapshot.paramMap.get('id');
+    this.pdfSrc = `${MyConfiguration.host}/api/course/${id}/syllabus`;
     this.courseService.getCourse(id)
       .subscribe(
         course => {
@@ -36,20 +39,18 @@ export class CourseDetailComponent implements OnInit {
         },
         err => {
           console.log(err);
+        },
+        () => {
+          this.getSchool();
         }
       );
-  }
-
-  // TODO: get author
-  getAuthor(): void {
-
   }
 
   getSchool(): void {
     this.schoolService.getSchool(this.course.school)
       .subscribe(
         school => {
-          this.school = this.school;
+          this.school = school;
         }
       )
   }
