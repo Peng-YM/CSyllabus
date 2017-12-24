@@ -91,7 +91,7 @@ export class CourseEditorComponent implements OnInit {
   }
 
   delete(): void {
-    this.courseService.deleteCourse(this.course.courseid)
+    this.courseService.deleteCourse(this.course.course_id)
       .subscribe(
         () => {},
         err => {

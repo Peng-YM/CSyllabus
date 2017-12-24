@@ -48,6 +48,7 @@ $ java -jar target/CSyllabus-0.0.1-SNAPSHOT.jar
 1. [Install Node.js](https://nodejs.org/en/download/package-manager/)
 2. Install Angular
 ```
+$ cd Front-End-App
 $ npm install -g @angular/cli
 ```
 3. Install other package
@@ -57,6 +58,5 @@ $ npm install ngx-cookie-service --save
 ```
 #### 3.2 Run client
 ```
-$ cd Front-End-App
 $ ng serve --open
 ```
