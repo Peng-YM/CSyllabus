@@ -1,7 +1,7 @@
 import {HttpHeaders} from "@angular/common/http";
 
 export class MyConfiguration {
-  static host: string = "http://localhost:12000";
+  static host: string = "http://localhost:8888";
   static httpOptions =  {
     headers: new HttpHeaders(
       {
