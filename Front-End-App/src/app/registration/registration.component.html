@@ -1,22 +1,67 @@
-<h3>Registration</h3>
-<div>
-  <label>Email:
-    <input [(ngModel)] = 'user.email' placeholder="Email">
-  </label><br>
+<div class="container">
+  <form class="form-horizontal" role="form" #loginForm="ngForm">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h2>Join Us</h2>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group has-danger">
+          <label class="sr-only" for="username">User Name</label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+            <input type="text" name="username" class="form-control" id="username"
+                   placeholder="User Name" required autofocus
+                   [ngModel]="user.name"
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback" *ngIf="errorMessage">
+                        <span class="text-danger align-middle">
+                            <i class="fa fa-close"></i> Your user name or password is invalid!
+                        </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="sr-only" for="password">Password</label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+            <input type="password" name="password" class="form-control" id="password"
+                   placeholder="Password" required [ngModel]="user.password">
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <label>User Name:
-    <input [(ngModel)] = 'user.name' placeholder="User Name">
-  </label><br>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="sr-only" for="password">Confirm Password</label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+            <input type="password" name="confirm-password" class="form-control" id="confirm-password"
+                   placeholder="Confirm Your Password" required [ngModel]="confirmPassword">
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <label>Password:
-    <input [(ngModel)] = 'user.password' type="password" placeholder="Password">
-  </label><br>
-
-  <label>Confirm Password:
-    <input [(ngModel)] = 'confirmPassword' type="password" placeholder="Confirm Password">
-  </label><br>
-
-  <button (click)="registration()">Registered</button>
-  <button (click)="reset()">Reset</button>
-  <p *ngIf = "errorMessage">Error: {{errorMessage}}</p>
+    <div class="row" style="padding-top: 1rem">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-success"><i class="fa fa-sign-in" (click)="registration()"></i> Sign Up</button>
+      </div>
+    </div>
+  </form>
 </div>
