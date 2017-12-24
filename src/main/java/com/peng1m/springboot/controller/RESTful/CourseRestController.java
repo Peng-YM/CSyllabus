@@ -186,7 +186,7 @@ public class CourseRestController {
             courseinfo.put("author", course.getAuthor().getId());
         courseinfo.put("syllabuspath", course.getSyllabuspath());
         courseinfo.put("last_modify", course.getLast_modify());
-        courseinfo.put("course_id", course.getCourseid());
+        courseinfo.put("courseid", course.getCourseid());
         return courseinfo.toString();
     }
 
