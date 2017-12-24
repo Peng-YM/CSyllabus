@@ -32,7 +32,10 @@ public class LoginRestController {
             return new ResponseEntity<Object>(new CustomErrorType("Invalid credential"), HttpStatus.CONFLICT);
         }
         securityService.autoLogin(user.getName(), user.getPassword());
-        return new ResponseEntity<Object>(HttpStatus.OK);
+        user = this.userService.findByName(user.getName());
+        user.setPassword(null);
+        user.setRole(null);
+        return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
     @PostMapping(value = "/api/registration")
@@ -44,6 +47,9 @@ public class LoginRestController {
                     new CustomErrorType(String.format("User Name %s already exists", user.getName())), HttpStatus.CONFLICT);
         }
         securityService.autoLogin(user.getName(), user.getPassword());
-        return new ResponseEntity<Object>(HttpStatus.OK);
+        user = this.userService.findByName(user.getName());
+        user.setPassword(null);
+        user.setRole(null);
+        return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 }
