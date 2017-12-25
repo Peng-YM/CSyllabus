@@ -54,15 +54,12 @@ export class CourseEditorComponent implements OnInit {
     this.schoolService.getSchoolIdList()
       .subscribe(
         data => {
-          for (let id of data['school_ids']){
-            this.schoolService.getSchool(id)
-              .subscribe(
-                school => {this.schools.push(school)},
-                err => {
-                  console.log(err);
-                }
-              );
-          }
+          this.schoolService.getMultiSchools(data['school_ids'])
+            .subscribe(
+              schools => {
+                this.schools = schools.slice();
+              }
+            )
         }
       );
   }
@@ -74,7 +71,7 @@ export class CourseEditorComponent implements OnInit {
         .subscribe(
           data => {
             for (let id of data['course_ids']){
-              if (id !== this.course.course_id){
+              if (id !== this.course.courseid){
                 this.courseService.getCourse(id)
                   .subscribe(
                     course => {
@@ -100,7 +97,7 @@ export class CourseEditorComponent implements OnInit {
           this.courseService.addCourse(this.course)
             .subscribe(
               course => {
-                this.uploadPdf(this.course.course_id);
+                this.uploadPdf(this.course.courseid);
               },
               err => { this.errorMessage = err },
               () => {
@@ -118,7 +115,7 @@ export class CourseEditorComponent implements OnInit {
     this.courseService.updateCourse(this.course)
       .subscribe(
         course => {
-          this.uploadPdf(this.course.course_id);
+          this.uploadPdf(this.course.courseid);
         },
         err => {
           this.errorMessage = err;
@@ -151,7 +148,7 @@ export class CourseEditorComponent implements OnInit {
   }
 
   delete(): void {
-    this.courseService.deleteCourse(this.course.course_id)
+    this.courseService.deleteCourse(this.course.courseid)
       .subscribe(
         () => {},
         err => {

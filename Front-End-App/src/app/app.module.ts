@@ -21,6 +21,8 @@ import {CookieService} from "ngx-cookie-service";
 import {PdfViewerModule} from "ng2-pdf-viewer"
 import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 import {FileSelectDirective} from 'ng2-file-upload';
+import {DisqusModule} from "ngx-disqus";
+import { SearchService } from './search.service';
 
 @NgModule({
   declarations: [
@@ -40,9 +42,10 @@ import {FileSelectDirective} from 'ng2-file-upload';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    PdfViewerModule
+    PdfViewerModule,
+    DisqusModule.forRoot('pengym')
   ],
-  providers: [CookieService, SchoolService, UserService, CourseService, LoginService],
+  providers: [CookieService, SchoolService, UserService, CourseService, LoginService, SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

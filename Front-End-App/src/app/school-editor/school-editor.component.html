@@ -1,18 +1,35 @@
-<h2>Edit School Information</h2>
-<div *ngIf="school">
-  <label>Name:
-    <input [(ngModel)] = school.school_name>
-  </label><br>
-  <label>Website:
-    <input [(ngModel)] = school.website>
-  </label><br>
-  <label>Logo:
-    <input [(ngModel)] = school.logo_src>
-  </label><br>
-  <label>Description:
-    <textarea [(ngModel)] = school.description></textarea>
-  </label><br>
-  <button (click)="save()">Save</button>
-  <button (click)="delete()">Delete</button>
-  <button (click)="goBack()">Back</button>
+<div class="container">
+  <h2>Edit School Information</h2>
+  <div *ngIf="school">
+    <form #schoolForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+          <input [(ngModel)] = school.school_name required id="name" name="name" #name="ngModel" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="website">Website:</label>
+          <input [(ngModel)] = school.website id="website" name="website" #website="ngModel" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="logo">Logo:</label>
+        <input [(ngModel)] = school.logo_src id="logo" name="logo" #logo="ngModel" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea [(ngModel)] = school.description id="description"
+                  name="description" #description="ngModel" class="form-control" required></textarea>
+      </div>
+
+      <div class="btn-group">
+        <button (click)="save()" class="btn btn-primary">Save</button>
+        <button (click)="delete()" class="btn btn-danger">Delete</button>
+        <button (click)="goBack()" class="btn btn-danger">Back</button>
+      </div>
+
+    </form>
+  </div>
 </div>
+

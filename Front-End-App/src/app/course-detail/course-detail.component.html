@@ -1,4 +1,4 @@
-<div *ngIf = "course">
+<div *ngIf = "course" class="container">
   <h2>{{course.course_name | uppercase}}</h2>
   <div>
     <h3>Basic Information</h3>
@@ -6,7 +6,7 @@
     <p>Code: {{course.course_code}}</p><br>
     <p>Description: {{course.description}}</p><br>
     <p>Professor: {{course.professor}}</p><br>
-    <p>Author: </p><br>
+    <p *ngIf="author">Author: {{author.name}}</p><br>
     <span>School: <a routerLink="/school/{{course.school}}">{{school.school_name}}</a></span><br>
     <div>
       <h3><a href="{{pdfSrc}}">Syllabus</a></h3>
@@ -16,13 +16,14 @@
         ></pdf-viewer>
       </div>
     </div>
-    <div>
-      <button routerLink="/course-editor/{{course.course_id}}">Edit</button>
-      <button (click)="goBack()">Back</button>
+    <div class="btn-group">
+      <button routerLink="/course-editor/{{course.course_id}}"
+              class="btn btn-primary">Edit</button>
+      <button (click)="goBack()" class="btn btn-danger">Back</button>
     </div>
     <!--评论区-->
     <div>
-
+      <disqus [identifier]="pageId"></disqus>
     </div>
   </div>
 </div>

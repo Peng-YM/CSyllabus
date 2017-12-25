@@ -7,13 +7,14 @@
         <hr>
       </div>
     </div>
+
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <div class="form-group has-danger">
           <label class="sr-only" for="username">User Name</label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
             <input type="text" name="username" class="form-control" id="username"
                    placeholder="User Name" required autofocus
                    [ngModel]="user.name"
@@ -29,6 +30,32 @@
         </div>
       </div>
     </div>
+
+
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group has-danger">
+          <label class="sr-only" for="email">Email</label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+            <input type="email" name="email" class="form-control" id="email"
+                   placeholder="Email" required autofocus
+                   [ngModel]="user.email"
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback" *ngIf="errorMessage">
+                        <span class="text-danger align-middle">
+                            <i class="fa fa-close"></i> Your user name or password is invalid!
+                        </span>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">

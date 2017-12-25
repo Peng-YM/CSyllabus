@@ -7,6 +7,7 @@ import {User} from "../Models/user";
 import {School} from "../Models/school";
 import {SchoolService} from "../school.service";
 import {MyConfiguration} from "../server.configuration";
+import {UserService} from "../user.service";
 
 @Component({
   selector: 'app-course-detail',
@@ -18,19 +19,23 @@ export class CourseDetailComponent implements OnInit {
   author: User;
   school: School = new School();
   pdfSrc: string;
+  pageId: string;
 
   constructor(private route: ActivatedRoute,
               private courseService: CourseService,
               private schoolService: SchoolService,
+              private userService: UserService,
               private location: Location) {
   }
 
   ngOnInit() {
     this.getCourseInformation();
+    this.getAuthor();
   }
 
   getCourseInformation(): void {
     const id = +this.route.snapshot.paramMap.get('id');
+    this.pageId = `api/course/${id}`;
     this.pdfSrc = `${MyConfiguration.host}/api/course/${id}/syllabus`;
     this.courseService.getCourse(id)
       .subscribe(
@@ -43,6 +48,13 @@ export class CourseDetailComponent implements OnInit {
         () => {
           this.getSchool();
         }
+      );
+  }
+
+  getAuthor(): void {
+    this.userService.getCurrentUser()
+      .subscribe(
+        user => {this.author = user;}
       );
   }
 

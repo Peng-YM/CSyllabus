@@ -14,6 +14,8 @@ import {CourseService} from "../course.service";
 export class SchoolDetailComponent implements OnInit {
   school: School;
   courses: Course[] = [];
+  pageId: string;
+
   constructor(
     private route: ActivatedRoute,
     private schoolService: SchoolService,
@@ -27,6 +29,7 @@ export class SchoolDetailComponent implements OnInit {
 
   getSchoolInformation(): void {
     const id = +this.route.snapshot.paramMap.get('id');
+    this.pageId = `/school/${id}`;
     this.schoolService.getSchool(id)
       .subscribe(
         school => { this.school = school; },

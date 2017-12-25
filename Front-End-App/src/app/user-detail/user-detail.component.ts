@@ -7,6 +7,7 @@ import {CookieService} from "ngx-cookie-service";
 import {MyConfiguration} from "../server.configuration";
 import {SchoolService} from "../school.service";
 import {School} from "../Models/school";
+import {LoginService} from "../login.service";
 
 @Component({
   selector: 'app-user-detail',
@@ -23,7 +24,8 @@ export class UserDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private http: HttpClient,
     private cookieService: CookieService,
-    private schoolService: SchoolService
+    private schoolService: SchoolService,
+    private loginService: LoginService
   ) { }
   ngOnInit() {
     this.getCurrentUser();
@@ -50,5 +52,9 @@ export class UserDetailComponent implements OnInit {
 
         }
       );
+  }
+
+  logout(): void {
+    this.loginService.logout();
   }
 }
