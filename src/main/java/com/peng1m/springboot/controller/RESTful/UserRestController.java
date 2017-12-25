@@ -1,8 +1,12 @@
 package com.peng1m.springboot.controller.RESTful;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.peng1m.springboot.model.User;
+import com.peng1m.springboot.service.StarCourseService;
+import com.peng1m.springboot.service.StarSchoolService;
 import com.peng1m.springboot.service.UserService;
 import com.peng1m.springboot.util.CustomErrorType;
 import org.slf4j.Logger;
@@ -19,109 +23,169 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RestController
 public class UserRestController {
 
-	public static final Logger logger = LoggerFactory.getLogger(UserRestController.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserRestController.class);
 
-	private UserService userService;
-	@Autowired
-	public UserRestController(UserService userService){
-		this.userService = userService;
-	}
 
-	// -------------------Retrieve All Users---------------------------------------------
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ResponseEntity<List<User>> listAllUsers() {
-		logger.info("retrieve all users");
-		List<User> users = userService.userList();
-		if (users.isEmpty()) {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-			// You many decide to return HttpStatus.NOT_FOUND
-		}
-		return new ResponseEntity<>(users, HttpStatus.OK);
-	}
+    private UserService userService;
 
-	// -------------------Retrieve Single User------------------------------------------
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> getUser(@PathVariable("id") int id) {
-		logger.info("Fetching User with id {}", id);
-		User user = userService.findById(id);
-		if (user == null) {
-			logger.error("User with id {} not found.", id);
-			return new ResponseEntity<>(new CustomErrorType("User with id " + id
-					+ " not found"), HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<User>(user, HttpStatus.OK);
-	}
+    private StarSchoolService starSchoolService;
 
-	// -------------------Create a User-------------------------------------------
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public ResponseEntity<?> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
-		logger.info("Creating User : {}", user);
+    private StarCourseService starCourseService;
 
-		if (userService.findByName(user.getName()) != null) {
-			logger.error("Unable to create. A User with name {} already exist", user.getName());
-			return new ResponseEntity<>(new CustomErrorType("Unable to create. A User with name " +
-					user.getName() + " already exist."),HttpStatus.CONFLICT);
-		}
-		if (user.getRole() == null){
-			//default role is "user"
-			
-		}
-		userService.addUser(user);
+    @Autowired
+    public UserRestController(UserService userService, StarCourseService starCourseService, StarSchoolService starSchoolService) {
+        this.userService = userService;
+        this.starCourseService = starCourseService;
+        this.starSchoolService = starSchoolService;
+        logger.info("init user controller");
+    }
 
-		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/api/user/{id}").buildAndExpand(user.getId()).toUri());
-		return new ResponseEntity<String>(headers, HttpStatus.CREATED);
-	}
+    // -------------------Retrieve All Users---------------------------------------------
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ResponseEntity<List<User>> listAllUsers() {
+        logger.info("retrieve all users");
+        List<User> users = userService.userList();
+        if (users.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            // You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
 
-	// ------------------- Update a User ------------------------------------------------
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<?> updateUser(@PathVariable("id") int id, @RequestBody User user) {
-		logger.info("Updating User with id {}", id);
+    // -------------------Retrieve Single User------------------------------------------
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> getUser(@PathVariable("id") int id) {
+        logger.info("Fetching User with id {}", id);
+        User user = userService.findById(id);
+        if (user == null) {
+            logger.error("User with id {} not found.", id);
+            return new ResponseEntity<>(new CustomErrorType("User with id " + id
+                    + " not found"), HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<User>(user, HttpStatus.OK);
+    }
 
-		User currentUser = userService.findById(id);
+    // -------------------Create a User-------------------------------------------
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public ResponseEntity<?> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
+        logger.info("Creating User : {}", user);
 
-		if (currentUser == null) {
-			logger.error("Unable to update. User with id {} not found.", id);
-			return new ResponseEntity<>(new CustomErrorType("Unable to upate. User with id " + id + " not found."),
-					HttpStatus.NOT_FOUND);
-		}
+        if (userService.findByName(user.getName()) != null) {
+            logger.error("Unable to create. A User with name {} already exist", user.getName());
+            return new ResponseEntity<>(new CustomErrorType("Unable to create. A User with name " +
+                    user.getName() + " already exist."), HttpStatus.CONFLICT);
+        }
+        if (user.getRole() == null) {
+            //default role is "user"
 
-		currentUser.setName(user.getName());
-		currentUser.setEmail(user.getEmail());
-		currentUser.setPassword(user.getPassword());
+        }
+        userService.addUser(user);
 
-		userService.updateUser(currentUser);
-		return new ResponseEntity<User>(currentUser, HttpStatus.OK);
-	}
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(ucBuilder.path("/api/user/{id}").buildAndExpand(user.getId()).toUri());
+        return new ResponseEntity<String>(headers, HttpStatus.CREATED);
+    }
 
-	// ------------------- Delete a User-----------------------------------------
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<?> deleteUser(@PathVariable("id") int id) {
-		logger.info("Fetching & Deleting User with id {}", id);
+    // ------------------- Update a User ------------------------------------------------
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<?> updateUser(@PathVariable("id") int id, @RequestBody User user) {
+        logger.info("Updating User with id {}", id);
 
-		User user = userService.findById(id);
-		if (user == null) {
-			logger.error("Unable to delete. User with id {} not found.", id);
-			return new ResponseEntity<>(new CustomErrorType("Unable to delete. User with id " + id + " not found."),
-					HttpStatus.NOT_FOUND);
-		}
-		userService.deleteById(id);
-		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
-	}
+        User currentUser = userService.findById(id);
 
-	// ------------------- Delete All Users-----------------------------
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-	@RequestMapping(value = "/", method = RequestMethod.DELETE)
-	public ResponseEntity<User> deleteAllUsers() {
-		logger.info("Deleting All Users");
+        if (currentUser == null) {
+            logger.error("Unable to update. User with id {} not found.", id);
+            return new ResponseEntity<>(new CustomErrorType("Unable to upate. User with id " + id + " not found."),
+                    HttpStatus.NOT_FOUND);
+        }
 
-		userService.deleteAll();
-		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
-	}
+        currentUser.setName(user.getName());
+        currentUser.setEmail(user.getEmail());
+        currentUser.setPassword(user.getPassword());
 
+        userService.updateUser(currentUser);
+        return new ResponseEntity<User>(currentUser, HttpStatus.OK);
+    }
+
+    // ------------------- Delete a User-----------------------------------------
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteUser(@PathVariable("id") int id) {
+        logger.info("Fetching & Deleting User with id {}", id);
+
+        User user = userService.findById(id);
+        if (user == null) {
+            logger.error("Unable to delete. User with id {} not found.", id);
+            return new ResponseEntity<>(new CustomErrorType("Unable to delete. User with id " + id + " not found."),
+                    HttpStatus.NOT_FOUND);
+        }
+        userService.deleteById(id);
+        return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+    }
+
+    // ------------------- Delete All Users-----------------------------
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @RequestMapping(value = "/", method = RequestMethod.DELETE)
+    public ResponseEntity<User> deleteAllUsers() {
+        logger.info("Deleting All Users");
+
+        userService.deleteAll();
+        return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+    }
+
+    //------------------- Get user Stars---------------------------
+    @GetMapping(value = "/star/{user_id}")
+    public Map<String, List<Integer>> getuserStar(@PathVariable("user_id") int user_id) {
+        logger.info("try to get all stars");
+        List<Integer> starschools = starSchoolService.getStarSchool(user_id);
+        List<Integer> starcourses = starCourseService.getSrarCourses(user_id);
+        Map<String, List<Integer>> map = new HashMap<>();
+        map.put("school_ids", starschools);
+        map.put("course_ids", starcourses);
+        System.out.println(map);
+        return map;
+    }
+
+    //-------------post all user's star-----------------
+    @PostMapping(value = "/star/{user_id}")
+    public Map<String, List<Integer>> postUserStar(@PathVariable("user_id") int user_id, @RequestBody Map<String, List<Integer>> star_map) {
+        List<Integer> course_ids = star_map.get("course_ids");
+        List<Integer> school_ids = star_map.get("school_ids");
+
+        if (course_ids != null)
+            starCourseService.putStarCourses(user_id, course_ids);
+        if (school_ids != null)
+            starSchoolService.putStarSchools(user_id, school_ids);
+        return getuserStar(user_id);
+    }
+
+    //--------------add new star of the user------------
+    //return all stars of the user
+    @PutMapping(value = "/star/{user_id}")
+    public Map<String, List<Integer>> updateUserStar(@PathVariable("user_id") int user_id, @RequestBody Map<String, List<Integer>> star_map) {
+        List<Integer> course_ids = star_map.get("course_ids");
+        List<Integer> school_ids = star_map.get("school_ids");
+
+        if (school_ids != null)
+            starSchoolService.inseatAllStarSchools(user_id, school_ids);
+        if (course_ids != null)
+            starCourseService.insertAllStarCourses(user_id, course_ids);
+        return null;
+    }
+
+    //----------------delete these stars----------------
+    @DeleteMapping(value = "/star/{user_id}")
+    public void deletUserStar(@PathVariable("user_id") int user_id, @RequestBody Map<String, List<Integer>> star_map) {
+        List<Integer> course_ids = star_map.get("course_ids");
+        List<Integer> school_ids = star_map.get("school_ids");
+        if (course_ids != null)
+            starCourseService.deleteCourseStar(user_id, course_ids);
+        if (school_ids != null)
+            starSchoolService.deleteSchoolStar(user_id, school_ids);
+
+    }
 }
