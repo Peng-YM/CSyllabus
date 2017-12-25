@@ -49,7 +49,6 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
 
-
     public School addSchool(School school) {
 
         return schoolRepository.save(school);
@@ -66,11 +65,25 @@ public class SchoolServiceImpl implements SchoolService {
             oldSchool.setSchool_name(school.getSchool_name());
         }
         if (school.getDescription() != null) {
-            oldSchool.setDescription(school.getDescription());
+            if (school.getDescription().equals("")) {
+                oldSchool.setDescription(null);
+            } else
+                oldSchool.setDescription(school.getDescription());
         }
         if (school.getWebsite() != null) {
-            oldSchool.setWebsite(school.getWebsite());
+            if (school.getWebsite().equals("")) {
+                oldSchool.setWebsite(null);
+            } else
+                oldSchool.setWebsite(school.getWebsite());
         }
+        if (school.getLogo_src() != null) {
+            if (school.getLogo_src().equals("")) {
+                oldSchool.setLogo_sec(null);
+            } else
+                oldSchool.setLogo_sec(school.getLogo_src());
+        }
+
+
         schoolRepository.save(oldSchool);
         return oldSchool;
     }

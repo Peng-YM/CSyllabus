@@ -143,8 +143,6 @@ public class CourseRestController {
                 String filename = fileService.getSyllabusFilenamByCourseID(course_id);
                 fileService.saveFile(file.getBytes(), filename);
                 //saveFile(file.getBytes(), course_id, file.getOriginalFilename());
-            } catch (FileNotFoundException e) {
-                return "upload failed" + e.getMessage();
             } catch (IOException e) {
                 return "upload failed" + e.getMessage();
             }
@@ -165,8 +163,8 @@ public class CourseRestController {
 
     //#9 DELETE  api/course/{course_id}/syllabus
     @DeleteMapping(value = "/{course_id}/syllabus")
-    public String deletefile(@PathVariable("course_id") int course_id) {
-        return fileService.deleteSyllabusByCourseID(course_id);
+    public void deletefile(@PathVariable("course_id") int course_id) {
+        fileService.deleteSyllabusByCourseID(course_id);
     }
 
     private String getCurrentTime() {
