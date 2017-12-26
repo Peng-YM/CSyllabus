@@ -53,4 +53,6 @@ export class CourseService {
     const url = ``;
     return this.http.post(url, {"course_ids": course_ids}, MyConfiguration.httpOptions);
   }
+
+
 }

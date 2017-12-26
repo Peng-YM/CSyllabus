@@ -30,7 +30,6 @@ export class CourseDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getCourseInformation();
-    this.getAuthor();
   }
 
   getCourseInformation(): void {
@@ -48,13 +47,6 @@ export class CourseDetailComponent implements OnInit {
         () => {
           this.getSchool();
         }
-      );
-  }
-
-  getAuthor(): void {
-    this.userService.getCurrentUser()
-      .subscribe(
-        user => {this.author = user;}
       );
   }
 

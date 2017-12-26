@@ -8,6 +8,7 @@ import {SchoolService} from "../school.service";
 import {UserService} from "../user.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MyConfiguration} from "../server.configuration";
+import {CourseTreeService} from "../course-tree.service";
 
 
 @Component({
@@ -22,7 +23,8 @@ export class CourseEditorComponent implements OnInit {
   errorMessage: string;
   schools: School[] = [];
   selectedSchoolId: number;
-  coursesInSchool: Course[] = [];
+  coursesInSchool: Course[];
+  prerequisites: {[id: number]: boolean};
 
   constructor(
     private schoolService: SchoolService,
@@ -66,22 +68,34 @@ export class CourseEditorComponent implements OnInit {
 
   getPrerequisite(): void{
     this.coursesInSchool = [];
+    this.prerequisites = {};
     if(this.selectedSchoolId !== undefined){
       this.schoolService.getCourseIdList(this.selectedSchoolId)
         .subscribe(
           data => {
-            for (let id of data['course_ids']){
-              if (id !== this.course.courseid){
-                this.courseService.getCourse(id)
-                  .subscribe(
-                    course => {
-                      this.coursesInSchool.push(course);
+            this.courseService.getMultipleCourses(data['course_ids'])
+              .subscribe(
+                courses => {
+                  for (let c of courses){
+                    if(c.courseid !== this.course.courseid){
+                      this.coursesInSchool.push(c);
+                      this.prerequisites[c.courseid] = false;
                     }
-                  );
+                  }
+                }
+              );
+          });
+      if(this.course.courseid !== undefined){
+        this.schoolService.getCourseTree(this.selectedSchoolId)
+          .subscribe(
+            tree => {
+              const ancestors = CourseTreeService.findAncestors(tree, this.course.courseid);
+              for (let courseid of ancestors){
+                this.prerequisites[courseid] = true;
               }
             }
-          }
-        );
+          );
+      }
     }
   }
 
@@ -124,6 +138,20 @@ export class CourseEditorComponent implements OnInit {
       );
   }
 
+  delete(): void {
+    this.courseService.deleteCourse(this.course.courseid)
+      .subscribe(
+        () => {},
+        err => {
+          this.errorMessage = err;
+        },
+        () => {
+          this.errorMessage = null;
+          this.goBack();
+        }
+      );
+  }
+
   uploadPdf(id: number): void {
     const URL = `${MyConfiguration.host}/api/course/${id}/syllabus`;
     let httpOptions =  {
@@ -147,19 +175,7 @@ export class CourseEditorComponent implements OnInit {
     }
   }
 
-  delete(): void {
-    this.courseService.deleteCourse(this.course.courseid)
-      .subscribe(
-        () => {},
-        err => {
-          this.errorMessage = err;
-        },
-        () => {
-          this.errorMessage = null;
-          this.goBack();
-        }
-      );
-  }
+
 
   goBack(): void {
     this.location.back();

@@ -78,9 +78,9 @@ public class SchoolServiceImpl implements SchoolService {
         }
         if (school.getLogo_src() != null) {
             if (school.getLogo_src().equals("")) {
-                oldSchool.setLogo_sec(null);
+                oldSchool.setLogo_src(null);
             } else
-                oldSchool.setLogo_sec(school.getLogo_src());
+                oldSchool.setLogo_src(school.getLogo_src());
         }
 
 

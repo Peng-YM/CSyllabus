@@ -46,8 +46,10 @@
       </label>
       <ul id="prerequisite">
         <li *ngFor="let c of coursesInSchool">
-          <label for="{{c.course_id}}">{{c.course_name}}</label>
-          <input type="checkbox" id="{{c.course_id}}">
+          <label for="{{c.courseid}}">{{c.course_name}}</label>
+          <input type="checkbox" id="{{c.courseid}}"
+                 [checked]="prerequisites[c.courseid]"
+                 (change)="prerequisites[c.courseid] = !prerequisites[c.courseid]">
         </li>
       </ul>
     </div>

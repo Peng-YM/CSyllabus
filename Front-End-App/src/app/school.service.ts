@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { School } from './Models/school';
 import { MyConfiguration } from "./server.configuration";
 import {Course} from "./Models/course";
+import {Tree} from "./Models/tree";
 
 
 @Injectable()
@@ -16,7 +17,7 @@ export class SchoolService {
   }
   /** GET school id list from the server */
   getSchoolIdList(): Observable<any>{
-    return this.http.get<any>(this.schoolUrl)
+    return this.http.get<any>(this.schoolUrl);
   }
   /** GET school by id, Will 404 if id not found */
   getSchool(id: number): Observable<School> {
@@ -47,8 +48,9 @@ export class SchoolService {
     const url = `${this.schoolUrl}/${school_id}/courses`;
     return this.http.get(url);
   }
-  //TODO: get course tree
-  getCourseTree(school_id: number): void{
 
+  getCourseTree(school_id: number): Observable<Tree>{
+    const url = `${this.schoolUrl}/${school_id}/tree`;
+    return this.http.get<Tree>(url);
   }
 }
