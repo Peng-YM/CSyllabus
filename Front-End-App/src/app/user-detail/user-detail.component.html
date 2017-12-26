@@ -1,0 +1,14 @@
+<div class="container">
+  <span *ngIf="user === undefined"><a routerLink="/login">Login</a>Please</span>
+  <div *ngIf="user">
+    <h2>Profile</h2>
+    <p>User Name: {{user.name}}</p>
+    <p>Email: {{user.email}}</p>
+    <p *ngIf="userSchool">School: {{userSchool}}</p>
+    <div class="btn-group">
+      <button routerLink="/school-editor/-1" class="btn btn-primary">Add your School</button>
+      <button routerLink="/course-editor/-1" class="btn btn-primary">Add a course</button>
+    </div>
+    <button class="btn-block btn-danger">Logout</button>
+  </div>
+</div>

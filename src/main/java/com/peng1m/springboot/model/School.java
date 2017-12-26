@@ -75,8 +75,8 @@ public class School {
         return logo_src;
     }
 
-    public void setLogo_sec(String tree_path) {
-        this.logo_src = tree_path;
+    public void setLogo_src(String logo_src) {
+        this.logo_src = logo_src;
     }
 
     public School(String school_name, String description, User manager, String website, String logo_src) {

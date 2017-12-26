@@ -1,0 +1,30 @@
+<div class="album text-muted">
+  <div class="container">
+    <h3>Top Schools</h3>
+    <div class="row">
+      <div class="card" *ngFor="let s of schools">
+        <div *ngIf="s">
+          <a routerLink="/school/{{s.schoolid}}">
+            <img src="{{s.logo_src}}"
+                 alt="{{s.school_name}}"
+                 class="figure-img img-fluid rounded"
+                 data-holder-rendered="true"></a>
+          <p class="card-text">
+            <figcaption class="figure-caption" style="text-align: center">{{s.school_name}}</figcaption>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="text-muted">
+  <div class="container" style="height: 100px">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>
+      © CSyllabus 2017
+    </p>
+  </div>
+</footer>

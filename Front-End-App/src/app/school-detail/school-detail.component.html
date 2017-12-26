@@ -1,0 +1,33 @@
+<div *ngIf = "school" class="container">
+  <h2>{{ school.school_name | uppercase }}</h2>
+  <div>
+    <h3>Basic Information</h3>
+    <img src="{{school.logo_src}}" class="img-fluid"><br>
+    <p>Name: {{school.school_name}}</p>
+    <p>Description: {{school.description}}</p>
+    <p>Website: <a href="{{school.website}}">{{school.website}}</a></p>
+  </div>
+
+  <div>
+    <h3>Courses</h3>
+    <ul>
+      <li *ngFor="let c of courses">
+        <a routerLink="/course/{{c.courseid}}">{{c.course_name}}</a>
+      </li>
+    </ul>
+    <span *ngIf="courses.length === 0" style="color: red">No courses yet.</span>
+  </div>
+  <div>
+    <h3>Course Tree</h3>
+    <!--TODO: display course tree-->
+  </div>
+
+  <div class="btn-group">
+    <button routerLink="/school-editor/{{school.schoolid}}" class="btn btn-primary">Edit</button>
+    <button (click)="goBack()" class="btn btn-danger">Back</button>
+  </div>
+
+  <div>
+    <disqus [identifier]="pageId"></disqus>
+  </div>
+</div>

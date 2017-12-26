@@ -23,6 +23,7 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/course")
 public class CourseRestController {
@@ -90,7 +91,7 @@ public class CourseRestController {
     }
 
 
-    //#4 PUT	api/course/{course_id}	+	json
+    //#4 PUT api/course/{course_id}	+	json
     @PutMapping(value = "/{course_id}")
     public String updateCourse(@RequestBody Object courseinfo, @PathVariable("course_id") int course_id) {
         Course course = courseinfo_to_course(courseinfo);

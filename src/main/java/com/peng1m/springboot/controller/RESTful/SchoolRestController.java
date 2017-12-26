@@ -18,9 +18,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+
 /*
 * School API
 * */
+@CrossOrigin("*")
 @RequestMapping("/api/school")
 @RestController
 public class SchoolRestController {
@@ -50,7 +52,7 @@ public class SchoolRestController {
     }
 
     // Just information
-    //#2 GET api/school/{school_id}
+    //#2 GET api/school/{schoolid}
     @RequestMapping(value = "/{school_id}", method = RequestMethod.GET)
     public School findeById(@PathVariable("school_id") int school_id) {
         return schoolService.findByID(school_id);
@@ -98,7 +100,7 @@ public class SchoolRestController {
         schoolService.deleteSchool(school_id);
     }
 
-    //#6 GET api/school/{school_id}/courses
+    //#6 GET api/school/{schoolid}/courses
     @GetMapping(value = "/{school_id}/courses")
     public Map getSchoolCourses(@PathVariable("school_id") int school_id) {
         Map<String, List<Integer>> school_courses = new HashMap<>();
