@@ -1,5 +1,11 @@
 <div *ngIf = "school" class="container">
   <h2>{{ school.school_name | uppercase }}</h2>
+  <button class="btn btn-info float-right" (click)="favoriteSchool()">
+      <span>Star
+        <i class="fa fa-star" aria-hidden="true" *ngIf="starred"></i>
+        <i class="fa fa-star-o" aria-hidden="true" *ngIf="!starred"></i>
+      </span>
+  </button>
   <div>
     <h3>Basic Information</h3>
     <img src="{{school.logo_src}}" class="img-fluid"><br>

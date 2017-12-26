@@ -25,6 +25,7 @@ export class CourseEditorComponent implements OnInit {
   selectedSchoolId: number;
   coursesInSchool: Course[];
   prerequisites: {[id: number]: boolean};
+  selectedFiles: FileList;
 
   constructor(
     private schoolService: SchoolService,
@@ -125,7 +126,6 @@ export class CourseEditorComponent implements OnInit {
 
   update(): void {
     this.course.school = +this.selectedSchoolId;
-    console.log(this.course);
     this.courseService.updateCourse(this.course)
       .subscribe(
         course => {
@@ -154,25 +154,16 @@ export class CourseEditorComponent implements OnInit {
 
   uploadPdf(id: number): void {
     const URL = `${MyConfiguration.host}/api/course/${id}/syllabus`;
-    let httpOptions =  {
-      headers: new HttpHeaders(
-        {
-          'Content-Type': 'multipart/form-data',
-          'Charset': 'utf-8'
-        })
-    };
-    let fileBrowser = this.fileInput.nativeElement;
-    if(fileBrowser.files && fileBrowser.files[0]){
-      const formData = new FormData();
-      formData.append("file", fileBrowser.files[0]);
-      this.http.post(URL, formData, httpOptions)
-        .subscribe(
-          () => {},
-          err => {
-            console.log(err);
-          }
-        );
-    }
+    let syllabusFile: File = this.selectedFiles.item(0);
+    console.log(syllabusFile);
+    const formData = new FormData();
+    formData.append("file", syllabusFile);
+    this.http.post(URL, formData)
+      .subscribe();
+  }
+
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
   }
 
 

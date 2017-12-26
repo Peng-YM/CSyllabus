@@ -1,7 +1,6 @@
 package com.peng1m.springboot.service.impl;
 
 import com.peng1m.springboot.model.Course;
-import com.peng1m.springboot.model.School;
 import com.peng1m.springboot.repository.CourseRepository;
 import com.peng1m.springboot.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;

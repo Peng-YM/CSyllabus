@@ -5,10 +5,20 @@
     <p>User Name: {{user.name}}</p>
     <p>Email: {{user.email}}</p>
     <p *ngIf="userSchool">School: {{userSchool}}</p>
+    <h3>Favourite Schools</h3>
+    <ul *ngFor="let s of favouriteSchools">
+      <li><a routerLink="/school/{{s.schoolid}}">{{s.school_name}}</a></li>
+    </ul>
+
+    <h3>Favourite Courses</h3>
+    <ul *ngFor="let c of favouriteCourses">
+      <li><a routerLink="/course/{{c.courseid}}">{{c.course_name}}</a> </li>
+    </ul>
+
     <div class="btn-group">
       <button routerLink="/school-editor/-1" class="btn btn-primary">Add your School</button>
       <button routerLink="/course-editor/-1" class="btn btn-primary">Add a course</button>
     </div>
-    <button class="btn-block btn-danger">Logout</button>
+    <button class="btn-block btn-danger" (click)="logout()">Logout</button>
   </div>
 </div>

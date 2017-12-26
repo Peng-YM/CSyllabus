@@ -8,6 +8,8 @@ import {MyConfiguration} from "../server.configuration";
 import {SchoolService} from "../school.service";
 import {School} from "../Models/school";
 import {LoginService} from "../login.service";
+import {Course} from "../Models/course";
+import {CourseService} from "../course.service";
 
 @Component({
   selector: 'app-user-detail',
@@ -19,20 +21,26 @@ export class UserDetailComponent implements OnInit {
   user: User;
   userSchool: School;
   private userUrl: string = `${MyConfiguration.host}/api/user`;
+  // TODO: get favourite
+  favouriteSchools: School[] = [];
+  favouriteCourses: Course[] = [];
+
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
     private http: HttpClient,
     private cookieService: CookieService,
     private schoolService: SchoolService,
+    private courseService: CourseService,
     private loginService: LoginService
   ) { }
   ngOnInit() {
     this.getCurrentUser();
+    this.getFavourites();
   }
 
   getCurrentUser(): void {
-    const id =  +this.cookieService.get(MyConfiguration.COOKIE_NAME);;
+    const id = this.userService.getUserId();
     const url = `${this.userUrl}/${id}`;
     this.http.get<User>(url)
       .subscribe(
@@ -49,7 +57,22 @@ export class UserDetailComponent implements OnInit {
                 }
               );
           }
+        }
+      );
+  }
 
+  getFavourites(): void{
+    this.userService.getFavourites()
+      .subscribe(
+        data => {
+          this.schoolService.getMultiSchools(data['school_ids'])
+            .subscribe(
+              schools => {this.favouriteSchools = schools.slice();}
+            );
+          this.courseService.getMultipleCourses(data['course_ids'])
+            .subscribe(
+              courses => {this.favouriteCourses = courses.slice();}
+            );
         }
       );
   }
