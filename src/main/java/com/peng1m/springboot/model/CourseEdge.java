@@ -6,8 +6,8 @@ import javax.persistence.*;
 @Table(name = "edges")
 public class CourseEdge {
     @Id
-    @Column(name = "edgeid")
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "edgeid")
     private int edgeid;
 
     @OneToOne(cascade = {CascadeType.REFRESH})
