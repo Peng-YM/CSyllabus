@@ -5,9 +5,14 @@ import java.util.List;
 public interface StarCourseService {
     List<Integer> getSrarCourses(int userid);
 
-    public int putStarCourses(int userid, List<Integer> course_ids);
+    int putStarCourses(int userid, List<Integer> course_ids);
 
-    public int insertAllStarCourses(int userid, List<Integer> course_ids);
+    int insertAllStarCourses(int userid, List<Integer> course_ids);
 
-    public void deleteCourseStar(int userid, List<Integer> course_ids);
+    void deleteCourseStar(int userid, List<Integer> course_ids);
+
+    void deleteStarCourseByCourseid(int courseid);
+
+    public void deleteAll();
+    public void deleteStarCourseByUserid(int userid);
 }

@@ -10,4 +10,10 @@ public interface StarSchoolService {
     public int inseatAllStarSchools(int userid, List<Integer> school_ids);
 
     public void deleteSchoolStar(int userid, List<Integer> school_ids);
+
+    public void deleteStarSchoolBySchoolid(int schoolid);
+
+    public void deleteAll();
+
+    public void deleteStarSchoolByUserid(int userid);
 }

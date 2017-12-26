@@ -1,11 +1,8 @@
 package com.peng1m.springboot.controller.RESTful;
 
 import com.peng1m.springboot.model.CourseTree;
-import com.peng1m.springboot.service.CourseService;
-import com.peng1m.springboot.service.CourseTreeService;
-import com.peng1m.springboot.service.FileService;
+import com.peng1m.springboot.service.*;
 import org.json.JSONObject;
-import com.peng1m.springboot.service.SchoolService;
 import com.peng1m.springboot.model.School;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,13 +29,15 @@ public class SchoolRestController {
     private FileService fileService;
     private CourseService courseService;
     private CourseTreeService courseTreeService;
+    private StarSchoolService starSchoolService;
 
     @Autowired
-    public SchoolRestController(SchoolService schoolService, FileService fileService, CourseService courseService, CourseTreeService courseTreeService) {
+    public SchoolRestController(SchoolService schoolService, FileService fileService, CourseService courseService, CourseTreeService courseTreeService, StarSchoolService starSchoolService) {
         this.schoolService = schoolService;
         this.fileService = fileService;
         this.courseService = courseService;
         this.courseTreeService = courseTreeService;
+        this.starSchoolService = starSchoolService;
     }
 
     // It will convert to JSON
@@ -54,8 +53,7 @@ public class SchoolRestController {
     //#2 GET api/school/{school_id}
     @RequestMapping(value = "/{school_id}", method = RequestMethod.GET)
     public School findeById(@PathVariable("school_id") int school_id) {
-        School school = schoolService.findByID(school_id);
-        return school;
+        return schoolService.findByID(school_id);
     }
 
     //get school infos
@@ -95,6 +93,7 @@ public class SchoolRestController {
             courseService.deleteCourse(course);
         }
         courseTreeService.deleteCourseTree(school_id);
+        starSchoolService.deleteStarSchoolBySchoolid(school_id);
         //delete school
         schoolService.deleteSchool(school_id);
     }

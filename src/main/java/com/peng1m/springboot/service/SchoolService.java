@@ -21,5 +21,8 @@ public interface SchoolService {
 
     void deleteSchool(int id);
 
+    void removeManager(int author);
 
+
+    void removeAllManager();
 }

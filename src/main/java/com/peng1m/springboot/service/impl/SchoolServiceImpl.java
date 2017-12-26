@@ -7,6 +7,7 @@ import com.peng1m.springboot.repository.SchoolRepository;
 import com.peng1m.springboot.repository.UserRepository;
 import com.peng1m.springboot.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -20,6 +21,9 @@ public class SchoolServiceImpl implements SchoolService {
 
     @Autowired
     private CourseRepository courseRepository;
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     public School findByID(int id) {
         return schoolRepository.findBySchoolid(id);
@@ -90,6 +94,18 @@ public class SchoolServiceImpl implements SchoolService {
 
     public void deleteSchool(int id) {
         schoolRepository.delete(id);
+    }
+
+    @Override
+    public void removeManager(int author) {
+        String sql = "UPDATE schools SET manager=NULL WHERE manager=?";
+        jdbcTemplate.update(sql, author);
+    }
+
+    @Override
+    public void removeAllManager() {
+        String sql = "UPDATE schools SET manager=NULL";
+        jdbcTemplate.update(sql);
     }
 
 

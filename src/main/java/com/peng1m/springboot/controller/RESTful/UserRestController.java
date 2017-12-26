@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.peng1m.springboot.model.User;
-import com.peng1m.springboot.service.StarCourseService;
-import com.peng1m.springboot.service.StarSchoolService;
-import com.peng1m.springboot.service.UserService;
+import com.peng1m.springboot.service.*;
 import com.peng1m.springboot.util.CustomErrorType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,12 +30,20 @@ public class UserRestController {
 
     private StarCourseService starCourseService;
 
+    private CourseService courseService;
+
+    private SchoolService schoolService;
+
     @Autowired
-    public UserRestController(UserService userService, StarCourseService starCourseService, StarSchoolService starSchoolService) {
+    public UserRestController(UserService userService, StarCourseService starCourseService, StarSchoolService starSchoolService, CourseService courseService, SchoolService schoolService) {
         this.userService = userService;
         this.starCourseService = starCourseService;
         this.starSchoolService = starSchoolService;
+        this.courseService = courseService;
+        this.schoolService = schoolService;
+
         logger.info("init user controller");
+
     }
 
     // -------------------Retrieve All Users---------------------------------------------
@@ -123,6 +129,10 @@ public class UserRestController {
             return new ResponseEntity<>(new CustomErrorType("Unable to delete. User with id " + id + " not found."),
                     HttpStatus.NOT_FOUND);
         }
+        starCourseService.deleteStarCourseByUserid(id);
+        starSchoolService.deleteStarSchoolByUserid(id);
+        courseService.removeAuthor(id);
+        schoolService.removeManager(id);
         userService.deleteById(id);
         return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
     }
@@ -132,7 +142,10 @@ public class UserRestController {
     @RequestMapping(value = "/", method = RequestMethod.DELETE)
     public ResponseEntity<User> deleteAllUsers() {
         logger.info("Deleting All Users");
-
+        starSchoolService.deleteAll();
+        starCourseService.deleteAll();
+        courseService.removeAllAuthor();
+        schoolService.removeAllManager();
         userService.deleteAll();
         return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
     }

@@ -58,4 +58,12 @@ public class StarCourseServiceImpl implements StarCourseService {
         return jdbcTemplate.update(sql, userid, courseid);
     }
 
+    public void deleteStarCourseByCourseid(int courseid) {
+        starCourseRepository.deleteByCourse_Courseid(courseid);
+    }
+
+    public void deleteAll() {
+        starCourseRepository.deleteAll();
+    }
+
 }

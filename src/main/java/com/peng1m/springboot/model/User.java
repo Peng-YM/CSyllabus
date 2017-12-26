@@ -28,12 +28,12 @@ public class User {
     @NotEmpty(message = "*Please provide an email")
     private String email;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = {CascadeType.REFRESH})
     @JoinColumn(name = "schoolid")
     private School school;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.REFRESH})
     @JoinColumn(name = "role_id")
     private Role role;
 

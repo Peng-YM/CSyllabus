@@ -33,15 +33,17 @@ public class CourseRestController {
     private UserService userService;
     private FileService fileService;
     private CourseTreeService courseTreeService;
+    private StarCourseService starCourseService;
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Autowired
-    public CourseRestController(CourseService courseService, SchoolService schoolService, UserService userService, FileService fileService, CourseTreeService courseTreeService) throws IOException {
+    public CourseRestController(CourseService courseService, SchoolService schoolService, UserService userService, FileService fileService, CourseTreeService courseTreeService, StarCourseService starCourseService) throws IOException {
         this.courseService = courseService;
         this.schoolService = schoolService;
         this.userService = userService;
         this.fileService = fileService;
         this.courseTreeService = courseTreeService;
+        this.starCourseService = starCourseService;
         fileService.setDataPath();
     }
 
@@ -108,6 +110,7 @@ public class CourseRestController {
     public void deleteCourse(@PathVariable("course_id") int course_id) {
         // delete course in database
         courseTreeService.deleteBySourceOrTarget(course_id);
+        starCourseService.deleteStarCourseByCourseid(course_id);
         courseService.deleteCourse(course_id);
         //delete course syllabus in server
         deletefile(course_id);

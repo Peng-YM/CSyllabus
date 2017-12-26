@@ -12,6 +12,13 @@ public interface StarSchoolRepository extends CrudRepository<StarSchool, Integer
 
     @Transactional
     void deleteByAccount_Id(int accountid);
+
     @Transactional
     void deleteByAccount_IdAndSchool_Schoolid(int accountid, int schoolid);
+
+    @Transactional
+    void deleteBySchool_Schoolid(int schoolid);
+
+    @Transactional
+    void deleteAll();
 }

@@ -5,6 +5,7 @@ import com.peng1m.springboot.model.School;
 import com.peng1m.springboot.repository.CourseRepository;
 import com.peng1m.springboot.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import java.util.List;
 public class CoursesServiceImpl implements CourseService {
     @Autowired
     private CourseRepository courseRepository;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public List<Integer> getCoursesID() {
@@ -66,5 +69,16 @@ public class CoursesServiceImpl implements CourseService {
         courseRepository.delete(course_id);
     }
 
+    @Override
+    public void removeAuthor(int userid) {
+        String sql = "UPDATE courses SET author=NULL WHERE author=?";
+        jdbcTemplate.update(sql, userid);
+    }
+
+    @Override
+    public void removeAllAuthor() {
+        String sql = "UPDATE courses SET author = NULL";
+        jdbcTemplate.update(sql);
+    }
 
 }

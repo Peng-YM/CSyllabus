@@ -14,4 +14,8 @@ public interface CourseService {
     Course updateCourse(Course course, int course_id);
 
     void deleteCourse(int course_id);
+
+    void removeAuthor(int userid);
+
+    void removeAllAuthor();
 }

@@ -56,4 +56,11 @@ public class StarSchoolServiceImpl implements StarSchoolService {
         return jdbcTemplate.update(sql, userid, schoolid);
     }
 
+    public void deleteStarSchoolBySchoolid(int schoolid) {
+        starSchoolRepository.deleteBySchool_Schoolid(schoolid);
+    }
+
+    public void deleteAll(){
+        starSchoolRepository.deleteAll();
+    }
 }
