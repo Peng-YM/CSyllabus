@@ -13,6 +13,8 @@ public interface StarSchoolService {
 
     public void deleteStarSchoolBySchoolid(int schoolid);
 
+    int getSchoolStar(int schoolid);
+
     public void deleteAll();
 
     public void deleteStarSchoolByUserid(int userid);

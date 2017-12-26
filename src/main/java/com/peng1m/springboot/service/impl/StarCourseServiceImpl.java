@@ -49,6 +49,15 @@ public class StarCourseServiceImpl implements StarCourseService {
 
     }
 
+    @Override
+    public int getCourseStarNum(int courseid) {
+        List<StarCourse> starCourses = starCourseRepository.findByCourse_Courseid(courseid);
+        if (starCourses != null)
+            return starCourses.size();
+        else return 0;
+    }
+
+
     public void deleteStarCourseByUserid(int userid) {
         starCourseRepository.deleteByAccount_Id(userid);
     }

@@ -60,7 +60,15 @@ public class StarSchoolServiceImpl implements StarSchoolService {
         starSchoolRepository.deleteBySchool_Schoolid(schoolid);
     }
 
-    public void deleteAll(){
+    @Override
+    public int getSchoolStar(int schoolid) {
+        List<StarSchool> starSchools = starSchoolRepository.findBySchoolid(schoolid);
+        if (starSchools != null) {
+            return starSchools.size();
+        } else return 0;
+    }
+
+    public void deleteAll() {
         starSchoolRepository.deleteAll();
     }
 }

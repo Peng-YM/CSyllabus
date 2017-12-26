@@ -14,5 +14,8 @@ public interface StarCourseService {
     void deleteStarCourseByCourseid(int courseid);
 
     public void deleteAll();
+
+    int getCourseStarNum(int courseid);
+
     public void deleteStarCourseByUserid(int userid);
 }

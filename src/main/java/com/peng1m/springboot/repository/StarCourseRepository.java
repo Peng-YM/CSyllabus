@@ -9,6 +9,8 @@ import java.util.List;
 public interface StarCourseRepository extends CrudRepository<StarCourse, Integer> {
     List<StarCourse> findByAccount_Id(int id);
 
+    List<StarCourse> findByCourse_Courseid(int courseid);
+
     @Transactional
     void deleteByAccount_Id(int id);
 
