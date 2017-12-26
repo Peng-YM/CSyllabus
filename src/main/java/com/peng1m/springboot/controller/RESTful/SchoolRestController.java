@@ -59,13 +59,13 @@ public class SchoolRestController {
     }
 
     class SchoolInfo extends School {
-        Integer starNum = null;
+        Integer star_num = null;
 
         SchoolInfo() {
         }
 
         SchoolInfo(School school) {
-            starNum = starSchoolService.getSchoolStar(school.getSchoolid());
+            star_num = starSchoolService.getSchoolStar(school.getSchoolid());
             this.setManager(school.manager);
             this.setWebsite(school.getWebsite());
             this.setLogo_src(school.getLogo_src());
@@ -73,8 +73,8 @@ public class SchoolRestController {
             this.setSchool_name(school.getSchool_name());
         }
 
-        public int getStarNum() {
-            return starNum;
+        public int getstar_num() {
+            return star_num;
         }
 
     }

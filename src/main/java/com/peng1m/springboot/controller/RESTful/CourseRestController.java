@@ -189,6 +189,7 @@ public class CourseRestController {
         courseinfo.put("syllabuspath", course.getSyllabuspath());
         courseinfo.put("last_modify", course.getLast_modify());
         courseinfo.put("courseid", course.getCourseid());
+        courseinfo.put("star_num", starCourseService.getCourseStarNum(course.getCourseid()));
         return courseinfo.toString();
     }
 
