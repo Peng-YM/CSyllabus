@@ -56,7 +56,7 @@
 
     <div class="form-group">
       <label for="syllabus">Syllabus(PDF format)</label>
-      <input type="file" id="syllabus" name="syllabus" #fileInput>
+      <input type="file" id="syllabus" name="syllabus" (change)="selectFile($event)">
     </div>
 
     <div class="btn-group" role="group">

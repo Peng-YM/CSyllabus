@@ -5,6 +5,7 @@ import { SchoolService } from "../school.service";
 import { ActivatedRoute } from "@angular/router";
 import { Course } from "../Models/course";
 import {CourseService} from "../course.service";
+import {UserService} from "../user.service";
 
 @Component({
   selector: 'app-school-detail',
@@ -15,11 +16,13 @@ export class SchoolDetailComponent implements OnInit {
   school: School;
   courses: Course[] = [];
   pageId: string;
+  starred: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private schoolService: SchoolService,
     private courseService: CourseService,
+    private userService: UserService,
     private location: Location
   ) { }
 
@@ -36,6 +39,12 @@ export class SchoolDetailComponent implements OnInit {
         err => {console.log(err)},
         () => {
           this.getCourses();
+          this.userService.getFavourites()
+            .subscribe(
+              data => {
+                this.starred = data['school_ids'].indexOf(this.school.schoolid) > -1;
+              }
+            )
         }
       );
   }
@@ -55,6 +64,15 @@ export class SchoolDetailComponent implements OnInit {
           console.log(err);
         }
       );
+  }
+
+  favoriteSchool(){
+    this.starred = !this.starred;
+    if (this.starred){
+      this.userService.addFavouriteSchool(this.school.schoolid);
+    }else{
+      this.userService.unfavouriteSchool(this.school.schoolid);
+    }
   }
 
   //TODO: get json from server

@@ -20,6 +20,7 @@ export class CourseDetailComponent implements OnInit {
   school: School = new School();
   pdfSrc: string;
   pageId: string;
+  starred: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private courseService: CourseService,
@@ -46,8 +47,24 @@ export class CourseDetailComponent implements OnInit {
         },
         () => {
           this.getSchool();
+          this.userService.getFavourites()
+            .subscribe(
+              data => {
+                this.starred = data['course_ids'].indexOf(this.course.courseid) > -1;
+              }
+            );
         }
       );
+  }
+
+  favoriteCourse(): void {
+    this.starred = !this.starred;
+    // add favourite
+    if (this.starred){
+      this.userService.addFavouriteCourse(this.course.courseid);
+    }else {
+      this.userService.unfavouriteCourse(this.course.courseid);
+    }
   }
 
   getSchool(): void {
@@ -56,7 +73,7 @@ export class CourseDetailComponent implements OnInit {
         school => {
           this.school = school;
         }
-      )
+      );
   }
 
   goBack(): void {

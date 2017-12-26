@@ -4,12 +4,10 @@ import com.peng1m.springboot.model.Course;
 import com.peng1m.springboot.model.School;
 import com.peng1m.springboot.repository.CourseRepository;
 import com.peng1m.springboot.repository.SchoolRepository;
-import com.peng1m.springboot.repository.UserRepository;
 import com.peng1m.springboot.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 

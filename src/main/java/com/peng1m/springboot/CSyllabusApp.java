@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.filter.CharacterEncodingFilter;
-
 
 @SpringBootApplication(scanBasePackages={"com.peng1m.springboot"})
 public class CSyllabusApp {

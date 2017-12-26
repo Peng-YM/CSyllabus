@@ -31,7 +31,8 @@ export class CourseService {
   }
 
   updateCourse(course: Course): Observable<any> {
-    return this.http.put(this.courseUrl, course, MyConfiguration.httpOptions);
+    const url = `${this.courseUrl}/${course.courseid}`;
+    return this.http.put(url, course, MyConfiguration.httpOptions);
   }
 
   deleteCourse(id: number): Observable<any>{

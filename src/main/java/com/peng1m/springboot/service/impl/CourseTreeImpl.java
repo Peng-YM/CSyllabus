@@ -1,6 +1,5 @@
 package com.peng1m.springboot.service.impl;
 
-import com.peng1m.springboot.model.Course;
 import com.peng1m.springboot.model.CourseEdge;
 import com.peng1m.springboot.model.CourseTree;
 import com.peng1m.springboot.model.School;
