@@ -62,7 +62,7 @@ public class StarSchoolServiceImpl implements StarSchoolService {
 
     @Override
     public int getSchoolStar(int schoolid) {
-        List<StarSchool> starSchools = starSchoolRepository.findBySchoolid(schoolid);
+        List<StarSchool> starSchools = starSchoolRepository.findBySchool_Schoolid(schoolid);
         if (starSchools != null) {
             return starSchools.size();
         } else return 0;

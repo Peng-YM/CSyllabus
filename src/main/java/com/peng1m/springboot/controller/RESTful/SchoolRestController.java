@@ -54,8 +54,29 @@ public class SchoolRestController {
     // Just information
     //#2 GET api/school/{schoolid}
     @RequestMapping(value = "/{school_id}", method = RequestMethod.GET)
-    public School findeById(@PathVariable("school_id") int school_id) {
-        return schoolService.findByID(school_id);
+    public SchoolInfo findeById(@PathVariable("school_id") int school_id) {
+        return new SchoolInfo(schoolService.findByID(school_id));
+    }
+
+    class SchoolInfo extends School {
+        Integer starNum = null;
+
+        SchoolInfo() {
+        }
+
+        SchoolInfo(School school) {
+            starNum = starSchoolService.getSchoolStar(school.getSchoolid());
+            this.setManager(school.manager);
+            this.setWebsite(school.getWebsite());
+            this.setLogo_src(school.getLogo_src());
+            this.setDescription(school.getDescription());
+            this.setSchool_name(school.getSchool_name());
+        }
+
+        public int getStarNum() {
+            return starNum;
+        }
+
     }
 
     //get school infos

@@ -20,7 +20,7 @@ public class School {
     //Only allow one manager?
     @OneToOne(cascade = {CascadeType.REMOVE})
     @JoinColumn(name = "manager", referencedColumnName = "id")
-    private User manager;
+    public User manager;
 
     @Column(name = "website")
     private String website;
@@ -55,8 +55,10 @@ public class School {
         this.description = description;
     }
 
-    public User getManager() {
-        return manager;
+    public Integer getManager() {
+        if (manager == null) return null;
+        else
+            return manager.getId();
     }
 
     public void setManager(User manager) {

@@ -10,7 +10,7 @@ import java.util.List;
 public interface StarSchoolRepository extends CrudRepository<StarSchool, Integer> {
     List<StarSchool> findByAccount_Id(int accountid);
 
-    List<StarSchool> findBySchoolid(int schoolid);
+    List<StarSchool> findBySchool_Schoolid(int schoolid);
 
     @Transactional
     void deleteByAccount_Id(int accountid);
