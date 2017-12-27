@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { School } from './Models/school';
 import { MyConfiguration } from "./server.configuration";
 import {Course} from "./Models/course";
-import {Tree} from "./Models/tree";
+import {map} from "rxjs/operators";
 
 
 @Injectable()
@@ -12,9 +12,7 @@ export class SchoolService {
   private schoolUrl = `${MyConfiguration.host}/api/school`;
   constructor(
     private http: HttpClient
-  ) {
-
-  }
+  ) {}
   /** GET school id list from the server */
   getSchoolIdList(): Observable<any>{
     return this.http.get<any>(this.schoolUrl);
@@ -49,8 +47,20 @@ export class SchoolService {
     return this.http.get(url);
   }
 
-  getCourseTree(school_id: number): Observable<Tree>{
+  getPrerequisiteCourses(school_id: number, course_id: number): Observable<any>{
     const url = `${this.schoolUrl}/${school_id}/tree`;
-    return this.http.get<Tree>(url);
+    return this.http.get(url).pipe(
+      map(
+        data => {
+          let pre: number[] = [];
+            for (let edge of data['edges']){
+              if (edge['target'] === course_id){
+                pre.push(edge['source']);
+              }
+            }
+          return pre;
+        }
+      )
+    );
   }
 }

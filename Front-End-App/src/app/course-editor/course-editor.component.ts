@@ -6,9 +6,8 @@ import {Location} from "@angular/common";
 import {School} from "../Models/school";
 import {SchoolService} from "../school.service";
 import {UserService} from "../user.service";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {MyConfiguration} from "../server.configuration";
-import {CourseTreeService} from "../course-tree.service";
 
 
 @Component({
@@ -70,40 +69,49 @@ export class CourseEditorComponent implements OnInit {
   getPrerequisite(): void{
     this.coursesInSchool = [];
     this.prerequisites = {};
-    if(this.selectedSchoolId !== undefined){
-      this.schoolService.getCourseIdList(this.selectedSchoolId)
-        .subscribe(
-          data => {
-            this.courseService.getMultipleCourses(data['course_ids'])
-              .subscribe(
-                courses => {
-                  for (let c of courses){
-                    if(c.courseid !== this.course.courseid){
+
+    this.course.school = +this.selectedSchoolId;
+    this.schoolService.getCourseIdList(this.selectedSchoolId)
+      .subscribe(
+        data => {
+          this.courseService.getMultipleCourses(data['course_ids'])
+            .subscribe(
+              courses =>{
+                for(let c of courses){
+                  if (this.course.courseid === null){
+                    this.coursesInSchool.push(c);
+                    this.prerequisites[c.courseid] = false;
+                  }
+                  else {
+                    if (this.course.courseid !== c.courseid){
                       this.coursesInSchool.push(c);
                       this.prerequisites[c.courseid] = false;
                     }
                   }
                 }
-              );
-          });
-      if(this.course.courseid !== undefined){
-        this.schoolService.getCourseTree(this.selectedSchoolId)
-          .subscribe(
-            tree => {
-              const ancestors = CourseTreeService.findAncestors(tree, this.course.courseid);
-              for (let courseid of ancestors){
-                this.prerequisites[courseid] = true;
               }
-            }
-          );
-      }
-    }
+            );
+        },
+        err => {},
+        () => {
+          // get prerequisite courses if course exists
+          if (this.course.courseid !== null){
+            this.schoolService.getPrerequisiteCourses(this.selectedSchoolId, this.course.courseid)
+              .subscribe(
+                pre => {
+                  for(let p of pre){
+                    this.prerequisites[p] = true;
+                  }
+                }
+              );
+          }
+        }
+      );
   }
 
   save(): void {}
 
   insert(): void {
-    this.course.school = +this.selectedSchoolId;
     this.userService.getCurrentUser()
       .subscribe(
         user => { this.course.author =  user.id},
@@ -125,7 +133,6 @@ export class CourseEditorComponent implements OnInit {
   }
 
   update(): void {
-    this.course.school = +this.selectedSchoolId;
     this.courseService.updateCourse(this.course)
       .subscribe(
         course => {
@@ -154,12 +161,14 @@ export class CourseEditorComponent implements OnInit {
 
   uploadPdf(id: number): void {
     const URL = `${MyConfiguration.host}/api/course/${id}/syllabus`;
-    let syllabusFile: File = this.selectedFiles.item(0);
-    console.log(syllabusFile);
-    const formData = new FormData();
-    formData.append("file", syllabusFile);
-    this.http.post(URL, formData)
-      .subscribe();
+    if (this.selectedFiles !== undefined){
+      let syllabusFile: File = this.selectedFiles.item(0);
+      console.log(syllabusFile);
+      const formData = new FormData();
+      formData.append("file", syllabusFile);
+      this.http.post(URL, formData)
+        .subscribe();
+    }
   }
 
   selectFile(event) {

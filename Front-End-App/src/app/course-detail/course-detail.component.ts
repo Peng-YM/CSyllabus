@@ -21,6 +21,7 @@ export class CourseDetailComponent implements OnInit {
   pdfSrc: string;
   pageId: string;
   starred: boolean = false;
+  prerequisiteCourses: Course[];
 
   constructor(private route: ActivatedRoute,
               private courseService: CourseService,
@@ -73,6 +74,20 @@ export class CourseDetailComponent implements OnInit {
       .subscribe(
         school => {
           this.school = school;
+        },
+        err => {console.log(err);},
+        () => {
+          this.schoolService.getPrerequisiteCourses(this.school.schoolid, this.course.courseid)
+            .subscribe(
+              pre => {
+                this.courseService.getMultipleCourses(pre)
+                  .subscribe(
+                    courses => {
+                      this.prerequisiteCourses = courses.slice();
+                    }
+                  );
+              }
+            );
         }
       );
   }

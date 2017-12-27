@@ -17,6 +17,12 @@
     <p *ngIf="author">Author: {{author.name}}</p><br>
     <span>School: <a routerLink="/school/{{course.school}}">{{school.school_name}}</a></span><br>
     <div>
+      <h3>Prerequisite Courses</h3>
+      <ul *ngFor="let c of prerequisiteCourses">
+        <li><a href="/course/{{c.courseid}}">{{c.course_name}}</a></li>
+      </ul>
+    </div>
+    <div>
       <h3><a href="{{pdfSrc}}">Syllabus</a></h3>
       <div style="width:800px;height:600px;overflow-y:scroll;">
         <pdf-viewer [src]="pdfSrc"

@@ -23,7 +23,6 @@ import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 import {FileSelectDirective} from 'ng2-file-upload';
 import {DisqusModule} from "ngx-disqus";
 import { SearchService } from './search.service';
-import { CourseTreeService } from './course-tree.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +45,7 @@ import { CourseTreeService } from './course-tree.service';
     PdfViewerModule,
     DisqusModule.forRoot('pengym')
   ],
-  providers: [CookieService, SchoolService, UserService, CourseService, LoginService, SearchService, CourseTreeService],
+  providers: [CookieService, SchoolService, UserService, CourseService, LoginService, SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

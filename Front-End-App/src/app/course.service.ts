@@ -44,15 +44,4 @@ export class CourseService {
     const url = `${this.courseUrl}/${id}/syllabus`;
     return this.http.get(url);
   }
-
-  // TODO: prerequisite course
-  getPrerequisite(): Observable<any> {
-    const url = ``;
-    return this.http.get(url);
-  }
-
-  addPrerequisite(course_ids: number[]): Observable<any> {
-    const url = ``;
-    return this.http.post(url, {"course_ids": course_ids}, MyConfiguration.httpOptions);
-  }
 }

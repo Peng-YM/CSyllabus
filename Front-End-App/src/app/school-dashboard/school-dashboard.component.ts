@@ -26,7 +26,6 @@ export class SchoolDashboardComponent implements OnInit {
               schools => {
                 // sort by star num
                 this.schools = schools.sort((a, b) => a.star_num - b.star_num);
-                console.log(this.schools[0]);
               }
             )
         },
