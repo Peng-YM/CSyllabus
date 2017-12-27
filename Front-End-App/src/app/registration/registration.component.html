@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="form-horizontal" role="form" #loginForm="ngForm">
+  <form class="form-horizontal" role="form" #registrationForm="ngForm">
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
@@ -17,7 +17,7 @@
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
             <input type="text" name="username" class="form-control" id="username"
                    placeholder="User Name" required autofocus
-                   [ngModel]="user.name"
+                   [(ngModel)]="user.name" #username="ngModel"
             >
           </div>
         </div>
@@ -25,7 +25,7 @@
       <div class="col-md-3">
         <div class="form-control-feedback" *ngIf="errorMessage">
                         <span class="text-danger align-middle">
-                            <i class="fa fa-close"></i> Your user name or password is invalid!
+                            <i class="fa fa-close"></i> {{errorMessage}}
                         </span>
         </div>
       </div>
@@ -42,16 +42,9 @@
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-envelope"></i></div>
             <input type="email" name="email" class="form-control" id="email"
                    placeholder="Email" required autofocus
-                   [ngModel]="user.email"
+                   [(ngModel)]="user.email" #email="ngModel"
             >
           </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-control-feedback" *ngIf="errorMessage">
-                        <span class="text-danger align-middle">
-                            <i class="fa fa-close"></i> Your user name or password is invalid!
-                        </span>
         </div>
       </div>
     </div>
@@ -64,7 +57,7 @@
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
             <input type="password" name="password" class="form-control" id="password"
-                   placeholder="Password" required [ngModel]="user.password">
+                   placeholder="Password" required [(ngModel)]="user.password"  #password="ngModel">
           </div>
         </div>
       </div>
@@ -77,8 +70,9 @@
           <label class="sr-only" for="password">Confirm Password</label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-            <input type="password" name="confirm-password" class="form-control" id="confirm-password"
-                   placeholder="Confirm Your Password" required [ngModel]="confirmPassword">
+            <input type="password" name="confirm" class="form-control"
+                   id="confirm" placeholder="Confirm Your Password"
+                   required [(ngModel)]="confirmPassword" #confirm="ngModel">
           </div>
         </div>
       </div>
@@ -87,7 +81,7 @@
     <div class="row" style="padding-top: 1rem">
       <div class="col-md-3"></div>
       <div class="col-md-6">
-        <button type="submit" class="btn btn-success"><i class="fa fa-sign-in" (click)="registration()"></i> Sign Up</button>
+        <button type="submit" class="btn btn-success"  (click)="registration()"><i class="fa fa-sign-in"></i> Sign Up</button>
       </div>
     </div>
   </form>

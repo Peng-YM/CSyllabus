@@ -41,11 +41,11 @@ public class LoginRestController {
     @PostMapping(value = "/api/registration")
     public ResponseEntity<?> createUser(@RequestBody User user) {
         logger.info("User {} is trying to register", user.getName());
-
         if (userService.findByName(user.getName()) != null) {
             return new ResponseEntity<Object>(
                     new CustomErrorType(String.format("User Name %s already exists", user.getName())), HttpStatus.CONFLICT);
         }
+        this.userService.addUser(user);
         securityService.autoLogin(user.getName(), user.getPassword());
         user = this.userService.findByName(user.getName());
         user.setPassword(null);

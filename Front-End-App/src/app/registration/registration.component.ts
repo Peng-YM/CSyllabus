@@ -20,17 +20,20 @@ export class RegistrationComponent implements OnInit {
   }
 
   registration(): void {
+    console.log(JSON.stringify(this.user));
+
     if(this.confirmPassword !== this.user.password){
       this.errorMessage = "Two input password must be consistent！";
     }
     else{
-      console.log(`User: ${this.user.name} is trying to register`);
       this.loginService.registration(this.user)
-        .subscribe(user => this.user = user);
+        .subscribe(
+          user => {this.user = user},
+          err => {console.log(err)},
+          () => {
+            document.location.assign("/dashboard");
+          }
+        );
     }
-  }
-
-  reset(): void {
-    this.user = new User();
   }
 }
