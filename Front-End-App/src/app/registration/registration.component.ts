@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../Models/user";
 import {LoginService} from "../login.service";
+import {MyConfiguration} from "../server.configuration";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-registration',
@@ -12,7 +14,8 @@ export class RegistrationComponent implements OnInit {
   private confirmPassword;
   private errorMessage;
   constructor(
-    private loginService: LoginService
+    private loginService: LoginService,
+    private cookieService: CookieService
   ) { }
 
   ngOnInit() {
@@ -32,6 +35,7 @@ export class RegistrationComponent implements OnInit {
           err => {console.log(err)},
           () => {
             document.location.assign("/dashboard");
+            this.cookieService.set(MyConfiguration.COOKIE_NAME, `${this.user.id}`);
           }
         );
     }
