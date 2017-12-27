@@ -17,6 +17,7 @@ export class SchoolDetailComponent implements OnInit {
   courses: Course[] = [];
   pageId: string;
   starred: boolean = false;
+  starNum: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -68,6 +69,7 @@ export class SchoolDetailComponent implements OnInit {
 
   favoriteSchool(){
     this.starred = !this.starred;
+    this.school.star_num = this.starred? this.school.star_num + 1: this.school.star_num - 1;
     if (this.starred){
       this.userService.addFavouriteSchool(this.school.schoolid);
     }else{

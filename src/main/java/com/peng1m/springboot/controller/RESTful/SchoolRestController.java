@@ -71,6 +71,7 @@ public class SchoolRestController {
             this.setLogo_src(school.getLogo_src());
             this.setDescription(school.getDescription());
             this.setSchool_name(school.getSchool_name());
+            this.setSchoolid(school.getSchoolid());
         }
 
         public int getstar_num() {

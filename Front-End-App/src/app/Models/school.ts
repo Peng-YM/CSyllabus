@@ -4,4 +4,5 @@ export class School {
   website: string;
   description: string;
   logo_src: string;
+  star_num: number;
 }

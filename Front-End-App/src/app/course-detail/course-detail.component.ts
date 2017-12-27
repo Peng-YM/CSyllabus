@@ -59,6 +59,7 @@ export class CourseDetailComponent implements OnInit {
 
   favoriteCourse(): void {
     this.starred = !this.starred;
+    this.course.star_num = this.starred ? this.course.star_num + 1 : this.course.star_num - 1;
     // add favourite
     if (this.starred){
       this.userService.addFavouriteCourse(this.course.courseid);

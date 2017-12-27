@@ -9,7 +9,6 @@ import {SchoolService} from '../school.service';
 })
 export class SchoolDashboardComponent implements OnInit {
   schools: School[] = [];
-  schools_id_list: number[] = [];
 
   constructor(private schoolService: SchoolService) {
   }
@@ -22,34 +21,20 @@ export class SchoolDashboardComponent implements OnInit {
     this.schoolService.getSchoolIdList()
       .subscribe(
         data => {
-          for (let id of data['school_ids']) {
-            this.schools_id_list.push(id);
-            this.schoolService.getSchool(id).subscribe(
-              data => {
-                this.schools.push(data)
-              },
-              err => {
-                console.log(err);
+          this.schoolService.getMultiSchools(data['school_ids'])
+            .subscribe(
+              schools => {
+                // sort by star num
+                this.schools = schools.sort((a, b) => a.star_num - b.star_num);
+                console.log(this.schools[0]);
               }
-            );
-          }
+            )
         },
         err => {
           console.log(err);
         },
         () => {
-          this.schools_id_list.sort((a, b) => a - b);
-          this.schools.sort((a, b) => {
-            if(a.school_name > b.school_name){
-              return 1;
-            }
-            if (a.school_name >= b.school_name) {
-              return 0;
-            } else {
-              return -1;
-            }
-          });
-          console.log("Load schools successfully");
+
         });
   }
 

@@ -6,4 +6,5 @@ export class Course {
   professor: string;
   author: number;
   school: number;
+  star_num: number;
 }

@@ -1,12 +1,13 @@
 <div *ngIf = "course" class="container">
   <h2>{{course.course_name | uppercase}}</h2>
-  <button class="btn btn-info float-right" (click)="favoriteCourse()">
-    <span>Star
+  <div class="input-group" role="group">
+    <button class="btn btn-primary float-right" (click)="favoriteCourse()" type="button">
       <i class="fa fa-star" aria-hidden="true" *ngIf="starred"></i>
       <i class="fa fa-star-o" aria-hidden="true" *ngIf="!starred"></i>
-    </span>
-  </button>
-
+      Star
+    </button>
+    <span class="input-group-addon">{{course.star_num}}</span>
+  </div>
   <div>
     <h3>Basic Information</h3>
     <p>Name: {{course.course_name}}</p><br>
