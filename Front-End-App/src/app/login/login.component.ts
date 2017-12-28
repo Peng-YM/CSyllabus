@@ -11,7 +11,7 @@ import {MyConfiguration} from "../server.configuration";
 })
 export class LoginComponent implements OnInit {
   @Input() user: User;
-  private errorMessage;
+  errorMessage:  string;
   constructor(
     private cookieService: CookieService,
     private loginService: LoginService

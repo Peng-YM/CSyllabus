@@ -14,15 +14,16 @@ import {LoginService} from "./login.service";
 import {LoginComponent} from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import {RegistrationComponent} from './registration/registration.component';
-import {AppRoutingModule} from './/app-routing.module';
+import {AppRoutingModule} from './app-routing.module';
 import {SchoolEditorComponent} from './school-editor/school-editor.component';
 import {CourseEditorComponent} from './course-editor/course-editor.component';
 import {CookieService} from "ngx-cookie-service";
 import {PdfViewerModule} from "ng2-pdf-viewer"
-import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 import {FileSelectDirective} from 'ng2-file-upload';
 import {DisqusModule} from "ngx-disqus";
-import { SearchService } from './search.service';
+import {SearchService} from './search.service';
+import {D3Service} from 'd3-ng2-service';
+import { CourseTreeComponent } from './course-tree/course-tree.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { SearchService } from './search.service';
     RegistrationComponent,
     SchoolEditorComponent,
     CourseEditorComponent,
-    FileSelectDirective
+    CourseTreeComponent
   ],
   imports: [
     BrowserModule,
@@ -45,10 +46,8 @@ import { SearchService } from './search.service';
     PdfViewerModule,
     DisqusModule.forRoot('pengym')
   ],
-  providers: [CookieService, SchoolService, UserService, CourseService, LoginService, SearchService],
+  providers: [CookieService, SchoolService, UserService, CourseService, LoginService, SearchService, D3Service],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
-
-platformBrowserDynamic().bootstrapModule(AppModule);

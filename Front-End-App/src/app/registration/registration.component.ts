@@ -11,8 +11,8 @@ import {CookieService} from "ngx-cookie-service";
 })
 export class RegistrationComponent implements OnInit {
   @Input() user: User;
-  private confirmPassword;
-  private errorMessage;
+  confirmPassword: string;
+  errorMessage: string;
   constructor(
     private loginService: LoginService,
     private cookieService: CookieService
